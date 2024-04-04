@@ -34,6 +34,7 @@ function App() {
         </p>
         <p>Diana</p>
         <p>Christina</p>
+        <p>Silo M</p>
         <a
           className="App-link"
           href="https://reactjs.org"
