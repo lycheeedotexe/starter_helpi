@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { Button } from "react-bootstrap";
-import DetailedQuestions from '../QuizPages/DetailedQuestions';
+import DetailedQuestions from '../../QuizPages/DetailedQuestions';
 
 
 const ClickableButtonDetailed = () => {

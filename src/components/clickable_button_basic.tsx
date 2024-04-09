@@ -3,7 +3,7 @@
 
 import React, { useState } from "react";
 import { Button } from "react-bootstrap";
-import BasicQuestions from '../QuizPages/BasicQuestions';
+import BasicQuestions from '../../QuizPages/BasicQuestions';
 
 
 const ClickableButtonBasic = () => {
