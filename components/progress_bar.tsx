@@ -1,6 +1,4 @@
 import React from "react";
-
-//this will be the progress bar 
 export type ProgressBarProps = {
     progress: number;
     progressText?: string;
