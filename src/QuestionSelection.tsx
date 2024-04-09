@@ -41,10 +41,17 @@ function jobsNotInAgreement(data: DataStorage, basicQuestionId: number, userResp
     return jobsInAgreement(data, basicQuestionId, -1*userResponse);
 }
 
-function DetailedQuestionsInAgreement(data: DataStorage, basicQuestionId:number, userResponse:number): DetailedQuestion[]{
+function DetailedQuestionsInAgreement(data: DataStorage, basicQuestionId:number, userResponse:number): number[]{
     const jobSetA = jobsInAgreement(data, basicQuestionId,userResponse);
-    //const jobSetB = jobsNotInAgreement(data,basicQuestionId,userResponse);
-    //const detailedQuestionSetY = []
+    var questionSet = new Set<number>();
+    jobSetA.forEach(job => {
+            job.relatedDetailedQuestions.forEach(question => questionSet.add(question))
+    })
+    return Array.from(questionSet); 
+}
+
+function DetailedQuestionsNotInAgreement(data: DataStorage, basicQuestionId: number, userResponse: number): number[]{
+    return DetailedQuestionsInAgreement(data, basicQuestionId, -1*userResponse);
 }
 
 function makeUniformMeasure(numDetailedQuestions: number): number[]{
@@ -74,17 +81,16 @@ function updateMeasure(prevMeasure: number[], userResponse: number, jobSetA: Job
 
     )
 }
-/*
-function constructFinalMeasure(responseVector: number[]){
 
+function constructFinalMeasure(data: DataStorage, responseVector: number[]){
     const baseMeasure = makeUniformMeasure(responseVector.length);
-    var iterativeMeasure;
-    for(i = 1; i < responseVector.length; i++){
-        
-    }
-
+    var iterativeMeasure = [...baseMeasure];
+    for(var i = 0; i < responseVector.length; i++){
+        iterativeMeasure = updateMeasure(iterativeMeasure, responseVector[i], jobsInAgreement(data,i,responseVector[i]), jobsNotInAgreement(data,i,responseVector[i]));
+    };
+    return [...iterativeMeasure];
 }
-*/
+
 
 
 
