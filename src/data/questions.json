@@ -1,0 +1,44 @@
+{
+    "BASIC_QUESTIONS":[
+{
+    "id": 1,
+    "name": "Basic Question 1",
+    "body": "I Prefer To Work Outdoors",
+    "published": true
+},
+{
+    "id":2,
+    "name": "Basic Question 2",
+    "body": "I prefer a job where I stay in one place throughout the day",
+    "published": true
+}
+    ],
+    "DETAILED_QUESTIONS":[
+        {"id":1,
+        "name":"Detailed Question 1",
+        "body": "I like to take care of people",
+        "relatedJobs":[1], 
+        "published":false
+    },
+    {"id":2,
+    "name":"Detailed Question 2",
+    "body": "I like to build things",
+    "relatedJobs":[2],
+    "published":false
+        }
+    ],
+    "JOBS":[
+        {
+            "id":1,
+            "name":"Doctor",
+            "relatedDetailedQuestions":[1],
+            "partitionVector":[0,1]
+        },
+        {
+            "id":2,
+            "name":"Construction Worker",
+            "relatedDetailedQuestions":[2],
+            "partitionVector":[1,0]
+        }    
+    ]
+}
