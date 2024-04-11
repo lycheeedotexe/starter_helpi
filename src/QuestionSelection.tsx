@@ -97,9 +97,23 @@ function constructDistribution(measure: number[]){
 
 function sampleQuestion(data: DataStorage, dist: number[]){
     const r = Math.random();
-    return dist.findIndex(element => element > r );
+    return dist.findIndex(element => element >= r );
 }
 
+export function publishDetailedQuestions(data: DataStorage, responseVector: number[], numQuestions: number){
+    const dist = constructDistribution(constructFinalMeasure(data, responseVector));
+    const copyOfData = JSON.parse(JSON.stringify(data));
+    var numSampled = 0;
+
+    while(numSampled < numQuestions){
+        const currentId = sampleQuestion(copyOfData, dist)
+        const question = copyOfData.DETAILED_QUESTIONS.find((q: DetailedQuestion) => q.id === currentId);
+        if(question && question.published === false){
+            question.published = true
+            numSampled = numSampled + 1;
+        }
+    }
+}
 
 
 
