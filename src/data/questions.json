@@ -1,44 +1,89 @@
 {
-    "BASIC_QUESTIONS":[
-{
-    "id": 1,
-    "name": "Basic Question 1",
-    "body": "I Prefer To Work Outdoors",
-    "published": true
-},
-{
-    "id":2,
-    "name": "Basic Question 2",
-    "body": "I prefer a job where I stay in one place throughout the day",
-    "published": true
-}
-    ],
-    "DETAILED_QUESTIONS":[
-        {"id":1,
-        "name":"Detailed Question 1",
-        "body": "I like to take care of people",
-        "relatedJobs":[1], 
-        "published":false
-    },
-    {"id":2,
-    "name":"Detailed Question 2",
-    "body": "I like to build things",
-    "relatedJobs":[2],
-    "published":false
-        }
-    ],
-    "JOBS":[
-        {
-            "id":1,
-            "name":"Doctor",
-            "relatedDetailedQuestions":[1],
-            "partitionVector":[0,1]
-        },
-        {
-            "id":2,
-            "name":"Construction Worker",
-            "relatedDetailedQuestions":[2],
-            "partitionVector":[1,0]
-        }    
+    "BASIC_QUESTIONS": [
+        { "id": 1, "name": "Basic Question 1", "body": "I prefer to work outdoors", "published": true },
+        { "id": 2, "name": "Basic Question 2", "body": "I enjoy working with technology", "published": true },
+        { "id": 3, "name": "Basic Question 3", "body": "I like working in a team environment", "published": true },
+        { "id": 4, "name": "Basic Question 4", "body": "I am interested in creative and artistic work", "published": true },
+        { "id": 5, "name": "Basic Question 5", "body": "I am passionate about helping people", "published": true },
+        { "id": 6, "name": "Basic Question 6", "body": "I am drawn to scientific research and discovery", "published": true },
+        { "id": 7, "name": "Basic Question 7", "body": "I enjoy solving complex problems", "published": true }
     ]
+    ,
+    "DETAILED_QUESTIONS": [
+        { "id": 1, "body": "I am passionate about environmental conservation", "relatedJobs": [1, 10] },
+        { "id": 2, "body": "I enjoy coding and software development", "relatedJobs": [2, 7, 11, 20] },
+        { "id": 3, "body": "Healthcare and patient well-being are my priorities", "relatedJobs": [3, 18] },
+        { "id": 4, "body": "I am fascinated by building design and architecture", "relatedJobs": [4] },
+        { "id": 5, "body": "Education and teaching others is important to me", "relatedJobs": [5, 12] },
+        { "id": 6, "body": "I am interested in scientific research and lab work", "relatedJobs": [6, 13] },
+        { "id": 7, "body": "Creativity in visual design is my strong suit", "relatedJobs": [7, 17, 20] },
+        { "id": 8, "body": "I am drawn to engineering and infrastructure projects", "relatedJobs": [8] },
+        { "id": 9, "body": "Marketing strategies and brand development excite me", "relatedJobs": [9] },
+        { "id": 10, "body": "I am fascinated by animal behavior and wildlife", "relatedJobs": [10] },
+        { "id": 11, "body": "Data analysis and finding patterns in numbers appeal to me", "relatedJobs": [11] },
+        { "id": 12, "body": "I am committed to social work and community welfare", "relatedJobs": [12] },
+        { "id": 13, "body": "I am interested in exploring the mysteries of outer space", "relatedJobs": [13] },
+        { "id": 14, "body": "I have a passion for reporting and journalism", "relatedJobs": [14] },
+        { "id": 15, "body": "Creating delicious recipes and cooking is my passion", "relatedJobs": [15] },
+        { "id": 16, "body": "I am intrigued by the design and operation of machinery", "relatedJobs": [16] },
+        { "id": 17, "body": "Photography and capturing moments fascinate me", "relatedJobs": [17] },
+        { "id": 18, "body": "I am interested in the field of pharmacy and medicine", "relatedJobs": [18] },
+        { "id": 19, "body": "I am keen on understanding and studying economic trends", "relatedJobs": [19] },
+        { "id": 20, "body": "Fashion designing and apparel creation excite me", "relatedJobs": [20] },
+        { "id": 21, "body": "I am skilled in financial planning and investment management", "relatedJobs": [3, 19] },
+        { "id": 22, "body": "Working in a laboratory and conducting experiments is appealing to me", "relatedJobs": [6, 13] },
+        { "id": 23, "body": "I enjoy creating digital art and animations", "relatedJobs": [7, 17, 20] },
+        { "id": 24, "body": "Organizing events and managing logistics are my strengths", "relatedJobs": [9, 12, 15] },
+        { "id": 25, "body": "I am interested in environmental law and policies", "relatedJobs": [1, 19] },
+        { "id": 26, "body": "Developing video games and interactive media is my dream job", "relatedJobs": [2, 7, 20] },
+        { "id": 27, "body": "I am drawn to forensic science and criminal investigation", "relatedJobs": [3, 18] },
+        { "id": 28, "body": "I am interested in urban planning and city development", "relatedJobs": [4, 8] },
+        { "id": 29, "body": "I aspire to be an entrepreneur and start my own business", "relatedJobs": [9, 11, 14] },
+        { "id": 30, "body": "I am passionate about renewable energy and sustainability", "relatedJobs": [1, 10] },
+        { "id": 31, "body": "I am interested in AI and machine learning technologies", "relatedJobs": [2, 11] },
+        { "id": 32, "body": "I find joy in gardening and landscape design", "relatedJobs": [1, 4, 15] },
+        { "id": 33, "body": "I am excited by the prospect of space travel and exploration", "relatedJobs": [13] },
+        { "id": 34, "body": "I enjoy studying ancient civilizations and archaeology", "relatedJobs": [5, 10] },
+        { "id": 35, "body": "I am interested in film production and directing", "relatedJobs": [14, 17, 20] },
+        { "id": 36, "body": "Creating and editing written content is my forte", "relatedJobs": [14] },
+        { "id": 37, "body": "I am passionate about physical fitness and personal training", "relatedJobs": [3, 15] },
+        { "id": 38, "body": "Developing mobile apps and software solutions interests me", "relatedJobs": [2, 11, 16] },
+        { "id": 39, "body": "I am interested in sustainable fashion and eco-friendly materials", "relatedJobs": [20] },
+        { "id": 40, "body": "I am enthusiastic about teaching and educational technology", "relatedJobs": [5, 12] },
+        { "id": 41, "body": "I have a knack for interior design and decoration", "relatedJobs": [4, 7, 20] },
+        { "id": 42, "body": "I am drawn to performing arts and theater", "relatedJobs": [5, 17, 35] },
+        { "id": 43, "body": "I enjoy studying marine life and oceanography", "relatedJobs": [1, 10] },
+        { "id": 44, "body": "I am skilled at repairing and maintaining electronic devices", "relatedJobs": [2, 16] },
+        { "id": 45, "body": "I am interested in creating and testing new food products", "relatedJobs": [15] },
+        { "id": 46, "body": "I find human psychology and behavior fascinating", "relatedJobs": [12, 18] },
+        { "id": 47, "body": "I am adept at handling complex legal cases and regulations", "relatedJobs": [3, 19] },
+        { "id": 48, "body": "Working with children and youth in educational settings is rewarding for me", "relatedJobs": [5] },
+        { "id": 49, "body": "I am interested in public speaking and motivational training", "relatedJobs": [9, 12, 14] },
+        { "id": 50, "body": "I am drawn to automotive design and engineering", "relatedJobs": [4, 8, 16] }
+    ],
+    
+    "JOBS": [
+        { "id": 1, "name": "Environmental Scientist", "relatedDetailedQuestions": [1, 3, 10], "partitionVector": [1, 0, 1, 0, 0, 1, 0] },
+        { "id": 2, "name": "Software Developer", "relatedDetailedQuestions": [2, 8, 11], "partitionVector": [0, 1, 0, 1, 0, 0, 1] },
+        { "id": 3, "name": "Financial Analyst", "relatedDetailedQuestions": [4, 9, 12], "partitionVector": [0, 1, 1, 0, 0, 0, 0] },
+        { "id": 4, "name": "Architect", "relatedDetailedQuestions": [5, 13, 15], "partitionVector": [1, 0, 0, 1, 0, 0, 0] },
+        { "id": 5, "name": "Teacher", "relatedDetailedQuestions": [6, 14, 16], "partitionVector": [0, 0, 1, 0, 1, 0, 0] },
+        { "id": 6, "name": "Biochemist", "relatedDetailedQuestions": [7, 17, 18], "partitionVector": [0, 0, 0, 0, 0, 1, 0] },
+        { "id": 7, "name": "Graphic Designer", "relatedDetailedQuestions": [19, 20, 21], "partitionVector": [0, 1, 0, 1, 0, 0, 0] },
+        { "id": 8, "name": "Civil Engineer", "relatedDetailedQuestions": [22, 23, 24], "partitionVector": [1, 1, 0, 0, 0, 0, 1] },
+        { "id": 9, "name": "Marketing Specialist", "relatedDetailedQuestions": [25, 26, 27], "partitionVector": [0, 1, 1, 0, 0, 0, 0] },
+        { "id": 10, "name": "Zoologist", "relatedDetailedQuestions": [28, 29, 30], "partitionVector": [1, 0, 0, 0, 0, 1, 0] },
+        { "id": 11, "name": "Data Analyst", "relatedDetailedQuestions": [31, 32, 33], "partitionVector": [0, 1, 0, 0, 0, 0, 1] },
+        { "id": 12, "name": "Social Worker", "relatedDetailedQuestions": [34, 35, 36], "partitionVector": [0, 0, 1, 0, 1, 0, 0] },
+        { "id": 13, "name": "Astronomer", "relatedDetailedQuestions": [37, 38, 39], "partitionVector": [0, 0, 0, 0, 0, 1, 1] },
+        { "id": 14, "name": "Journalist", "relatedDetailedQuestions": [40, 41, 42], "partitionVector": [0, 0, 1, 1, 0, 0, 0] },
+        { "id": 15, "name": "Chef", "relatedDetailedQuestions": [43, 44, 45], "partitionVector": [1, 0, 0, 0, 1, 0, 0] },
+        { "id": 16, "name": "Mechanical Engineer", "relatedDetailedQuestions": [46, 47, 48], "partitionVector": [0, 1, 0, 0, 0, 0, 1] },
+        { "id": 17, "name": "Photographer", "relatedDetailedQuestions": [49, 50, 2], "partitionVector": [1, 0, 0, 1, 0, 0, 0] },
+        { "id": 18, "name": "Pharmacist", "relatedDetailedQuestions": [3, 5, 6], "partitionVector": [0, 0, 1, 0, 1, 1, 0] },
+        { "id": 19, "name": "Economist", "relatedDetailedQuestions": [7, 8, 9], "partitionVector": [0, 0, 0, 0, 0, 0, 1] },
+        { "id": 20, "name": "Fashion Designer", "relatedDetailedQuestions": [10, 11, 12], "partitionVector": [0, 1, 0, 1, 0, 0, 0] }
+    ]
+    
+    
 }

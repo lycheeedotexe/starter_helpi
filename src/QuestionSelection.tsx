@@ -41,17 +41,13 @@ function jobsNotInAgreement(data: DataStorage, basicQuestionId: number, userResp
     return jobsInAgreement(data, basicQuestionId, -1*userResponse);
 }
 
-function DetailedQuestionsInAgreement(data: DataStorage, basicQuestionId:number, userResponse:number): number[]{
-    const jobSetA = jobsInAgreement(data, basicQuestionId,userResponse);
+function DetailedQuestionsInAgreement(jobSet:Job[]): number[]{
+    //const jobSetA = jobsInAgreement(data, basicQuestionId,userResponse);
     var questionSet = new Set<number>();
-    jobSetA.forEach(job => {
-            job.relatedDetailedQuestions.forEach(question => questionSet.add(question))
+    jobSet.forEach(job => {
+            job.relatedDetailedQuestions.forEach(questionId => questionSet.add(questionId))
     })
     return Array.from(questionSet); 
-}
-
-function DetailedQuestionsNotInAgreement(data: DataStorage, basicQuestionId: number, userResponse: number): number[]{
-    return DetailedQuestionsInAgreement(data, basicQuestionId, -1*userResponse);
 }
 
 function makeUniformMeasure(numDetailedQuestions: number): number[]{
@@ -66,10 +62,10 @@ function updateMeasure(prevMeasure: number[], userResponse: number, jobSetA: Job
     else if(userResponse < 0){
         return updateMeasure(prevMeasure, -1*userResponse, jobSetA, jobSetB)
     }
-    const tempA = jobSetA.map(job => job.id);
-    const tempB = jobSetB.map(job => job.id);
+    const tempA = DetailedQuestionsInAgreement(jobSetA);
+    const tempB = DetailedQuestionsInAgreement(jobSetB);
 
-    const indexSetA = A_without_B(tempA,tempB);
+    const indexSetA = A_without_B(tempA, tempB); 
     const indexSetB = A_without_B(tempB, tempA);
     
     const measureToBeRemoved = prevMeasure.reduce((acc, current, index): number => indexSetB.includes(index) ? acc + current : acc) * (1-userResponse)
@@ -90,6 +86,8 @@ function constructFinalMeasure(data: DataStorage, responseVector: number[]){
     };
     return [...iterativeMeasure];
 }
+
+
 
 
 
