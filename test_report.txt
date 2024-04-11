@@ -3,7 +3,7 @@
 > react-scripts test --coverage
 
 FAIL src/App.test.tsx
-  ✕ renders learn react link (39 ms)
+  ✕ renders learn react link (40 ms)
 
   ● renders learn react link
 
@@ -20,23 +20,33 @@ FAIL src/App.test.tsx
           [36m>[39m
             [36m<div>[39m
               [36m<h1>[39m
-                [0mHome Page[0m
+                [0mCareer Quiz Home Page[0m
               [36m</h1>[39m
               [36m<div>[39m
-                [36m<button[39m
-                  [33mclass[39m=[32m"btn btn-primary"[39m
-                  [33mtype[39m=[32m"button"[39m
-                [36m>[39m
-                  [0mBasic Career Quiz[0m
-                [36m</button>[39m
+                [36m<p>[39m
+                  [0mAre you lost in the sauce? Do you have NO IDEA what you want to do? Our basic career quiz is right for you, click to get started![0m
+                [36m</p>[39m
+                [36m<div>[39m
+                  [36m<button[39m
+                    [33mclass[39m=[32m"btn btn-primary"[39m
+                    [33mtype[39m=[32m"button"[39m
+                  [36m>[39m
+                    [0mBasic Career Quiz[0m
+                  [36m</button>[39m
+                [36m</div>[39m
               [36m</div>[39m
               [36m<div>[39m
-                [36m<button[39m
-                  [33mclass[39m=[32m"btn btn-primary"[39m
-                  [33mtype[39m=[32m"button"[39m
-                [36m>[39m
-                  [0mDetailed Career Quiz[0m
-                [36m</button>[39m
+                [36m<p>[39m
+                  [0mDo you have an area of interest already but need help nailing it down? Then our detailed quiz is right for you click to get started! [0m
+                [36m</p>[39m
+                [36m<div>[39m
+                  [36m<button[39m
+                    [33mclass[39m=[32m"btn btn-primary"[39m
+                    [33mtype[39m=[32m"button"[39m
+                  [36m>[39m
+                    [0mDetailed Career Quiz[0m
+                  [36m</button>[39m
+                [36m</div>[39m
               [36m</div>[39m
             [36m</div>[39m
           [36m</header>[39m
@@ -88,12 +98,12 @@ File                            | % Stmts | % Branch | % Funcs | % Lines | Uncov
 --------------------------------|---------|----------|---------|---------|-------------------
 All files                       |   21.62 |       12 |   13.79 |   23.88 |                   
  src                            |   10.52 |        5 |    4.76 |      12 |                   
-  App.tsx                       |      60 |       50 |   33.33 |      60 | 12,20-26          
+  App.tsx                       |      60 |       50 |   33.33 |      60 | 11,19-25          
   QuestionSelection.tsx         |       0 |        0 |       0 |       0 | 31-91             
   index.tsx                     |       0 |      100 |     100 |       0 | 7-19              
   reportWebVitals.ts            |       0 |        0 |       0 |       0 | 3-10              
  src/QuizPages                  |   66.66 |      100 |   33.33 |   66.66 |                   
-  BasicQuestions.tsx            |      50 |      100 |       0 |      50 | 5                 
+  BasicQuestions.tsx            |      50 |      100 |       0 |      50 | 4                 
   DetailedQuestions.tsx         |      50 |      100 |       0 |      50 | 4                 
   HomePage.tsx                  |     100 |      100 |     100 |     100 |                   
  src/components                 |   54.54 |       40 |      40 |   54.54 |                   
@@ -104,7 +114,7 @@ All files                       |   21.62 |       12 |   13.79 |   23.88 |
 Test Suites: 1 failed, 1 total
 Tests:       1 failed, 1 total
 Snapshots:   0 total
-Time:        2.987 s
+Time:        2.91 s
 Ran all test suites.
 [0;33mOne of your dependencies, babel-preset-react-app, is importing the
 "@babel/plugin-proposal-private-property-in-object" package without
