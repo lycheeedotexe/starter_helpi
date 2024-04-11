@@ -1,27 +1,27 @@
 //where question selection code will go
-interface Job {
+export interface Job {
     id: number,
     name: string,
     relatedDetailedQuestions: number[], //the id of the related questions goes here
     partitionVector: number[]
 }
 
-interface BasicQuestion {
+export interface BasicQuestion {
     id: number,
     name: string,
     body: string,
     published: boolean,
 }
 
-interface DetailedQuestion{
+export interface DetailedQuestion{
     id: number,
-    name: string,
+    //name: string,
     body: string,
     relatedJobs: number[],      //the id of the related jobs goes here
     published: boolean
 }
 
-interface DataStorage {
+export interface DataStorage {
     BASIC_QUESTIONS: BasicQuestion[];
     DETAILED_QUESTIONS: DetailedQuestion[];
     JOBS: Job[];
@@ -100,7 +100,7 @@ function sampleQuestion(data: DataStorage, dist: number[]){
     return dist.findIndex(element => element >= r );
 }
 
-export function publishDetailedQuestions(data: DataStorage, responseVector: number[], numQuestions: number){
+export function publishDetailedQuestions(data: DataStorage, responseVector: number[], numQuestions: number): DataStorage{
     const dist = constructDistribution(constructFinalMeasure(data, responseVector));
     const copyOfData = JSON.parse(JSON.stringify(data));
     var numSampled = 0;
@@ -113,7 +113,10 @@ export function publishDetailedQuestions(data: DataStorage, responseVector: numb
             numSampled = numSampled + 1;
         }
     }
+    return copyOfData;
 }
+
+
 
 
 
