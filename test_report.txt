@@ -3,7 +3,7 @@
 > react-scripts test --coverage
 
 FAIL src/App.test.tsx
-  ✕ renders learn react link (40 ms)
+  ✕ renders learn react link (38 ms)
 
   ● renders learn react link
 
@@ -22,32 +22,24 @@ FAIL src/App.test.tsx
               [36m<h1>[39m
                 [0mCareer Quiz Home Page[0m
               [36m</h1>[39m
-              [36m<div>[39m
-                [36m<p>[39m
-                  [0mAre you lost in the sauce? Do you have NO IDEA what you want to do? Our basic career quiz is right for you, click to get started![0m
-                [36m</p>[39m
-                [36m<div>[39m
-                  [36m<button[39m
-                    [33mclass[39m=[32m"btn btn-primary"[39m
-                    [33mtype[39m=[32m"button"[39m
-                  [36m>[39m
-                    [0mBasic Career Quiz[0m
-                  [36m</button>[39m
-                [36m</div>[39m
-              [36m</div>[39m
-              [36m<div>[39m
-                [36m<p>[39m
-                  [0mDo you have an area of interest already but need help nailing it down? Then our detailed quiz is right for you click to get started! [0m
-                [36m</p>[39m
-                [36m<div>[39m
-                  [36m<button[39m
-                    [33mclass[39m=[32m"btn btn-primary"[39m
-                    [33mtype[39m=[32m"button"[39m
-                  [36m>[39m
-                    [0mDetailed Career Quiz[0m
-                  [36m</button>[39m
-                [36m</div>[39m
-              [36m</div>[39m
+              [36m<p>[39m
+                [0mAre you lost in the sauce? Do you have NO IDEA what you want to do? Our basic career quiz is right for you, click to get started![0m
+              [36m</p>[39m
+              [36m<button[39m
+                [33mclass[39m=[32m"btn btn-primary"[39m
+                [33mtype[39m=[32m"button"[39m
+              [36m>[39m
+                [0mBasic[0m
+              [36m</button>[39m
+              [36m<p>[39m
+                [0mDo you have an area of interest already but need help nailing it down? Then our detailed quiz is right for you click to get started! [0m
+              [36m</p>[39m
+              [36m<button[39m
+                [33mclass[39m=[32m"btn btn-primary"[39m
+                [33mtype[39m=[32m"button"[39m
+              [36m>[39m
+                [0mDetailed[0m
+              [36m</button>[39m
             [36m</div>[39m
           [36m</header>[39m
           [36m<form[39m
@@ -93,28 +85,26 @@ FAIL src/App.test.tsx
       at _run10000 (node_modules/@jest/core/build/cli/index.js:320:7)
       at runCLI (node_modules/@jest/core/build/cli/index.js:173:3)
 
---------------------------------|---------|----------|---------|---------|-------------------
-File                            | % Stmts | % Branch | % Funcs | % Lines | Uncovered Line #s 
---------------------------------|---------|----------|---------|---------|-------------------
-All files                       |   21.62 |       12 |   13.79 |   23.88 |                   
- src                            |   10.52 |        5 |    4.76 |      12 |                   
-  App.tsx                       |      60 |       50 |   33.33 |      60 | 11,19-25          
-  QuestionSelection.tsx         |       0 |        0 |       0 |       0 | 31-91             
-  index.tsx                     |       0 |      100 |     100 |       0 | 7-19              
-  reportWebVitals.ts            |       0 |        0 |       0 |       0 | 3-10              
- src/QuizPages                  |   66.66 |      100 |   33.33 |   66.66 |                   
-  BasicQuestions.tsx            |      50 |      100 |       0 |      50 | 4                 
-  DetailedQuestions.tsx         |      50 |      100 |       0 |      50 | 4                 
-  HomePage.tsx                  |     100 |      100 |     100 |     100 |                   
- src/components                 |   54.54 |       40 |      40 |   54.54 |                   
-  clickable_button_basic.tsx    |      75 |       50 |      50 |      75 | 14                
-  clickable_button_detailed.tsx |      75 |       50 |      50 |      75 | 11                
-  progress_bar.tsx              |       0 |        0 |       0 |       0 | 6-9               
---------------------------------|---------|----------|---------|---------|-------------------
+------------------------|---------|----------|---------|---------|-------------------
+File                    | % Stmts | % Branch | % Funcs | % Lines | Uncovered Line #s 
+------------------------|---------|----------|---------|---------|-------------------
+All files               |      16 |    18.51 |    7.14 |   17.64 |                   
+ src                    |   10.52 |        5 |    4.76 |      12 |                   
+  App.tsx               |      60 |       50 |   33.33 |      60 | 12,19-25          
+  QuestionSelection.tsx |       0 |        0 |       0 |       0 | 31-91             
+  index.tsx             |       0 |      100 |     100 |       0 | 7-19              
+  reportWebVitals.ts    |       0 |        0 |       0 |       0 | 3-10              
+ src/QuizPages          |      40 |    66.66 |   16.66 |      40 |                   
+  BasicQuestions.tsx    |      50 |      100 |       0 |      50 | 5                 
+  DetailedQuestions.tsx |      50 |      100 |       0 |      50 | 4                 
+  HomePage.tsx          |   36.36 |    66.66 |      25 |   36.36 | 13-25             
+ src/components         |       0 |        0 |       0 |       0 |                   
+  progress_bar.tsx      |       0 |        0 |       0 |       0 | 6-9               
+------------------------|---------|----------|---------|---------|-------------------
 Test Suites: 1 failed, 1 total
 Tests:       1 failed, 1 total
 Snapshots:   0 total
-Time:        2.91 s
+Time:        3.092 s
 Ran all test suites.
 [0;33mOne of your dependencies, babel-preset-react-app, is importing the
 "@babel/plugin-proposal-private-property-in-object" package without
