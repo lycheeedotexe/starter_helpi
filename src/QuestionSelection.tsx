@@ -87,6 +87,19 @@ function constructFinalMeasure(data: DataStorage, responseVector: number[]){
     return [...iterativeMeasure];
 }
 
+function constructDistribution(measure: number[]){
+    /* 
+    measure is an array of numbers. measure[i] corresponds to the probability that detailed question i is chosen. We construct the distribution
+    by mapping the sum of the elements A[0]+...+A[i] to B[i]
+    */
+    return measure.map((element, i) => measure.slice(0,i+1).reduce((sum, current) => sum + current, 0))
+}
+
+function sampleQuestion(data: DataStorage, dist: number[]){
+    const r = Math.random();
+    return dist.findIndex(element => element > r );
+}
+
 
 
 
