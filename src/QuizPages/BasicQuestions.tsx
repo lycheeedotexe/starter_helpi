@@ -1,4 +1,5 @@
 import React from "react";
+import { HomeButton } from "../components/clickable_home_button";
 const BasicQuestions = () => {
     // Make sure to return some JSX here
     return (
