@@ -79,7 +79,7 @@ function updateMeasure(prevMeasure: number[], userResponse: number, jobSetA: Job
 }
 
 function constructFinalMeasure(data: DataStorage, responseVector: number[]){
-    const baseMeasure = makeUniformMeasure(responseVector.length);
+    const baseMeasure = makeUniformMeasure(data.DETAILED_QUESTIONS.length);
     var iterativeMeasure = [...baseMeasure];
     for(var i = 0; i < responseVector.length; i++){
         iterativeMeasure = updateMeasure(iterativeMeasure, responseVector[i], jobsInAgreement(data,i,responseVector[i]), jobsNotInAgreement(data,i,responseVector[i]));
@@ -92,26 +92,38 @@ function constructDistribution(measure: number[]){
     measure is an array of numbers. measure[i] corresponds to the probability that detailed question i is chosen. We construct the distribution
     by mapping the sum of the elements A[0]+...+A[i] to B[i]
     */
-    return measure.map((element, i) => measure.slice(0,i+1).reduce((sum, current) => sum + current, 0))
+    return measure.map((element, i) => measure.slice(0,i+1).reduce((sum, current) => sum + current, 0));
 }
 
 function sampleQuestion(data: DataStorage, dist: number[]){
     const r = Math.random();
+    //console.log("The Random Number Generated was:")
+    //console.log(r)
     return dist.findIndex(element => element >= r );
 }
 
 export function publishDetailedQuestions(data: DataStorage, responseVector: number[], numQuestions: number): DataStorage{
     const dist = constructDistribution(constructFinalMeasure(data, responseVector));
+    console.log("The distribution is: ")
+    console.log(dist)
     const copyOfData = JSON.parse(JSON.stringify(data));
     var numSampled = 0;
-
+    //var loopBreak = 0;
     while(numSampled < numQuestions){
-        const currentId = sampleQuestion(copyOfData, dist)
+        const currentId = sampleQuestion(copyOfData, dist);
         const question = copyOfData.DETAILED_QUESTIONS.find((q: DetailedQuestion) => q.id === currentId);
         if(question && question.published === false){
-            question.published = true
+            question.published = true;
             numSampled = numSampled + 1;
         }
+        //loopBreak++;
+        //if(loopBreak > 15){
+        //    break;
+        //}
+        //console.log("Current ID is: ")
+        //console.log(currentId)
+        //console.log("LoopBreak counter is: ")
+        //console.log(loopBreak)
     }
     return copyOfData;
 }
