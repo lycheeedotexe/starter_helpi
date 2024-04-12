@@ -22,14 +22,6 @@ const BasicQuestions = () => {
           <FormatQuestion question={q} options={["Neutral","Strongly Disagree", "Disagree", "Agree", "Strongly Agree"]}></FormatQuestion>
           </p>
     ))};
-        {/* {data.map((q:) => (
-          <p>q.body</p>
-        ))} */}
-        {/* {data.BASIC_QUESTIONS.map((data: string, index:number) => (
-          <p key={index}>
-            <span>{data.body}</span>
-          </p>
-        ))} */}
         </div>
       </div>
     );
