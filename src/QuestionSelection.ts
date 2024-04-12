@@ -1,19 +1,19 @@
 //where question selection code will go
-export interface Job {
+interface Job {
     id: number,
     name: string,
     relatedDetailedQuestions: number[], //the id of the related questions goes here
     partitionVector: number[]
 }
 
-export interface BasicQuestion {
+interface BasicQuestion {
     id: number,
     name: string,
     body: string,
     published: boolean,
 }
 
-export interface DetailedQuestion{
+interface DetailedQuestion{
     id: number,
     //name: string,
     body: string,
@@ -21,7 +21,7 @@ export interface DetailedQuestion{
     published: boolean
 }
 
-export interface DataStorage {
+interface DataStorage {
     BASIC_QUESTIONS: BasicQuestion[];
     DETAILED_QUESTIONS: DetailedQuestion[];
     JOBS: Job[];
