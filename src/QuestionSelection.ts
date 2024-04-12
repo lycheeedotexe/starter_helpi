@@ -6,14 +6,14 @@ interface Job {
     partitionVector: number[]
 }
 
-interface BasicQuestion {
+export interface BasicQuestion {
     id: number,
     name: string,
     body: string,
     published: boolean,
 }
 
-interface DetailedQuestion{
+export interface DetailedQuestion{
     id: number,
     //name: string,
     body: string,
@@ -28,16 +28,33 @@ interface DataStorage {
 }
 
 function A_without_B(A: number[], B: number[]){
+    /*
+    returns an array of numbers containing only elements of A that are not in B
+    */
     const newA = A.filter(element => !B.includes(element))
     return [...newA];
 }
 
 function jobsInAgreement(data: DataStorage, basicQuestionId: number, userResponse: number): Job[]{ //call the output jobSetA
+    /*
+    data: the JSON file containing all possible questions and jobs
+    basicQuestionId: the ID of the basic question we want to use to partition the job set
+    userResponse: a number between -1 and 1. 
+
+    If the userResponse is negative, then the jobs in agreement with the user are the ones which are not in agreement with the question. 
+    By definition, these are the Jobs whose ith component of the partition vector is a 0
+
+    If the userResponse is positive, then the jobs in agreement are the ones whose ith component of the partition vector is a 1
+    */
     const responseType = userResponse > 0 ? 1 : 0;
     return data.JOBS.filter(job => job.partitionVector[basicQuestionId] === responseType);
 }
 
 function jobsNotInAgreement(data: DataStorage, basicQuestionId: number, userResponse:number):Job[]{ //call the output jobSetB
+    /*
+    Since the basic questions split the jobs into two disjoint sets we can just reverse the sign of the user response to get 
+    the jobs which are not in agreement with the user
+    */
     return jobsInAgreement(data, basicQuestionId, -1*userResponse);
 }
 
@@ -96,19 +113,27 @@ function constructDistribution(measure: number[]){
 }
 
 function sampleQuestion(data: DataStorage, dist: number[]){
+
     const r = Math.random();
-    //console.log("The Random Number Generated was:")
-    //console.log(r)
     return dist.findIndex(element => element >= r );
 }
 
 export function publishDetailedQuestions(data: DataStorage, responseVector: number[], numQuestions: number): DataStorage{
+    /*
+        data: a copy of the JSON file where all of our questions are stored
+        responseVector: a vector of numbers corresponding to the user responses to the detailed questions
+        numQuestions: the number of detailed questions we want to include in our quiz
+        
+        This function uses the constructDistribution and constructFinalMeasure functions to obtain a probability 
+        distribution on the set of detailed questions. It then generates random numbers and uses them to sample question
+        IDs from the probability distribution until we reach the desired number of questions.
+
+        It sets the published field of all the questions with a sampled ID to true, and then returns a filtered array
+        where all the unpublished detailed questions are removed. This output is then fed to our DetailedQuestionsPage.tsx file.
+    */
     const dist = constructDistribution(constructFinalMeasure(data, responseVector));
-    console.log("The distribution is: ")
-    console.log(dist)
     const copyOfData = JSON.parse(JSON.stringify(data));
     var numSampled = 0;
-    //var loopBreak = 0;
     while(numSampled < numQuestions){
         const currentId = sampleQuestion(copyOfData, dist);
         const question = copyOfData.DETAILED_QUESTIONS.find((q: DetailedQuestion) => q.id === currentId);
@@ -116,16 +141,8 @@ export function publishDetailedQuestions(data: DataStorage, responseVector: numb
             question.published = true;
             numSampled = numSampled + 1;
         }
-        //loopBreak++;
-        //if(loopBreak > 15){
-        //    break;
-        //}
-        //console.log("Current ID is: ")
-        //console.log(currentId)
-        //console.log("LoopBreak counter is: ")
-        //console.log(loopBreak)
     }
-    return copyOfData;
+    return copyOfData.filter((q:BasicQuestion) => q.published === true);
 }
 
 
