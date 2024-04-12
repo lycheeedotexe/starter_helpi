@@ -118,7 +118,7 @@ function sampleQuestion(data: DataStorage, dist: number[]){
     return dist.findIndex(element => element >= r );
 }
 
-export function publishDetailedQuestions(data: DataStorage, responseVector: number[], numQuestions: number): DataStorage{
+export function publishDetailedQuestions(data: DataStorage, responseVector: number[], numQuestions: number): DetailedQuestion[]{
     /*
         data: a copy of the JSON file where all of our questions are stored
         responseVector: a vector of numbers corresponding to the user responses to the detailed questions
@@ -131,8 +131,8 @@ export function publishDetailedQuestions(data: DataStorage, responseVector: numb
         It sets the published field of all the questions with a sampled ID to true, and then returns a filtered array
         where all the unpublished detailed questions are removed. This output is then fed to our DetailedQuestionsPage.tsx file.
     */
-    const dist = constructDistribution(constructFinalMeasure(data, responseVector));
-    const copyOfData = JSON.parse(JSON.stringify(data));
+        const copyOfData = JSON.parse(JSON.stringify(data));
+        const dist = constructDistribution(constructFinalMeasure(copyOfData, responseVector));
     var numSampled = 0;
     while(numSampled < numQuestions){
         const currentId = sampleQuestion(copyOfData, dist);
@@ -142,7 +142,7 @@ export function publishDetailedQuestions(data: DataStorage, responseVector: numb
             numSampled = numSampled + 1;
         }
     }
-    return copyOfData.filter((q:BasicQuestion) => q.published === true);
+    return copyOfData.DETAILED_QUESTIONS.filter((q:DetailedQuestion) => q.published === true);
 }
 
 
