@@ -27,6 +27,23 @@ p {
   color: #F7EDE2;
   text-align: center;
   font-style:italic;
+  border-style: solid;
+  inset-block: 100px;
+  align-content: center;
+}
+
+.style1 {
+  text-align: left;  
+  float: left;       
+  width: 50%;        
+  box-sizing: border-box; 
+}
+
+.style2 {
+  text-align: left; 
+  float: right;      
+  width: 50%;        
+  box-sizing: border-box; 
 }
 
 .App-link {
