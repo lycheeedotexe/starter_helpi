@@ -131,13 +131,13 @@ export function publishDetailedQuestions(data: DataStorage, responseVector: numb
         It sets the published field of all the questions with a sampled ID to true, and then returns a filtered array
         where all the unpublished detailed questions are removed. This output is then fed to our DetailedQuestionsPage.tsx file.
     */
-        const copyOfData = JSON.parse(JSON.stringify(data));
-        const dist = constructDistribution(constructFinalMeasure(copyOfData, responseVector));
+    const copyOfData = JSON.parse(JSON.stringify(data));
+    const dist = constructDistribution(constructFinalMeasure(copyOfData, responseVector));
     var numSampled = 0;
     while(numSampled < numQuestions){
         const currentId = sampleQuestion(copyOfData, dist);
         const question = copyOfData.DETAILED_QUESTIONS.find((q: DetailedQuestion) => q.id === currentId);
-        if(question && question.published === false){
+        if(question.published === false){
             question.published = true;
             numSampled = numSampled + 1;
         }
