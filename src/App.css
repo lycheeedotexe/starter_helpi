@@ -14,18 +14,40 @@
 }
 
 .App-header {
-  background-color: #282c34;
+  background-color: #84A59D;
   min-height: 100vh;
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
+  justify-content: flex-start;
   font-size: calc(10px + 2vmin);
-  color: white;
+  color: #F6BD60;
+}
+p {
+  color: #F7EDE2;
+  text-align: center;
+  font-style:italic;
+  border-style: solid;
+  inset-block: 100px;
+  align-content: center;
+}
+
+.style1 {
+  text-align: left;  
+  float: left;       
+  width: 50%;        
+  box-sizing: border-box; 
+}
+
+.style2 {
+  text-align: left; 
+  float: right;      
+  width: 50%;        
+  box-sizing: border-box; 
 }
 
 .App-link {
-  color: #61dafb;
+  color: hsl(193, 95%, 68%);
 }
 
 @keyframes App-logo-spin {
