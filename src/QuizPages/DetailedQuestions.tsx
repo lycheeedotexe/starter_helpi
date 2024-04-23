@@ -1,6 +1,7 @@
 import React from "react";
 import {DetailedQuestion, publishDetailedQuestions} from '../QuestionSelection'
 import { FormatQuestion } from "../components/formatQuestion";
+
 interface DetailedQuestionsProp {
   publishedDetailedQuestions: DetailedQuestion[];
 }
@@ -11,7 +12,7 @@ const DetailedQuestions = () => {
       <h1>Detailed Questions Quiz</h1>
       <div>
       <p>Detailed Questions begin here</p> 
-      {publishDetailedQuestions.map((q: DetailedQuestionsProp) => (
+      {publishedDetailedQuestions.map((q: DetailedQuestionsProp) => (
         <p>
         <FormatQuestion 
           key={q.id}
