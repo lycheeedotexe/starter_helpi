@@ -41,7 +41,6 @@ export function HomePage(): JSX.Element{
           <>
             <BasicQuestions></BasicQuestions>
             <Button onClick={clickHome}>Return Home</Button>
-            
           </>
         )}
 
