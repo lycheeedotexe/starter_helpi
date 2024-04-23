@@ -64,191 +64,1116 @@
 
     ],
     "DETAILED_QUESTIONS":[
-      {"id": 1, "body": "I seek to lead projects and teams.", "published": false},
-      {"id": 2, "body": "Meeting deadlines and achieving goals is important to me.", "published": false},
-      {"id": 3, "body": "I am committed to lifelong learning and continuous professional development.", "published": false},
-      {"id": 4, "body": "I value ethical standards and professionalism in my workplace.", "published": false},
-      {"id": 5, "body": "I am comfortable adapting to new technologies and tools.", "published": false},
-      {"id": 6, "body": "Efficiency and productivity are my top priorities at work.", "published": false},
-      {"id": 7, "body": "I am effective at managing multiple tasks and responsibilities simultaneously.", "published": false},
-      {"id": 8, "body": "I have strong communication skills, both written and verbal.", "published": false},
-      {"id": 9, "body": "I actively seek feedback to improve my performance.", "published": false},
-      {"id": 10, "body": "I am enthusiastic about participating in workplace initiatives.", "published": false},
-      {"id": 11, "body": "I believe in fostering a collaborative and inclusive work environment.", "published": false},
-      {"id": 12, "body": "Problem-solving is a key strength I bring to my job.", "published": false},
-      {"id": 13, "body": "I prioritize maintaining a healthy work-life balance.", "published": false},
-      {"id": 14, "body": "I am open to travelling as part of my job.", "published": false},
-      {"id": 15, "body": "I am passionate about contributing to meaningful projects that make a difference.", "published": false},
-      {"id": 16, "body": "I strive for precision and accuracy in my work.", "published": false},
-      {"id": 17, "body": "I enjoy mentoring others and helping them grow professionally.", "published": false},
-      {"id": 18, "body": "I adapt well to changes and unforeseen challenges.", "published": false},
-      {"id": 19, "body": "I am motivated by challenging work environments.", "published": false},
-      {"id": 20, "body": "I value transparency and open communication at work.", "published": false},
-      {"id": 21, "body": "I am keen on pursuing innovation and breakthroughs in my field.", "published": false},
-    {"id": 22, "body": "I have a natural curiosity about how systems operate.", "published": false},
-    {"id": 23, "body": "I value precision and meticulous attention to detail.", "published": false},
-    {"id": 24, "body": "I enjoy crafting creative solutions to complex problems.", "published": false},
-    {"id": 25, "body": "I appreciate a dynamic work environment that keeps me engaged.", "published": false},
-    {"id": 26, "body": "I am dedicated to promoting sustainability in my work.", "published": false},
-    {"id": 27, "body": "I feel comfortable negotiating and persuading others in a professional setting.", "published": false},
-    {"id": 28, "body": "I thrive in a competitive atmosphere.", "published": false},
-    {"id": 29, "body": "I prioritize data-driven decision making.", "published": false},
-    {"id": 30, "body": "I am passionate about building and maintaining professional networks.", "published": false},
-    {"id": 31, "body": "I excel in planning and organizing large projects.", "published": false},
-    {"id": 32, "body": "I am confident in my ability to manage budgets and financial resources.", "published": false},
-    {"id": 33, "body": "I have strong project management skills.", "published": false},
-    {"id": 34, "body": "I can quickly learn and apply new skills as required.", "published": false},
-    {"id": 35, "body": "I am committed to delivering high-quality outcomes consistently.", "published": false},
-    {"id": 36, "body": "I value cultural diversity in the workplace.", "published": false},
-    {"id": 37, "body": "I am comfortable working under minimal supervision.", "published": false},
-    {"id": 38, "body": "I take a proactive approach to problem-solving.", "published": false},
-    {"id": 39, "body": "I am adept at using digital tools to enhance workflow and productivity.", "published": false},
-    {"id": 40, "body": "I have experience in leading change and driving innovation within organizations.", "published": false},
-    {"id": 41, "body": "I enjoy facilitating workshops and training sessions.", "published": false},
-    {"id": 42, "body": "I am skilled at conflict resolution and maintaining harmony.", "published": false},
-    {"id": 43, "body": "I am open to relocating for job opportunities.", "published": false},
-    {"id": 44, "body": "I maintain a high level of energy and enthusiasm at work.", "published": false},
-    {"id": 45, "body": "I am experienced in compliance and regulatory matters.", "published": false},
-    {"id": 46, "body": "I possess strong analytical skills that aid in decision-making.", "published": false},
-    {"id": 47, "body": "I regularly seek to enhance customer satisfaction.", "published": false},
-    {"id": 48, "body": "I have a track record of improving operational efficiency.", "published": false},
-    {"id": 49, "body": "I am proficient in multiple languages, enhancing communication in diverse environments.", "published": false},
-    {"id": 50, "body": "I advocate for ethical practices and integrity in all aspects of business.", "published": false},
-    {"id": 51, "body": "I enjoy figuring out how software applications are built and how they work.", "published": false},
-    {"id": 52, "body": "I like to solve puzzles and problems using technology.", "published": false},
-    {"id": 53, "body": "I am interested in how software can be used to make tasks easier and more efficient.", "published": false},
-    {"id": 54, "body": "Working with numbers and data to find patterns interests me.", "published": false},
-    {"id": 55, "body": "I am curious about how machines can learn from data.", "published": false},
-    {"id": 56, "body": "I enjoy looking for trends in large amounts of information.", "published": false},
-    {"id": 57, "body": "I am interested in protecting people's information online.", "published": false},
-    {"id": 58, "body": "I would like to learn how to keep digital environments safe from attacks.", "published": false},
-    {"id": 59, "body": "The idea of fighting against hackers and securing networks appeals to me.", "published": false},
-    {"id": 60, "body": "I am fascinated by how computers are connected and communicate.", "published": false},
-    {"id": 61, "body": "I want to know more about how data travels across the internet.", "published": false},
-    {"id": 62, "body": "Troubleshooting network problems sounds like an interesting challenge.", "published": false},
-    {"id": 63, "body": "I am interested in how artificial intelligence can be used to solve real-world problems.", "published": false},
-    {"id": 64, "body": "I like the idea of creating systems that can think and learn.", "published": false},
-    {"id": 65, "body": "Exploring new ways for machines to interact with humans is exciting to me.", "published": false},
-    {"id": 66, "body": "Helping people recover and feel better is important to me.", "published": false},
-    {"id": 67, "body": "I am interested in learning about different medical conditions.", "published": false},
-    {"id": 68, "body": "I feel fulfilled when I can help someone in a direct and meaningful way.", "published": false},
-    {"id": 69, "body": "Assisting people with rehabilitation and improving their physical abilities sounds rewarding.", "published": false},
-    {"id": 70, "body": "I would like to learn how to help people manage and recover from physical injuries.", "published": false},
-    {"id": 71, "body": "Seeing progress and improvement in someone's health due to my help would be gratifying.", "published": false},
-    {"id": 72, "body": "I am curious about how to diagnose and treat various illnesses.", "published": false},
-    {"id": 73, "body": "Having a broad understanding of health and medicine interests me.", "published": false},
-    {"id": 74, "body": "I would enjoy consulting with patients and advising them on health matters.", "published": false},
-    {"id": 75, "body": "I am interested in how medications work and how they can improve health.", "published": false},
-    {"id": 76, "body": "Learning about and managing different types of medications would be interesting.", "published": false},
-    {"id": 77, "body": "I would like to help people understand their prescriptions and use them safely.", "published": false},
-    {"id": 78, "body": "Supporting people through mental health challenges is something I find important.", "published": false},
-    {"id": 79, "body": "I am interested in ways to help people achieve emotional well-being.", "published": false},
-    {"id": 80, "body": "Helping others develop coping strategies and improve their mental health is a goal of mine.", "published": false},
-    {"id": 81, "body": "I am interested in understanding financial markets and how they operate.", "published": false},
-    {"id": 82, "body": "I like to analyze financial data to make predictions about trends.", "published": false},
-    {"id": 83, "body": "I enjoy learning about different investment strategies.", "published": false},
-    {"id": 84, "body": "Keeping financial records organized and accurate is satisfying to me.", "published": false},
-    {"id": 85, "body": "I am interested in the laws and regulations that govern financial reporting.", "published": false},
-    {"id": 86, "body": "I would like to help businesses manage their finances effectively.", "published": false},
-    {"id": 87, "body": "I am curious about how companies grow with investments.", "published": false},
-    {"id": 88, "body": "I enjoy the challenge of making profitable investment decisions.", "published": false},
-    {"id": 89, "body": "I am interested in the financial aspects that influence company success.", "published": false},
-    {"id": 90, "body": "Creating advertising strategies that reach different audiences excites me.", "published": false},
-    {"id": 91, "body": "I like to think of innovative ways to market products and services.", "published": false},
-    {"id": 92, "body": "I am keen on using social media and digital tools for marketing.", "published": false},
-    {"id": 93, "body": "I value helping to resolve workplace issues and maintaining staff morale.", "published": false},
-    {"id": 94, "body": "I am interested in recruiting, training, and developing a team.", "published": false},
-    {"id": 95, "body": "I believe in the importance of fair and equitable treatment of employees.", "published": false},
-    {"id": 96, "body": "I am interested in how machines and mechanical systems work.", "published": false},
-    {"id": 97, "body": "Designing tools and equipment that help improve everyday life is exciting to me.", "published": false},
-    {"id": 98, "body": "I would like to apply physics and materials science to solve practical problems.", "published": false},
-    {"id": 99, "body": "Planning and overseeing the construction of buildings and infrastructure appeals to me.", "published": false},
-    {"id": 100, "body": "I am keen on ensuring that structures are safe, sustainable, and functional.", "published": false},
-    {"id": 101, "body": "I enjoy the challenge of managing construction projects from start to finish.", "published": false},
-    {"id": 102, "body": "I am curious about how electrical systems are designed and maintained.", "published": false},
-    {"id": 103, "body": "Working with electronic devices and power systems is something I find fascinating.", "published": false},
-    {"id": 104, "body": "I am interested in innovations in renewable energy and how electricity is harnessed.", "published": false},
-    {"id": 105, "body": "I want to understand how chemical reactions can be used in manufacturing and product development.", "published": false},
-    {"id": 106, "body": "The idea of using chemistry to solve environmental problems is compelling to me.", "published": false},
-    {"id": 107, "body": "I am interested in researching and developing new materials that can change industries.", "published": false},
-    {"id": 108, "body": "I am drawn to optimizing systems and processes to improve efficiency and productivity.", "published": false},
-    {"id": 109, "body": "Learning about how different industries manage and improve operations is appealing.", "published": false},
-    {"id": 110, "body": "I am interested in using statistical analysis and mathematical methods to solve problems in production.", "published": false},
-    {"id": 111, "body": "Creating visually appealing images and designs is a passion of mine.", "published": false},
-        {"id": 112, "body": "I enjoy using software tools to bring artistic ideas to life.", "published": false},
-        {"id": 113, "body": "I am keen on understanding color theory and design principles.", "published": false},
-        {"id": 114, "body": "I like the idea of managing communications and public image for a company or brand.", "published": false},
-        {"id": 115, "body": "Building relationships with the media and public is something I find intriguing.", "published": false},
-        {"id": 116, "body": "I am interested in planning and hosting events that engage communities.", "published": false},
-        {"id": 117, "body": "Writing stories, articles, or content that people enjoy reading excites me.", "published": false},
-        {"id": 118, "body": "I am drawn to researching and sharing interesting facts or narratives.", "published": false},
-        {"id": 119, "body": "Expressing ideas clearly and creatively through writing is a skill I want to develop.", "published": false},
-        {"id": 120, "body": "Capturing moments through photography and telling stories visually is appealing to me.", "published": false},
-        {"id": 121, "body": "I have an interest in learning about different photography techniques and equipment.", "published": false},
-        {"id": 122, "body": "The process of editing photos to enhance their artistic quality fascinates me.", "published": false},
-        {"id": 123, "body": "Producing videos from concept to final edit is a challenge I am eager to take on.", "published": false},
-        {"id": 124, "body": "I want to create compelling video content that captures an audience’s attention.", "published": false},
-        {"id": 125, "body": "I am curious about the technical aspects of filming and video editing.", "published": false},
-        {"id": 126, "body": "I enjoy helping students learn and discover new things.", "published": false},
-    {"id": 127, "body": "Creating engaging and informative lesson plans is something I find rewarding.", "published": false},
-    {"id": 128, "body": "I am passionate about making a difference in the lives of young people.", "published": false},
-    {"id": 129, "body": "Assisting individuals and families through challenging times is important to me.", "published": false},
-    {"id": 130, "body": "I am committed to advocating for the rights and well-being of others.", "published": false},
-    {"id": 131, "body": "Helping people access necessary resources and support is a role I value.", "published": false},
-    {"id": 132, "body": "Supporting students' emotional and social development is a key part of my professional goals.", "published": false},
-    {"id": 133, "body": "I am interested in providing guidance and counseling to help students succeed academically and personally.", "published": false},
-    {"id": 134, "body": "I believe in fostering a supportive and inclusive educational environment.", "published": false},
-    {"id": 135, "body": "Caring for children and helping them grow in a healthy environment is a priority for me.", "published": false},
-    {"id": 136, "body": "I am skilled at creating fun and educational activities for children.", "published": false},
-    {"id": 137, "body": "I have a strong interest in early childhood development and education.", "published": false},
-    {"id": 138, "body": "I aim to lead community projects that have a positive impact on local areas.", "published": false},
-    {"id": 139, "body": "Developing and managing programs that serve community needs excites me.", "published": false},
-    {"id": 140, "body": "I am passionate about improving the quality of life for community members through service and engagement.", "published": false},
-    {"id": 141, "body": "I am interested in understanding and applying laws to help people.", "published": false},
-    {"id": 142, "body": "Arguing cases in court and advocating for justice is something I find appealing.", "published": false},
-    {"id": 143, "body": "I am keen on protecting individuals' rights through legal means.", "published": false},
-    {"id": 144, "body": "Supporting legal processes and helping lawyers prepare for trials is important to me.", "published": false},
-    {"id": 145, "body": "I enjoy researching case law and drafting legal documents.", "published": false},
-    {"id": 146, "body": "I value the role of detailed legal work in achieving fair outcomes.", "published": false},
-    {"id": 147, "body": "Managing public resources to benefit the community interests me.", "published": false},
-    {"id": 148, "body": "I am passionate about implementing policies that improve public services.", "published": false},
-    {"id": 149, "body": "I aim to engage in public sector work that has a meaningful impact on society.", "published": false},
-    {"id": 150, "body": "Analyzing policies and their impacts on society is a role I am drawn to.", "published": false},
-    {"id": 151, "body": "I am interested in shaping legislation that addresses community needs.", "published": false},
-    {"id": 152, "body": "I am motivated by the challenge of finding solutions to complex societal issues.", "published": false},
-    {"id": 153, "body": "Planning and developing spaces that enhance urban living is my goal.", "published": false},
-    {"id": 154, "body": "I enjoy collaborating with others to design functional and sustainable urban environments.", "published": false},
-    {"id": 155, "body": "I am dedicated to creating urban spaces that meet the needs of diverse populations.", "published": false},
-    {"id": 156, "body": "I am interested in learning how to safely install and manage electrical systems.", "published": false},
-    {"id": 157, "body": "I enjoy troubleshooting and solving technical problems.", "published": false},
-    {"id": 158, "body": "I am keen to learn about electrical safety and standards.", "published": false},
-    {"id": 159, "body": "Building and creating new things from wood and other materials excites me.", "published": false},
-    {"id": 160, "body": "I am curious about how precise measurements lead to quality work in construction.", "published": false},
-    {"id": 161, "body": "I like working with my hands and seeing tangible results of my work.", "published": false},
-    {"id": 162, "body": "I want to understand how plumbing systems work and how they are maintained.", "published": false},
-    {"id": 163, "body": "Learning practical skills for installing and fixing pipes and fixtures is interesting to me.", "published": false},
-    {"id": 164, "body": "I value learning about how to ensure plumbing is safe and meets health standards.", "published": false},
-    {"id": 165, "body": "I am interested in metal work and the skills needed to join and repair metal parts.", "published": false},
-    {"id": 166, "body": "I would like to learn different techniques for welding and using welding equipment.", "published": false},
-    {"id": 167, "body": "I am interested in the craftsmanship that goes into strong and durable metalwork.", "published": false},
-    {"id": 168, "body": "Managing construction projects and ensuring everything runs smoothly appeals to me.", "published": false},
-    {"id": 169, "body": "I am eager to learn how to effectively manage time and resources on a construction site.", "published": false},
-    {"id": 170, "body": "I want to develop skills in coordinating various tasks and people in large projects.", "published": false},
-    {"id": 171, "body": "I enjoy managing operations and ensuring guests have a memorable stay.", "published": false},
-    {"id": 172, "body": "Learning about hotel management and hospitality services interests me.", "published": false},
-    {"id": 173, "body": "I am keen on ensuring top-quality customer service and guest satisfaction.", "published": false},
-    {"id": 174, "body": "I love sharing knowledge about interesting places with others.", "published": false},
-    {"id": 175, "body": "Guiding tours and interacting with people from around the world excites me.", "published": false},
-    {"id": 176, "body": "I am interested in promoting local culture and attractions.", "published": false},
-    {"id": 177, "body": "Organizing events and seeing them come together is something I find rewarding.", "published": false},
-    {"id": 178, "body": "I want to learn how to manage multiple aspects of large-scale events.", "published": false},
-    {"id": 179, "body": "I enjoy the challenge of ensuring events run smoothly from start to finish.", "published": false},
-    {"id": 180, "body": "Creating new dishes and experimenting with flavors is my passion.", "published": false},
-    {"id": 181, "body": "I am curious about culinary techniques and the art of food presentation.", "published": false},
-    {"id": 182, "body": "I aspire to understand global cuisines and bring them to my kitchen.", "published": false},
-    {"id": 183, "body": "Helping people plan their dream vacations and travel experiences motivates me.", "published": false},
-    {"id": 184, "body": "I am interested in exploring different travel destinations and cultures.", "published": false},
-    {"id": 185, "body": "I want to provide excellent advice on travel options and accommodations.", "published": false}
+        {
+            "id": 1,
+            "body": "I seek to lead projects and teams.",
+            "published": false,
+            "relatedJobs": [1, 8, 26, 45, 46]
+          },
+          {
+            "id": 2,
+            "body": "Meeting deadlines and achieving goals is important to me.",
+            "published": false,
+            "relatedJobs": [11, 12]
+          },
+          {
+            "id": 3,
+            "body": "I am committed to lifelong learning and continuous professional development.",
+            "published": false,
+            "relatedJobs": [1, 2, 9, 31, 36]
+          },
+          {
+            "id": 4,
+            "body": "I value ethical standards and professionalism in my workplace.",
+            "published": false,
+            "relatedJobs": [3, 6, 8, 27, 38]
+          },
+          {
+            "id": 5,
+            "body": "I am comfortable adapting to new technologies and tools.",
+            "published": false,
+            "relatedJobs": [1, 4, 31, 36, 41, 44, 49]
+          },
+          {
+            "id": 6,
+            "body": "Efficiency and productivity are my top priorities at work.",
+            "published": false,
+            "relatedJobs": [34]
+          },
+          {
+            "id": 7,
+            "body": "I am effective at managing multiple tasks and responsibilities simultaneously.",
+            "published": false,
+            "relatedJobs": [3, 33]
+          },
+          {
+            "id": 8,
+            "body": "I have strong communication skills, both written and verbal.",
+            "published": false,
+            "relatedJobs": [14, 22, 24, 25, 42, 44, 47, 48]
+          },
+          {
+            "id": 9,
+            "body": "I actively seek feedback to improve my performance.",
+            "published": false,
+            "relatedJobs": [10, 23, 28, 29, 45, 50]
+          },
+          {
+            "id": 10,
+            "body": "I am enthusiastic about participating in workplace initiatives.",
+            "published": false,
+            "relatedJobs": [14, 22, 48]
+          },
+          {
+            "id": 11,
+            "body": "I believe in fostering a collaborative and inclusive work environment.",
+            "published": false,
+            "relatedJobs": [8, 10, 15, 23, 27, 28, 30]
+          },
+          {
+            "id": 12,
+            "body": "Problem-solving is a key strength I bring to my job.",
+            "published": false,
+            "relatedJobs": [1, 37, 42]
+          },
+          {
+            "id": 13,
+            "body": "I prioritize maintaining a healthy work-life balance.",
+            "published": false,
+            "relatedJobs": [13]
+          },
+          {
+            "id": 14,
+            "body": "I am open to travelling as part of my job.",
+            "published": false,
+            "relatedJobs": [16, 17, 18, 19, 20, 39, 47]
+          },
+          {
+            "id": 15,
+            "body": "I am passionate about contributing to meaningful projects that make a difference.",
+            "published": false,
+            "relatedJobs": [44, 49]
+          },
+          {
+            "id": 16,
+            "body": "I strive for precision and accuracy in my work.",
+            "published": false,
+            "relatedJobs": [16, 17, 18, 19, 20, 32]
+          },
+          {
+            "id": 17,
+            "body": "I enjoy mentoring others and helping them grow professionally.",
+            "published": false,
+            "relatedJobs": [7, 8, 10, 28, 48]
+          },
+          {
+            "id": 18,
+            "body": "I adapt well to changes and unforeseen challenges.",
+            "published": false,
+            "relatedJobs": [3, 4, 39, 30]
+          },
+          {
+            "id": 19,
+            "body": "I am motivated by challenging work environments.",
+            "published": false,
+            "relatedJobs": [8, 34]
+          },
+          {
+            "id": 20,
+            "body": "I value transparency and open communication at work.",
+            "published": false,
+            "relatedJobs": [31]
+          },
+          {
+            "id": 21,
+            "body": "I am keen on pursuing innovation and breakthroughs in my field.",
+            "published": false,
+            "relatedJobs": [5, 36]
+          },
+          {
+            "id": 22,
+            "body": "I have a natural curiosity about how systems operate.",
+            "published": false,
+            "relatedJobs": [16, 19, 20, 38]
+          },
+          {
+            "id": 23,
+            "body": "I value precision and meticulous attention to detail.",
+            "published": false,
+            "relatedJobs": [7, 17, 19, 32, 41]
+          },
+          {
+            "id": 24,
+            "body": "I enjoy crafting creative solutions to complex problems.",
+            "published": false,
+            "relatedJobs": [5, 9, 24, 25, 39, 44, 49]
+          },
+          {
+            "id": 25,
+            "body": "I appreciate a dynamic work environment that keeps me engaged.",
+            "published": false,
+            "relatedJobs": [19, 20, 38]
+          },
+          {
+            "id": 26,
+            "body": "I am dedicated to promoting sustainability in my work.",
+            "published": false,
+            "relatedJobs": [35, 37]
+          },
+          {
+            "id": 27,
+            "body": "I feel comfortable negotiating and persuading others in a professional setting.",
+            "published": false,
+            "relatedJobs": [7]
+          },
+          {
+            "id": 28,
+            "body": "I thrive in a competitive atmosphere.",
+            "published": false,
+            "relatedJobs": [11, 13, 50]
+          },
+          {
+            "id": 29,
+            "body": "I prioritize data-driven decision making.",
+            "published": false,
+            "relatedJobs": [2, 32, 40]
+          },
+          {
+            "id": 30,
+            "body": "I am passionate about building and maintaining professional networks.",
+            "published": false,
+            "relatedJobs": [11, 13, 46]
+          },
+          {
+            "id": 31,
+            "body": "I excel in planning and organizing large projects.",
+            "published": false,
+            "relatedJobs": [11, 15, 48, 45]
+          },
+          {
+            "id": 32,
+            "body": "I am confident in my ability to manage budgets and financial resources.",
+            "published": false,
+            "relatedJobs": [9, 11, 12, 45]
+          },
+          {
+            "id": 33,
+            "body": "I have strong project management skills.",
+            "published": false,
+            "relatedJobs": [7, 40]
+          },
+          {
+            "id": 34,
+            "body": "I can quickly learn and apply new skills as required.",
+            "published": false,
+            "relatedJobs": [5, 36, 41]
+          },
+          {
+            "id": 35,
+            "body": "I am committed to delivering high-quality outcomes consistently.",
+            "published": false,
+            "relatedJobs": [16, 20]
+          },
+          {
+            "id": 36,
+            "body": "I value cultural diversity in the workplace.",
+            "published": false,
+            "relatedJobs": [6, 15, 27, 47]
+          },
+          {
+            "id": 37,
+            "body": "I am comfortable working under minimal supervision.",
+            "published": false,
+            "relatedJobs": [28, 48]
+          },
+          {
+            "id": 38,
+            "body": "I take a proactive approach to problem-solving.",
+            "published": false,
+            "relatedJobs": [14, 22, 23, 25]
+          },
+          {
+            "id": 39,
+            "body": "I am adept at using digital tools to enhance workflow and productivity.",
+            "published": false,
+            "relatedJobs": [1, 4]
+          },
+          {
+            "id": 40,
+            "body": "I have experience in leading change and driving innovation within organizations.",
+            "published": false,
+            "relatedJobs": [13, 46, 45]
+          },
+          {
+            "id": 41,
+            "body": "I enjoy facilitating workshops and training sessions.",
+            "published": false,
+            "relatedJobs": [50]
+          },
+          {
+            "id": 42,
+            "body": "I am skilled at conflict resolution and maintaining harmony.",
+            "published": false,
+            "relatedJobs": [3, 4, 15]
+          },
+          {
+            "id": 43,
+            "body": "I am open to relocating for job opportunities.",
+            "published": false,
+            "relatedJobs": [6, 50]
+          },
+          {
+            "id": 44,
+            "body": "I maintain a high level of energy and enthusiasm at work.",
+            "published": false,
+            "relatedJobs": [9, 25, 50]
+          },
+          {
+            "id": 45,
+            "body": "I am experienced in compliance and regulatory matters.",
+            "published": false,
+            "relatedJobs": [12]
+          },
+          {
+            "id": 46,
+            "body": "I possess strong analytical skills that aid in decision-making.",
+            "published": false,
+            "relatedJobs": [1, 2, 37, 39]
+          },
+          {
+            "id": 47,
+            "body": "I regularly seek to enhance customer satisfaction.",
+            "published": false,
+            "relatedJobs": [3]
+          },
+          {
+            "id": 48,
+            "body": "I have a track record of improving operational efficiency.",
+            "published": false,
+            "relatedJobs": [22, 30]
+          },
+          {
+            "id": 49,
+            "body": "I am proficient in multiple languages, enhancing communication in diverse environments.",
+            "published": false,
+            "relatedJobs": [14, 23, 25, 47]
+          },
+          {
+            "id": 50,
+            "body": "I advocate for ethical practices and integrity in all aspects of business.",
+            "published": false,
+            "relatedJobs": [2, 21, 25]
+          },
+          {
+            "id": 51,
+            "body": "I enjoy figuring out how software applications are built and how they work.",
+            "published": false,
+            "relatedJobs": [1]
+          },
+          {
+            "id": 52,
+            "body": "I like to solve puzzles and problems using technology.",
+            "published": false,
+            "relatedJobs": [1]
+          },
+          {
+            "id": 53,
+            "body": "I am interested in how software can be used to make tasks easier and more efficient.",
+            "published": false,
+            "relatedJobs": [1]
+          },
+          {
+            "id": 54,
+            "body": "Working with numbers and data to find patterns interests me.",
+            "published": false,
+            "relatedJobs": [2]
+          },
+          {
+            "id": 55,
+            "body": "I am curious about how machines can learn from data.",
+            "published": false,
+            "relatedJobs": [2]
+          },
+          {
+            "id": 56,
+            "body": "I enjoy looking for trends in large amounts of information.",
+            "published": false,
+            "relatedJobs": [2]
+          },
+          {
+            "id": 57,
+            "body": "I am interested in protecting people's information online.",
+            "published": false,
+            "relatedJobs": [3]
+          },
+          {
+            "id": 58,
+            "body": "I would like to learn how to keep digital environments safe from attacks.",
+            "published": false,
+            "relatedJobs": [3]
+          },
+          {
+            "id": 59,
+            "body": "The idea of fighting against hackers and securing networks appeals to me.",
+            "published": false,
+            "relatedJobs": [3]
+          },
+          {
+            "id": 60,
+            "body": "I am fascinated by how computers are connected and communicate.",
+            "published": false,
+            "relatedJobs": [4]
+          },
+          {
+            "id": 61,
+            "body": "I want to know more about how data travels across the internet.",
+            "published": false,
+            "relatedJobs": [4]
+          },
+          {
+            "id": 62,
+            "body": "Troubleshooting network problems sounds like an interesting challenge.",
+            "published": false,
+            "relatedJobs": [4]
+          },
+          {
+            "id": 63,
+            "body": "I am interested in how artificial intelligence can be used to solve real-world problems.",
+            "published": false,
+            "relatedJobs": [5]
+          },
+          {
+            "id": 64,
+            "body": "I like the idea of creating systems that can think and learn.",
+            "published": false,
+            "relatedJobs": [5]
+          },
+          {
+            "id": 65,
+            "body": "Exploring new ways for machines to interact with humans is exciting to me.",
+            "published": false,
+            "relatedJobs": [5]
+          },
+          {
+            "id": 66,
+            "body": "Helping people recover and feel better is important to me.",
+            "published": false,
+            "relatedJobs": [6]
+          },
+          {
+            "id": 67,
+            "body": "I am interested in learning about different medical conditions.",
+            "published": false,
+            "relatedJobs": [6]
+          },
+          {
+            "id": 68,
+            "body": "I feel fulfilled when I can help someone in a direct and meaningful way.",
+            "published": false,
+            "relatedJobs": [6]
+          },
+          {
+            "id": 69,
+            "body": "Assisting people with rehabilitation and improving their physical abilities sounds rewarding.",
+            "published": false,
+            "relatedJobs": [7]
+          },
+          {
+            "id": 70,
+            "body": "I would like to learn how to help people manage and recover from physical injuries.",
+            "published": false,
+            "relatedJobs": [7]
+          },
+          {
+            "id": 71,
+            "body": "Seeing progress and improvement in someone's health due to my help would be gratifying.",
+            "published": false,
+            "relatedJobs": [7]
+          },
+          {
+            "id": 72,
+            "body": "I am curious about how to diagnose and treat various illnesses.",
+            "published": false,
+            "relatedJobs": [8]
+          },
+          {
+            "id": 73,
+            "body": "Having a broad understanding of health and medicine interests me.",
+            "published": false,
+            "relatedJobs": [8]
+          },
+          {
+            "id": 74,
+            "body": "I would enjoy consulting with patients and advising them on health matters.",
+            "published": false,
+            "relatedJobs": [8]
+          },
+          {
+            "id": 75,
+            "body": "I am interested in how medications work and how they can improve health.",
+            "published": false,
+            "relatedJobs": [9]
+          },
+          {
+            "id": 76,
+            "body": "Learning about and managing different types of medications would be interesting.",
+            "published": false,
+            "relatedJobs": [9]
+          },
+          {
+            "id": 77,
+            "body": "I would like to help people understand their prescriptions and use them safely.",
+            "published": false,
+            "relatedJobs": [9]
+          },
+          {
+            "id": 78,
+            "body": "Supporting people through mental health challenges is something I find important.",
+            "published": false,
+            "relatedJobs": [10]
+          },
+          {
+            "id": 79,
+            "body": "I am interested in ways to help people achieve emotional well-being.",
+            "published": false,
+            "relatedJobs": [10]
+          },
+          {
+            "id": 80,
+            "body": "Helping others develop coping strategies and improve their mental health is a goal of mine.",
+            "published": false,
+            "relatedJobs": [10]
+          },
+          {
+            "id": 81,
+            "body": "I am interested in understanding financial markets and how they operate.",
+            "published": false,
+            "relatedJobs": [11]
+          },
+          {
+            "id": 82,
+            "body": "I like to analyze financial data to make predictions about trends.",
+            "published": false,
+            "relatedJobs": [11]
+          },
+          {
+            "id": 83,
+            "body": "I enjoy learning about different investment strategies.",
+            "published": false,
+            "relatedJobs": [11]
+          },
+          {
+            "id": 84,
+            "body": "Keeping financial records organized and accurate is satisfying to me.",
+            "published": false,
+            "relatedJobs": [12]
+          },
+          {
+            "id": 85,
+            "body": "I am interested in the laws and regulations that govern financial reporting.",
+            "published": false,
+            "relatedJobs": [12]
+          },
+          {
+            "id": 86,
+            "body": "I would like to help businesses manage their finances effectively.",
+            "published": false,
+            "relatedJobs": [12]
+          },
+          {
+            "id": 87,
+            "body": "I am curious about how companies grow with investments.",
+            "published": false,
+            "relatedJobs": [13]
+          },
+          {
+            "id": 88,
+            "body": "I enjoy the challenge of making profitable investment decisions.",
+            "published": false,
+            "relatedJobs": [13]
+          },
+          {
+            "id": 89,
+            "body": "I am interested in the financial aspects that influence company success.",
+            "published": false,
+            "relatedJobs": [13]
+          },
+          {
+            "id": 90,
+            "body": "Creating advertising strategies that reach different audiences excites me.",
+            "published": false,
+            "relatedJobs": [14]
+          },
+          {
+            "id": 91,
+            "body": "I like to think of innovative ways to market products and services.",
+            "published": false,
+            "relatedJobs": [14]
+          },
+          {
+            "id": 92,
+            "body": "I am keen on using social media and digital tools for marketing.",
+            "published": false,
+            "relatedJobs": [14]
+          },
+          {
+            "id": 93,
+            "body": "I value helping to resolve workplace issues and maintaining staff morale.",
+            "published": false,
+            "relatedJobs": [15]
+          },
+          {
+            "id": 94,
+            "body": "I am interested in recruiting, training, and developing a team.",
+            "published": false,
+            "relatedJobs": [15]
+          },
+          {
+            "id": 95,
+            "body": "I believe in the importance of fair and equitable treatment of employees.",
+            "published": false,
+            "relatedJobs": [15]
+          },
+          {
+            "id": 96,
+            "body": "I am interested in how machines and mechanical systems work.",
+            "published": false,
+            "relatedJobs": [16]
+          },
+          {
+            "id": 97,
+            "body": "Designing tools and equipment that help improve everyday life is exciting to me.",
+            "published": false,
+            "relatedJobs": [16]
+          },
+          {
+            "id": 98,
+            "body": "I would like to apply physics and materials science to solve practical problems.",
+            "published": false,
+            "relatedJobs": [16]
+          },
+          {
+            "id": 99,
+            "body": "Planning and overseeing the construction of buildings and infrastructure appeals to me.",
+            "published": false,
+            "relatedJobs": [17]
+          },
+          {
+            "id": 100,
+            "body": "I am keen on ensuring that structures are safe, sustainable, and functional.",
+            "published": false,
+            "relatedJobs": [17]
+          },
+          {
+            "id": 101,
+            "body": "I enjoy the challenge of managing construction projects from start to finish.",
+            "published": false,
+            "relatedJobs": [17]
+          },
+          {
+            "id": 102,
+            "body": "I am curious about how electrical systems are designed and maintained.",
+            "published": false,
+            "relatedJobs": [18]
+          },
+          {
+            "id": 103,
+            "body": "Working with electronic devices and power systems is something I find fascinating.",
+            "published": false,
+            "relatedJobs": [18]
+          },
+          {
+            "id": 104,
+            "body": "I am interested in innovations in renewable energy and how electricity is harnessed.",
+            "published": false,
+            "relatedJobs": [18]
+          },
+          {
+            "id": 105,
+            "body": "I want to understand how chemical reactions can be used in manufacturing and product development.",
+            "published": false,
+            "relatedJobs": [19]
+          },
+          {
+            "id": 106,
+            "body": "The idea of using chemistry to solve environmental problems is compelling to me.",
+            "published": false,
+            "relatedJobs": [19]
+          },
+          {
+            "id": 107,
+            "body": "I am interested in researching and developing new materials that can change industries.",
+            "published": false,
+            "relatedJobs": [19]
+          },
+          {
+            "id": 108,
+            "body": "I am drawn to optimizing systems and processes to improve efficiency and productivity.",
+            "published": false,
+            "relatedJobs": [20]
+          },
+          {
+            "id": 109,
+            "body": "Learning about how different industries manage and improve operations is appealing.",
+            "published": false,
+            "relatedJobs": [20]
+          },
+          {
+            "id": 110,
+            "body": "I am interested in using statistical analysis and mathematical methods to solve problems in production.",
+            "published": false,
+            "relatedJobs": [20]
+          },
+          {
+            "id": 111,
+            "body": "Creating visually appealing images and designs is a passion of mine.",
+            "published": false,
+            "relatedJobs": [21]
+          },
+          {
+            "id": 112,
+            "body": "I enjoy using software tools to bring artistic ideas to life.",
+            "published": false,
+            "relatedJobs": [21]
+          },
+          {
+            "id": 113,
+            "body": "I am keen on understanding color theory and design principles.",
+            "published": false,
+            "relatedJobs": [21]
+          },
+          {
+            "id": 114,
+            "body": "I like the idea of managing communications and public image for a company or brand.",
+            "published": false,
+            "relatedJobs": [22]
+          },
+          {
+            "id": 115,
+            "body": "Building relationships with the media and public is something I find intriguing.",
+            "published": false,
+            "relatedJobs": [22]
+          },
+          {
+            "id": 116,
+            "body": "I am interested in planning and hosting events that engage communities.",
+            "published": false,
+            "relatedJobs": [22]
+          },
+          {
+            "id": 117,
+            "body": "Writing stories, articles, or content that people enjoy reading excites me.",
+            "published": false,
+            "relatedJobs": [23]
+          },
+          {
+            "id": 118,
+            "body": "I am drawn to researching and sharing interesting facts or narratives.",
+            "published": false,
+            "relatedJobs": [23]
+          },
+          {
+            "id": 119,
+            "body": "Expressing ideas clearly and creatively through writing is a skill I want to develop.",
+            "published": false,
+            "relatedJobs": [23]
+          },
+          {
+            "id": 120,
+            "body": "Capturing moments through photography and telling stories visually is appealing to me.",
+            "published": false,
+            "relatedJobs": [24]
+          },
+          {
+            "id": 121,
+            "body": "I have an interest in learning about different photography techniques and equipment.",
+            "published": false,
+            "relatedJobs": [24]
+          },
+          {
+            "id": 122,
+            "body": "The process of editing photos to enhance their artistic quality fascinates me.",
+            "published": false,
+            "relatedJobs": [24]
+          },
+          {
+            "id": 123,
+            "body": "Producing videos from concept to final edit is a challenge I am eager to take on.",
+            "published": false,
+            "relatedJobs": [25]
+          },
+          {
+            "id": 124,
+            "body": "I want to create compelling video content that captures an audience’s attention.",
+            "published": false,
+            "relatedJobs": [25]
+          },
+          {
+            "id": 125,
+            "body": "I am curious about the technical aspects of filming and video editing.",
+            "published": false,
+            "relatedJobs": [25]
+          },
+          {
+            "id": 126,
+            "body": "I enjoy helping students learn and discover new things.",
+            "published": false,
+            "relatedJobs": [26]
+          },
+          {
+            "id": 127,
+            "body": "Creating engaging and informative lesson plans is something I find rewarding.",
+            "published": false,
+            "relatedJobs": [26]
+          },
+          {
+            "id": 128,
+            "body": "I am passionate about making a difference in the lives of young people.",
+            "published": false,
+            "relatedJobs": [26]
+          },
+          {
+            "id": 129,
+            "body": "Assisting individuals and families through challenging times is important to me.",
+            "published": false,
+            "relatedJobs": [27]
+          },
+          {
+            "id": 130,
+            "body": "I am committed to advocating for the rights and well-being of others.",
+            "published": false,
+            "relatedJobs": [27]
+          },
+          {
+            "id": 131,
+            "body": "Helping people access necessary resources and support is a role I value.",
+            "published": false,
+            "relatedJobs": [27]
+          },
+          {
+            "id": 132,
+            "body": "Supporting students' emotional and social development is a key part of my professional goals.",
+            "published": false,
+            "relatedJobs": [28]
+          },
+          {
+            "id": 133,
+            "body": "I am interested in providing guidance and counseling to help students succeed academically and personally.",
+            "published": false,
+            "relatedJobs": [28]
+          },
+          {
+            "id": 134,
+            "body": "I believe in fostering a supportive and inclusive educational environment.",
+            "published": false,
+            "relatedJobs": [28]
+          },
+          {
+            "id": 135,
+            "body": "Caring for children and helping them grow in a healthy environment is a priority for me.",
+            "published": false,
+            "relatedJobs": [29]
+          },
+          {
+            "id": 136,
+            "body": "I am skilled at creating fun and educational activities for children.",
+            "published": false,
+            "relatedJobs": [29]
+          },
+          {
+            "id": 137,
+            "body": "I have a strong interest in early childhood development and education.",
+            "published": false,
+            "relatedJobs": [29]
+          },
+          {
+            "id": 138,
+            "body": "I aim to lead community projects that have a positive impact on local areas.",
+            "published": false,
+            "relatedJobs": [30]
+          },
+          {
+            "id": 139,
+            "body": "Developing and managing programs that serve community needs excites me.",
+            "published": false,
+            "relatedJobs": [30]
+          },
+          {
+            "id": 140,
+            "body": "I am passionate about improving the quality of life for community members through service and engagement.",
+            "published": false,
+            "relatedJobs": [30]
+          },
+          {
+            "id": 141,
+            "body": "I am interested in understanding and applying laws to help people.",
+            "published": false,
+            "relatedJobs": [31, 36]
+          },
+          {
+            "id": 142,
+            "body": "Arguing cases in court and advocating for justice is something I find appealing.",
+            "published": false,
+            "relatedJobs": [31, 36]
+          },
+          {
+            "id": 143,
+            "body": "I am keen on protecting individuals' rights through legal means.",
+            "published": false,
+            "relatedJobs": [31, 36]
+          },
+          {
+            "id": 144,
+            "body": "Supporting legal processes and helping lawyers prepare for trials is important to me.",
+            "published": false,
+            "relatedJobs": [32, 37]
+          },
+          {
+            "id": 145,
+            "body": "I enjoy researching case law and drafting legal documents.",
+            "published": false,
+            "relatedJobs": [32, 37]
+          },
+          {
+            "id": 146,
+            "body": "I value the role of detailed legal work in achieving fair outcomes.",
+            "published": false,
+            "relatedJobs": [32, 37]
+          },
+          {
+            "id": 147,
+            "body": "Managing public resources to benefit the community interests me.",
+            "published": false,
+            "relatedJobs": [33, 38]
+          },
+          {
+            "id": 148,
+            "body": "I am passionate about implementing policies that improve public services.",
+            "published": false,
+            "relatedJobs": [33, 38]
+          },
+          {
+            "id": 149,
+            "body": "I aim to engage in public sector work that has a meaningful impact on society.",
+            "published": false,
+            "relatedJobs": [33, 38]
+          },
+          {
+            "id": 150,
+            "body": "Analyzing policies and their impacts on society is a role I am drawn to.",
+            "published": false,
+            "relatedJobs": [34, 39]
+          },
+          {
+            "id": 151,
+            "body": "I am interested in shaping legislation that addresses community needs.",
+            "published": false,
+            "relatedJobs": [34, 39]
+          },
+          {
+            "id": 152,
+            "body": "I am motivated by the challenge of finding solutions to complex societal issues.",
+            "published": false,
+            "relatedJobs": [34, 39]
+          },
+          {
+            "id": 153,
+            "body": "Planning and developing spaces that enhance urban living is my goal.",
+            "published": false,
+            "relatedJobs": [35]
+          },
+          {
+            "id": 154,
+            "body": "I enjoy collaborating with others to design functional and sustainable urban environments.",
+            "published": false,
+            "relatedJobs": [35]
+          },
+          {
+            "id": 155,
+            "body": "I am dedicated to creating urban spaces that meet the needs of diverse populations.",
+            "published": false,
+            "relatedJobs": [35]
+          },
+          {
+            "id": 156,
+            "body": "I am interested in learning how to safely install and manage electrical systems.",
+            "published": false,
+            "relatedJobs": [41]
+          },
+          {
+            "id": 157,
+            "body": "I enjoy troubleshooting and solving technical problems.",
+            "published": false,
+            "relatedJobs": [41]
+          },
+          {
+            "id": 158,
+            "body": "I am keen to learn about electrical safety and standards.",
+            "published": false,
+            "relatedJobs": [41]
+          },
+          {
+            "id": 159,
+            "body": "Building and creating new things from wood and other materials excites me.",
+            "published": false,
+            "relatedJobs": [42]
+          },
+          {
+            "id": 160,
+            "body": "I am curious about how precise measurements lead to quality work in construction.",
+            "published": false,
+            "relatedJobs": [42]
+          },
+          {
+            "id": 161,
+            "body": "I like working with my hands and seeing tangible results of my work.",
+            "published": false,
+            "relatedJobs": [42]
+          },
+          {
+            "id": 162,
+            "body": "I want to understand how plumbing systems work and how they are maintained.",
+            "published": false,
+            "relatedJobs": [43]
+          },
+          {
+            "id": 163,
+            "body": "Learning practical skills for installing and fixing pipes and fixtures is interesting to me.",
+            "published": false,
+            "relatedJobs": [43]
+          },
+          {
+            "id": 164,
+            "body": "I value learning about how to ensure plumbing is safe and meets health standards.",
+            "published": false,
+            "relatedJobs": [43]
+          },
+          {
+            "id": 165,
+            "body": "I am interested in metal work and the skills needed to join and repair metal parts.",
+            "published": false,
+            "relatedJobs": [44]
+          },
+          {
+            "id": 166,
+            "body": "I would like to learn different techniques for welding and using welding equipment.",
+            "published": false,
+            "relatedJobs": [44]
+          },
+          {
+            "id": 167,
+            "body": "I am interested in the craftsmanship that goes into strong and durable metalwork.",
+            "published": false,
+            "relatedJobs": [44]
+          },
+          {
+            "id": 168,
+            "body": "Managing construction projects and ensuring everything runs smoothly appeals to me.",
+            "published": false,
+            "relatedJobs": [45]
+          },
+          {
+            "id": 169,
+            "body": "I am eager to learn how to effectively manage time and resources on a construction site.",
+            "published": false,
+            "relatedJobs": [45]
+          },
+          {
+            "id": 170,
+            "body": "I want to develop skills in coordinating various tasks and people in large projects.",
+            "published": false,
+            "relatedJobs": [45]
+          },
+          {
+            "id": 171,
+            "body": "I enjoy managing operations and ensuring guests have a memorable stay.",
+            "published": false,
+            "relatedJobs": [46]
+          },
+          {
+            "id": 172,
+            "body": "Learning about hotel management and hospitality services interests me.",
+            "published": false,
+            "relatedJobs": [46]
+          },
+          {
+            "id": 173,
+            "body": "I am keen on ensuring top-quality customer service and guest satisfaction.",
+            "published": false,
+            "relatedJobs": [46]
+          },
+          {
+            "id": 174,
+            "body": "I love sharing knowledge about interesting places with others.",
+            "published": false,
+            "relatedJobs": [47]
+          },
+          {
+            "id": 175,
+            "body": "Guiding tours and interacting with people from around the world excites me.",
+            "published": false,
+            "relatedJobs": [47]
+          },
+          {
+            "id": 176,
+            "body": "I am interested in promoting local culture and attractions.",
+            "published": false,
+            "relatedJobs": [47]
+          },
+          {
+            "id": 177,
+            "body": "Organizing events and seeing them come together is something I find rewarding.",
+            "published": false,
+            "relatedJobs": [48]
+          },
+          {
+            "id": 178,
+            "body": "I want to learn how to manage multiple aspects of large-scale events.",
+            "published": false,
+            "relatedJobs": [48]
+          },
+          {
+            "id": 179,
+            "body": "I enjoy the challenge of ensuring events run smoothly from start to finish.",
+            "published": false,
+            "relatedJobs": [48]
+          },
+          {
+            "id": 180,
+            "body": "Creating new dishes and experimenting with flavors is my passion.",
+            "published": false,
+            "relatedJobs": [49]
+          },
+          {
+            "id": 181,
+            "body": "I am curious about culinary techniques and the art of food presentation.",
+            "published": false,
+            "relatedJobs": [49]
+          },
+          {
+            "id": 182,
+            "body": "I aspire to understand global cuisines and bring them to my kitchen.",
+            "published": false,
+            "relatedJobs": [49]
+          },
+          {
+            "id": 183,
+            "body": "Helping people plan their dream vacations and travel experiences motivates me.",
+            "published": false,
+            "relatedJobs": [50]
+          },
+          {
+            "id": 184,
+            "body": "I am interested in exploring different travel destinations and cultures.",
+            "published": false,
+            "relatedJobs": [50]
+          },
+          {
+            "id": 185,
+            "body": "I want to provide excellent advice on travel options and accommodations.",
+            "published": false,
+            "relatedJobs": [50]
+          }
 
     ]
   }
