@@ -46,6 +46,10 @@ function jobsInAgreement(data: DataStorage, basicQuestionId: number, userRespons
 
     If the userResponse is positive, then the jobs in agreement are the ones whose ith component of the partition vector is a 1
     */
+   //it might be better in terms of accuracy of results if allow the partition vector to take three values -1, 0, 1. Then, we can pretty much 
+   //have any basic questions we want. We still have to consider the question design, but it may be a better approximation of the user interest
+   //if we can have jobs which are neutral with respect to basic questions. It opens up a lot more design space, i.e. more possible basic questions
+   //since the definition allows for a broader classification of questions
     const responseType = userResponse > 0 ? 1 : 0;
     return data.JOBS.filter(job => job.partitionVector[basicQuestionId] === responseType);
 }
@@ -68,6 +72,9 @@ function DetailedQuestionsInAgreement(jobSet:Job[]): number[]{
 }
 
 function makeUniformMeasure(numDetailedQuestions: number): number[]{
+    /*
+    returns a dictionary such that every key corresponds to 1/numDetailedQuestions
+    */
     const entryVal = 1/numDetailedQuestions;
     return new Array(numDetailedQuestions).fill(entryVal);
 }
@@ -77,7 +84,7 @@ function updateMeasure(prevMeasure: number[], userResponse: number, jobSetA: Job
         return [...prevMeasure];
     }
     else if(userResponse < 0){
-        return updateMeasure(prevMeasure, -1*userResponse, jobSetA, jobSetB)
+        return updateMeasure(prevMeasure, -1*userResponse, jobSetB, jobSetA)
     }
     const tempA = DetailedQuestionsInAgreement(jobSetA);
     const tempB = DetailedQuestionsInAgreement(jobSetB);
