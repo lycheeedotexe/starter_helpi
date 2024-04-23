@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useState} from "react";
 import questions from "../data/questions.json";
 import { FormatQuestion } from "../components/formatQuestion";
 
@@ -9,9 +9,19 @@ interface BasicQuestionProp {
   published: boolean
 }
 
+type userResponseType = {
+  [key: number]: string;
+}
+
 const data = JSON.parse(JSON.stringify(questions))
 const BasicQuestions = () => {
     
+  const [userResponse, setUserResponse] = useState<userResponseType>({});
+
+  const handleChoiceChange = (id: number) => (value: string) => {
+      setUserResponse(prev => ({...prev, [id]:value }));
+  }
+
     return (
       <div>
         <h1>Basic Questions Quiz</h1>
@@ -19,17 +29,14 @@ const BasicQuestions = () => {
         <p>Basic Questions begin here</p> 
         {data.BASIC_QUESTIONS.map((q: BasicQuestionProp) => (
           <p>
-          <FormatQuestion question={q} options={["Neutral","Strongly Disagree", "Disagree", "Agree", "Strongly Agree"]}></FormatQuestion>
+          <FormatQuestion 
+            key={q.id}
+            question={q} 
+            options={["Neutral","Strongly Disagree", "Disagree", "Agree", "Strongly Agree"]}
+            onChoiceChange={handleChoiceChange(q.id)}
+            ></FormatQuestion>
           </p>
     ))};
-        {/* {data.map((q:) => (
-          <p>q.body</p>
-        ))} */}
-        {/* {data.BASIC_QUESTIONS.map((data: string, index:number) => (
-          <p key={index}>
-            <span>{data.body}</span>
-          </p>
-        ))} */}
         </div>
       </div>
     );

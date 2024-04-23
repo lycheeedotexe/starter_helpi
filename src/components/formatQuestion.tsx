@@ -1,18 +1,34 @@
 import React, { useState } from "react";
-import { BasicQuestion } from "../QuestionSelection";
+import { BasicQuestion,DetailedQuestion } from "../QuestionSelection";
 import { Form } from "react-bootstrap";
+
+interface Question{
+    id: number;
+    body: string;
+}
+
+type questionType = BasicQuestion | DetailedQuestion;
+
+interface FormatQuestionProps {
+    question: questionType;
+    options: string[];
+    onChoiceChange: (value: string) => void;
+}
 
 export function FormatQuestion({
     question,
-    options
+    options,
+    onChoiceChange
 }: {
     question: BasicQuestion
     options: string[];
+    onChoiceChange: (value: string) => void
 }): JSX.Element {
     const [currentChoice, setCurrentChoice] = useState<string>(options[0]);
 
     function changeChoice(event: React.ChangeEvent<HTMLSelectElement>) {
         setCurrentChoice(event.target.value);
+        onChoiceChange(event.target.value);
     }
 
     return (
