@@ -1,12 +1,21 @@
-import React from "react";
+import React, {useState, useEffect} from "react";
 import {DetailedQuestion, publishDetailedQuestions} from '../QuestionSelection'
 import { FormatQuestion } from "../components/formatQuestion";
+import questions from "../data/questions.json";
+import { getResponseVector } from "../getResponseVector";
 
 interface DetailedQuestionsProp {
   publishedDetailedQuestions: DetailedQuestion[];
 }
 
 const DetailedQuestions = () => {
+    const [DetailedQuestions, setDetailedQuestions] = useState<DetailedQuestion[]>([]);
+    const data = JSON.parse(JSON.stringify(questions))
+
+    useEffect(() => {
+      const questions = publishDetailedQuestions(data, getResponseVector(publishedDetailedQuestions), 25);
+
+    }, []);
     return (
       <div>
       <h1>Detailed Questions Quiz</h1>

@@ -9,14 +9,14 @@ interface BasicQuestionProp {
   published: boolean
 }
 
-type userResponseType = {
+export type userResponseType = {
   [key: number]: string;
 }
 
 const data = JSON.parse(JSON.stringify(questions))
 const BasicQuestions = () => {
     
-  const [userResponse, setUserResponse] = useState<userResponseType>({});
+  const [userResponses, setUserResponse] = useState<userResponseType>({});
 
   const handleChoiceChange = (id: number) => (value: string) => {
       setUserResponse(prev => ({...prev, [id]:value }));
