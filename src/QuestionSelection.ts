@@ -67,7 +67,7 @@ export function DetailedQuestionsInAgreement(jobSet:Job[]): number[]{
     //const jobSetA = jobsInAgreement(data, basicQuestionId,userResponse);
     var questionSet = new Set<number>();
     jobSet.forEach(job => {
-            job.relatedDetailedQuestions.forEach(questionId => questionSet.add(questionId))
+            job.relatedDetailedQuestions.filter((questionId: number) => questionId > 50).forEach(questionId => questionSet.add(questionId))
     })
     return Array.from(questionSet); 
 }
@@ -80,33 +80,41 @@ function makeUniformMeasure(numDetailedQuestions: number): number[]{
     return new Array(numDetailedQuestions).fill(entryVal);
 }
 
-function updateMeasure(prevMeasure: number[], userResponse: number, jobSetA: Job[], jobSetB: Job[]): number[]{
-    if(userResponse === 0){
+function updateMeasure(prevMeasure: number[], userResponse: number, jobSetA: Job[], jobSetB: Job[]): number[] {
+    if (userResponse === 0) {
         return [...prevMeasure];
     }
-    else if(userResponse < 0){
-        return updateMeasure(prevMeasure, -1*userResponse, jobSetB, jobSetA)
+    if(userResponse < 0){
+        return updateMeasure(prevMeasure, -1*userResponse, jobSetB, jobSetA);
     }
+
     const tempA = DetailedQuestionsInAgreement(jobSetA);
     const tempB = DetailedQuestionsInAgreement(jobSetB);
 
-    const indexSetA = A_without_B(tempA, tempB); 
+    const indexSetA = A_without_B(tempA, tempB);
     const indexSetB = A_without_B(tempB, tempA);
-    
-    const measureToBeRemoved = prevMeasure.reduce((acc, current, index): number => indexSetB.includes(index) ? acc + current : acc) * (1-userResponse)
 
-    return prevMeasure.map(
-            entry => (indexSetA.includes(entry) || indexSetB.includes(entry)) ? 
-            (indexSetA.includes(entry)? entry + (1-userResponse)*measureToBeRemoved / indexSetA.length : userResponse*entry)
-            : entry
+    const measureToBeRemoved = prevMeasure.reduce((acc, current, index) => {
+        return indexSetB.includes(index + 1) ? acc + current : acc; 
+    }, 0) * userResponse; 
 
-    )
+    return prevMeasure.map((entry, index) => {
+        if (indexSetA.includes(index + 1) || indexSetB.includes(index + 1)) {
+            if (indexSetA.includes(index + 1)) {
+                return entry + (measureToBeRemoved / indexSetA.length);
+            } else {
+                return entry * (1 - userResponse);
+            }
+        }
+        return entry; 
+    });
 }
 
 export function constructFinalMeasure(data: DataStorage, responseVector: number[]){
     const baseMeasure = makeUniformMeasure(data.DETAILED_QUESTIONS.length);
     var iterativeMeasure = [...baseMeasure];
     for(var i = 0; i < responseVector.length; i++){
+        console.log(`\n measure says P(D) = ${iterativeMeasure.reduce((acc, entry, index) => acc + entry, 0 )}\n`)
         iterativeMeasure = updateMeasure(iterativeMeasure, responseVector[i], jobsInAgreement(data,i,responseVector[i]), jobsNotInAgreement(data,i,responseVector[i]));
     };
     return [...iterativeMeasure];
@@ -145,7 +153,7 @@ export function publishDetailedQuestions(data: DataStorage, responseVector: numb
     while(numSampled < numQuestions){
         const currentId = sampleQuestion(copyOfData, dist);
         const question = copyOfData.DETAILED_QUESTIONS.find((q: DetailedQuestion) => q.id === currentId);
-        if(question.published === false){
+        if(question && question.published === false){
             question.published = true;
             numSampled = numSampled + 1;
         }

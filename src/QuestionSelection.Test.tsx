@@ -6,7 +6,7 @@ describe('generateDetailedQuestions', () => {
     it('should publish the correct number of questions', () => {
         const mockData = JSON.parse(JSON.stringify(questions));
 
-        const responseVector = [.5, 0.3, -1, 0.25, -0.1,.1, .5]; 
+        const responseVector = [.5, 1, 1, 1, 1, 1, -1]; 
         const numQuestions = 25;
 
         const publishedQuestions = publishDetailedQuestions(mockData, responseVector, numQuestions);
@@ -42,12 +42,14 @@ describe('generateDetailedQuestions', () => {
             return DetailedQuestionsInAgreement(mockData.JOBS.filter((j: Job) => clusterKeys.includes(j.id)));
     };
 
+    //comfirming that the measure is a probability measure
+    console.log(`measure says P(D) = ${testMeasure.reduce((acc, entry, index) => acc + entry, 0 )}`)
+
     // Additional tests...
     const clusterProbability = (k: number): number=>{
         const questionIDs = relatedQuestions(k);
-        return testDistribution.reduce((acc, i) => acc +questionIDs[i], 0);
+        return questionIDs.reduce((acc, i) => acc + testMeasure[i-1], 0.0);
     }
-
     for(var k = 1; k <= 10; k++){
         console.log(`Total probability of picking a question related to ${jobClusters[k]}`)
         console.log(clusterProbability(k))
