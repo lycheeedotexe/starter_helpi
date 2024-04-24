@@ -17,6 +17,7 @@ const DetailedQuestions = () => {
     }
 
     useEffect(() => {
+      console.log(data);
       const sampledQuestions = publishDetailedQuestions(data, getResponseVector(responses), 25);
       setDetailedQuestions(sampledQuestions);
     }, []);
@@ -27,14 +28,14 @@ const DetailedQuestions = () => {
       <div>
       <p>Detailed Questions begin here</p> 
       {DetailedQuestions.map((q: DetailedQuestion) => (
-        <p>
+        <div>
         <FormatQuestion 
           key={q.id}
           question={q} 
           options={["Neutral","Strongly Disagree", "Disagree", "Agree", "Strongly Agree"]}
           onChoiceChange={handleChoiceChange(q.id)}
           ></FormatQuestion>
-        </p>
+        </div>
   ))};
       </div>
     </div>

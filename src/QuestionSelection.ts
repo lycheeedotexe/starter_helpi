@@ -1,6 +1,6 @@
 
 //where question selection code will go
-interface Job {
+export interface Job {
     id: number,
     name: string,
     relatedDetailedQuestions: number[], //the id of the related questions goes here
@@ -51,7 +51,7 @@ function jobsInAgreement(data: DataStorage, basicQuestionId: number, userRespons
    //have any basic questions we want. We still have to consider the question design, but it may be a better approximation of the user interest
    //if we can have jobs which are neutral with respect to basic questions. It opens up a lot more design space, i.e. more possible basic questions
    //since the definition allows for a broader classification of questions
-    const responseType = userResponse > 0 ? 1 : 0;
+    const responseType = userResponse > 0 ? 1 : -1;
     return data.JOBS.filter(job => job.partitionVector[basicQuestionId] === responseType);
 }
 
@@ -63,7 +63,7 @@ function jobsNotInAgreement(data: DataStorage, basicQuestionId: number, userResp
     return jobsInAgreement(data, basicQuestionId, -1*userResponse);
 }
 
-function DetailedQuestionsInAgreement(jobSet:Job[]): number[]{
+export function DetailedQuestionsInAgreement(jobSet:Job[]): number[]{
     //const jobSetA = jobsInAgreement(data, basicQuestionId,userResponse);
     var questionSet = new Set<number>();
     jobSet.forEach(job => {
@@ -103,7 +103,7 @@ function updateMeasure(prevMeasure: number[], userResponse: number, jobSetA: Job
     )
 }
 
-function constructFinalMeasure(data: DataStorage, responseVector: number[]){
+export function constructFinalMeasure(data: DataStorage, responseVector: number[]){
     const baseMeasure = makeUniformMeasure(data.DETAILED_QUESTIONS.length);
     var iterativeMeasure = [...baseMeasure];
     for(var i = 0; i < responseVector.length; i++){
@@ -112,7 +112,7 @@ function constructFinalMeasure(data: DataStorage, responseVector: number[]){
     return [...iterativeMeasure];
 }
 
-function constructDistribution(measure: number[]){
+export function constructDistribution(measure: number[]){
     /* 
     measure is an array of numbers. measure[i] corresponds to the probability that detailed question i is chosen. We construct the distribution
     by mapping the sum of the elements A[0]+...+A[i] to B[i]
