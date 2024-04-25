@@ -6,7 +6,6 @@ export type UserResponsesType = {
 
 interface UserResponsesContextType {
     responses: UserResponsesType;
-    //setResponses: (responses: UserResponsesType) => void;
     setResponses: React.Dispatch<React.SetStateAction<UserResponsesType>>;
 }
 
