@@ -32,7 +32,8 @@ const DetailedQuestions = () => {
       displayInfo(responseVec);
       const sampledQuestions = publishDetailedQuestions(data, responseVec, 25);
       setDetailedQuestions(sampledQuestions);
-    },[data, responses]);
+      // eslint-disable-next-line react-hooks/exhaustive-deps
+    },[]);
 
     return (
       <div>
