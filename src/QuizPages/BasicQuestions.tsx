@@ -1,6 +1,7 @@
-import React, { useState } from "react";
+import React, {useState} from "react";
 import questions from "../data/questions.json";
 import { FormatQuestion } from "../components/formatQuestion";
+import { UserResponsesProvider, UserResponsesType, useUserResponses } from "../contexts/UserResponsesContext";
 import ProgressBar from "../components/progressBar";
 
 interface BasicQuestionProp {
@@ -10,12 +11,16 @@ interface BasicQuestionProp {
   published: boolean
 }
 
+export type userResponseType = {
+  [key: number]: string;
+}
+
 const data = JSON.parse(JSON.stringify(questions))
 const BasicQuestions = () => {
+    
+  //const [userResponses, setUserResponse] = useState<userResponseType>({});
+  const {responses, setResponses} = useUserResponses();
 
-
-
-  
   const [progress, setProgress] = useState(0);
  
   const updateProgress = (newProgress: number) => {
@@ -24,7 +29,16 @@ const BasicQuestions = () => {
   const handleProgressMade = () => {
     updateProgress(10);
   };
-  
+
+  const handleChoiceChange = (id: number) => (value: string) => {
+      setResponses((prev:UserResponsesType) => {
+        const updatedResponses = {...prev, [id]:value};
+        console.log('New Responses:', updatedResponses);
+        return updatedResponses;
+        
+      });
+  }
+
     return (
       <div>
         <h1>Basic Questions Quiz</h1>
@@ -32,12 +46,16 @@ const BasicQuestions = () => {
         <div>
         <p>Basic Questions begin here</p> 
         {data.BASIC_QUESTIONS.map((q: BasicQuestionProp) => (
-          <p>
-          <FormatQuestion question={q} options={["Neutral","Strongly Disagree", "Disagree", "Agree", "Strongly Agree"]}></FormatQuestion>
-          </p>
-    ))}
+          <div>
+          <FormatQuestion 
+            key={q.id}
+            question={q} 
+            options={["Neutral","Strongly Disagree", "Disagree", "Agree", "Strongly Agree"]}
+            onChoiceChange={handleChoiceChange(q.id)}
+            ></FormatQuestion>
+          </div>
+    ))};
         </div>
-        <button onClick={handleProgressMade}>Next</button>
       </div>
     );
   };

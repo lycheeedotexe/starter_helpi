@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 //import logo from './logo.svg';
 import './App.css';
 import { Button, Form } from 'react-bootstrap';
+import {UserResponsesProvider} from './contexts/UserResponsesContext'
 import {HomePage} from "./QuizPages/HomePage";
 
 //local storage and API Key: key should be entered in by the user and will be stored in local storage (NOT session storage)
@@ -26,6 +27,7 @@ function App() {
   }
 
   return (
+    <UserResponsesProvider>
     <div className="App">
       <header className="App-header">
         <HomePage></HomePage>
@@ -38,6 +40,7 @@ function App() {
         <Button className="Submit-Button" onClick={handleSubmit}>Submit</Button>
       </Form>
     </div>
+    </UserResponsesProvider>
   );
 }
 
