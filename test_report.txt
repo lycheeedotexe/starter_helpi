@@ -42,7 +42,7 @@
       at runCLI (node_modules/@jest/core/build/cli/index.js:173:3)
 
 FAIL src/App.test.tsx
-  ✕ renders learn react link (68 ms)
+  ✕ renders learn react link (70 ms)
 
   ● renders learn react link
 
@@ -59,12 +59,12 @@ FAIL src/App.test.tsx
           [36m>[39m
             [36m<div>[39m
               [36m<h1>[39m
-                [0mCareer Quiz Home Page[0m
+                [0mCareer Guide[0m
               [36m</h1>[39m
               [36m<p[39m
                 [33mclass[39m=[32m"style1"[39m
               [36m>[39m
-                [0mAre you lost in the sauce? Do you have NO IDEA what you want to do? Our basic career quiz is right for you, click to get started![0m
+                [0mWith so many careers to choose from do you have NO IDEA what you want to do? Our basic career quiz is right for you, click to get started![0m
                 [36m<div>[39m
                   [0m [0m
                   [36m<button[39m
@@ -141,22 +141,24 @@ FAIL src/App.test.tsx
 ------------------------|---------|----------|---------|---------|-------------------
 File                    | % Stmts | % Branch | % Funcs | % Lines | Uncovered Line #s 
 ------------------------|---------|----------|---------|---------|-------------------
-All files               |   30.76 |    38.46 |   16.66 |   30.76 |                   
- src                    |   28.57 |    16.66 |      20 |   28.57 |                   
+All files               |   12.28 |    15.62 |    4.54 |   13.72 |                   
+ src                    |    7.69 |     3.84 |     3.7 |    8.82 |                   
   App.tsx               |      60 |       50 |   33.33 |      60 | 12,19-25          
+  QuestionSelection.ts  |       0 |        0 |       0 |       0 | 34-162            
   index.tsx             |       0 |      100 |     100 |       0 | 7-19              
   reportWebVitals.ts    |       0 |        0 |       0 |       0 | 3-10              
- src/QuizPages          |      40 |    66.66 |   16.66 |      40 |                   
-  BasicQuestions.tsx    |      50 |      100 |       0 |      50 | 5                 
-  DetailedQuestions.tsx |      50 |      100 |       0 |      50 | 4                 
+ src/QuizPages          |   24.13 |    66.66 |    7.69 |   25.92 |                   
+  BasicQuestions.tsx    |      20 |      100 |       0 |   22.22 | 19-35             
+  DetailedQuestions.tsx |    12.5 |      100 |       0 |   14.28 | 4-13              
   HomePage.tsx          |   36.36 |    66.66 |      25 |   36.36 | 13-25             
- src/components         |       0 |        0 |       0 |       0 |                   
-  progress_bar.tsx      |       0 |        0 |       0 |       0 | 6-9               
+ src/components         |   14.28 |      100 |       0 |   14.28 |                   
+  formatQuestion.tsx    |       0 |      100 |       0 |       0 | 12-24             
+  progressBar.tsx       |   33.33 |      100 |       0 |   33.33 | 9-19              
 ------------------------|---------|----------|---------|---------|-------------------
 Test Suites: 1 failed, 1 total
 Tests:       1 failed, 1 total
 Snapshots:   0 total
-Time:        2.882 s
+Time:        3.157 s
 Ran all test suites.
 [0;33mOne of your dependencies, babel-preset-react-app, is importing the
 "@babel/plugin-proposal-private-property-in-object" package without
