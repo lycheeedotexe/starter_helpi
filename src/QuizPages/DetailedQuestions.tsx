@@ -17,7 +17,7 @@ const DetailedQuestions = () => {
     }
 
     useEffect(() => {
-      console.log(data);
+      console.log(`Responses are ${JSON.stringify(responses, null, 2)}`);
       const sampledQuestions = publishDetailedQuestions(data, getResponseVector(responses), 25);
       setDetailedQuestions(sampledQuestions);
     }, []);

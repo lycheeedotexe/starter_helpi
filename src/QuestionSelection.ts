@@ -51,7 +51,10 @@ function jobsInAgreement(data: DataStorage, basicQuestionId: number, userRespons
    //have any basic questions we want. We still have to consider the question design, but it may be a better approximation of the user interest
    //if we can have jobs which are neutral with respect to basic questions. It opens up a lot more design space, i.e. more possible basic questions
    //since the definition allows for a broader classification of questions
-    const responseType = userResponse > 0 ? 1 : -1;
+   if(userResponse === 0){
+     return data.JOBS;
+   } 
+   const responseType = userResponse > 0 ? 1 : -1;
     return data.JOBS.filter(job => job.partitionVector[basicQuestionId] === responseType);
 }
 
@@ -64,7 +67,6 @@ function jobsNotInAgreement(data: DataStorage, basicQuestionId: number, userResp
 }
 
 export function DetailedQuestionsInAgreement(jobSet:Job[]): number[]{
-    //const jobSetA = jobsInAgreement(data, basicQuestionId,userResponse);
     var questionSet = new Set<number>();
     jobSet.forEach(job => {
             job.relatedDetailedQuestions.filter((questionId: number) => questionId > 50).forEach(questionId => questionSet.add(questionId))

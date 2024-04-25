@@ -6,7 +6,7 @@ describe('generateDetailedQuestions', () => {
     it('should publish the correct number of questions', () => {
         const mockData = JSON.parse(JSON.stringify(questions));
 
-        const responseVector = [.5, 1, 1, 1, 1, 1, -1]; 
+        const responseVector = [0, 1, 1, 1, -1, 1, -1]; 
         const numQuestions = 25;
 
         const publishedQuestions = publishDetailedQuestions(mockData, responseVector, numQuestions);
