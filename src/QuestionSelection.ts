@@ -47,10 +47,6 @@ function jobsInAgreement(data: DataStorage, basicQuestionId: number, userRespons
 
     If the userResponse is positive, then the jobs in agreement are the ones whose ith component of the partition vector is a 1
     */
-   //it might be better in terms of accuracy of results if allow the partition vector to take three values -1, 0, 1. Then, we can pretty much 
-   //have any basic questions we want. We still have to consider the question design, but it may be a better approximation of the user interest
-   //if we can have jobs which are neutral with respect to basic questions. It opens up a lot more design space, i.e. more possible basic questions
-   //since the definition allows for a broader classification of questions
    if(userResponse === 0){
      return data.JOBS;
    } 
