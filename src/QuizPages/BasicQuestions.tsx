@@ -1,7 +1,7 @@
 import React, {useState} from "react";
 import questions from "../data/questions.json";
 import { FormatQuestion } from "../components/formatQuestion";
-import { UserResponsesProvider, UserResponsesType, useUserResponses } from "../contexts/UserResponsesContext";
+import { UserResponsesType, useUserResponses } from "../contexts/UserResponsesContext";
 import ProgressBar from "../components/progressBar";
 
 interface BasicQuestionProp {
@@ -20,7 +20,7 @@ const BasicQuestions = () => {
     
   //const [userResponses, setUserResponse] = useState<userResponseType>({});
   const {responses, setResponses} = useUserResponses();
-
+  console.log(responses)
   const [progress, setProgress] = useState(0);
  
   const updateProgress = (newProgress: number) => {
