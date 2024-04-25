@@ -116,7 +116,7 @@ export function constructFinalMeasure(data: DataStorage, responseVector: number[
     const baseMeasure = makeUniformMeasure(data.DETAILED_QUESTIONS.length);
     var iterativeMeasure = [...baseMeasure];
     for(var i = 0; i < responseVector.length; i++){
-        console.log(`\n measure says P(D) = ${iterativeMeasure.reduce((acc, entry, index) => acc + entry, 0 )}\n`)
+        //console.log(`\n measure says P(D) = ${iterativeMeasure.reduce((acc, entry, index) => acc + entry, 0 )}\n`)
         iterativeMeasure = updateMeasure(iterativeMeasure, responseVector[i], jobsInAgreement(data,i,responseVector[i]), jobsNotInAgreement(data,i,responseVector[i]));
     };
     return [...iterativeMeasure];

@@ -5,7 +5,7 @@ import questions from "../data/questions.json";
 import { getResponseVector } from "../getResponseVector";
 import {UserResponsesContext} from '../contexts/UserResponsesContext'
 import { userResponseType } from "./BasicQuestions";
-
+import { displayInfo } from "../consoleDisplays";
 const DetailedQuestions = () => {
     const [DetailedQuestions, setDetailedQuestions] = useState<DetailedQuestion[]>([]);
     const {responses} = useContext(UserResponsesContext);
@@ -17,8 +17,10 @@ const DetailedQuestions = () => {
     }
 
     useEffect(() => {
+      const responseVec = getResponseVector(responses);
       console.log(`Responses are ${JSON.stringify(responses, null, 2)}`);
-      const sampledQuestions = publishDetailedQuestions(data, getResponseVector(responses), 25);
+      displayInfo(responseVec);
+      const sampledQuestions = publishDetailedQuestions(data, responseVec, 25);
       setDetailedQuestions(sampledQuestions);
     }, []);
 
