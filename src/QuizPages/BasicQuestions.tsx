@@ -2,6 +2,7 @@ import React, {useState} from "react";
 import questions from "../data/questions.json";
 import { FormatQuestion } from "../components/formatQuestion";
 import { UserResponsesProvider, UserResponsesType, useUserResponses } from "../contexts/UserResponsesContext";
+import ProgressBar from "../components/progressBar";
 
 interface BasicQuestionProp {
   id: number,
@@ -33,6 +34,7 @@ const BasicQuestions = () => {
       <UserResponsesProvider>
       <div>
         <h1>Basic Questions Quiz</h1>
+        <ProgressBar progress={progress} progressText={`${progress}%`} />
         <div>
         <p>Basic Questions begin here</p> 
         {data.BASIC_QUESTIONS.map((q: BasicQuestionProp) => (
