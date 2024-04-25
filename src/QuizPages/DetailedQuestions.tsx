@@ -32,7 +32,7 @@ const DetailedQuestions = () => {
       displayInfo(responseVec);
       const sampledQuestions = publishDetailedQuestions(data, responseVec, 25);
       setDetailedQuestions(sampledQuestions);
-    }, []);
+    },);
 
     return (
       <div>
