@@ -1,11 +1,10 @@
-import { publishDetailedQuestions, constructDistribution, constructFinalMeasure, Job, DetailedQuestionsInAgreement} from './QuestionSelection';
+import { constructFinalMeasure, Job, DetailedQuestionsInAgreement} from './QuestionSelection';
 import questions from './data/questions.json'
 
 export function displayInfo(responseVector: number[]) {
     console.log(`Responce vector is: ${responseVector}`)
     const dataCopy = JSON.parse(JSON.stringify(questions));
     const testMeasure = constructFinalMeasure(dataCopy, responseVector);
-    const testDistribution = constructDistribution(testMeasure);
         //the jobs are split into clusters of 5 jobs each. So (5k + 1, ..., 5*k + 5) corresponds to a cluster of jobs
         const jobClusters: Record<number, string> = {
             1:"Technology",
