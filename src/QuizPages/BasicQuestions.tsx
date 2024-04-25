@@ -43,6 +43,7 @@ const BasicQuestions = () => {
       <div>
         <h1>Basic Questions Quiz</h1>
         <ProgressBar progress={progress} progressText={`${progress}%`} />
+        <button onClick={handleProgressMade}>Next</button>
         <div>
         <p>Basic Questions begin here</p> 
         {data.BASIC_QUESTIONS.map((q: BasicQuestionProp) => (

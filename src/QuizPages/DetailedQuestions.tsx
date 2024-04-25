@@ -11,11 +11,10 @@ import { displayInfo } from "../consoleDisplays";
 const DetailedQuestions = () => {
     const [DetailedQuestions, setDetailedQuestions] = useState<DetailedQuestion[]>([]);
     const {responses} = useContext(UserResponsesContext);
-    const [userResponses, setUserResponse] = useState<userResponseType>({});
+    const [userResponses, setUserResponse] = useState<userResponseType>({}); 
     const [progress, setProgress] = useState(0);
-
+    console.log(userResponses);
     const data = JSON.parse(JSON.stringify(questions))
-
     const handleChoiceChange = (id: number) => (value: string) => {
       setUserResponse(prev => ({...prev, [id]:value }));
     }
