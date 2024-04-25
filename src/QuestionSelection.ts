@@ -133,7 +133,7 @@ export function constructDistribution(measure: number[]){
 function sampleQuestion(data: DataStorage, dist: number[]){
 
     const r = Math.random();
-    return dist.findIndex(element => element >= r );
+    return dist.findIndex(element => element >= r ) + 1;
 }
 
 export function publishDetailedQuestions(data: DataStorage, responseVector: number[], numQuestions: number): DetailedQuestion[]{
