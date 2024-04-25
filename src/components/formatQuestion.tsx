@@ -5,12 +5,6 @@ import { Form } from "react-bootstrap";
 
 type questionType = BasicQuestion | DetailedQuestion;
 
-interface FormatQuestionProps {
-    question: questionType;
-    options: string[];
-    onChoiceChange: (value: string) => void;
-}
-
 export function FormatQuestion({
     question,
     options,
