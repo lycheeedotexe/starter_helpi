@@ -1,4 +1,5 @@
 import React, {useState, useEffect, useContext} from "react";
+import ProgressBar from "../components/progressBar";
 import {DetailedQuestion, publishDetailedQuestions} from '../QuestionSelection'
 import { FormatQuestion } from "../components/formatQuestion";
 import questions from "../data/questions.json";
@@ -6,15 +7,25 @@ import { getResponseVector } from "../getResponseVector";
 import {UserResponsesContext} from '../contexts/UserResponsesContext'
 import { userResponseType } from "./BasicQuestions";
 import { displayInfo } from "../consoleDisplays";
+
 const DetailedQuestions = () => {
     const [DetailedQuestions, setDetailedQuestions] = useState<DetailedQuestion[]>([]);
     const {responses} = useContext(UserResponsesContext);
     const [userResponses, setUserResponse] = useState<userResponseType>({});
+    const [progress, setProgress] = useState(0);
+
     const data = JSON.parse(JSON.stringify(questions))
 
     const handleChoiceChange = (id: number) => (value: string) => {
       setUserResponse(prev => ({...prev, [id]:value }));
     }
+
+    const updateProgress = (newProgress: number) => {
+      setProgress(oldProgress => Math.min(Math.max(0, oldProgress + newProgress), 100));
+    }
+    const handleProgressMade = () => {
+      updateProgress(10);
+    };
 
     useEffect(() => {
       const responseVec = getResponseVector(responses);
@@ -27,8 +38,11 @@ const DetailedQuestions = () => {
     return (
       <div>
       <h1>Detailed Questions Quiz</h1>
+      
       <div>
       <p>Detailed Questions begin here</p> 
+      <ProgressBar progress={progress} progressText={`${progress}%`} />
+        <button onClick={handleProgressMade}>Next</button>
       {DetailedQuestions.map((q: DetailedQuestion) => (
         <div>
         <FormatQuestion 

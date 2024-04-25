@@ -21,6 +21,15 @@ const BasicQuestions = () => {
   //const [userResponses, setUserResponse] = useState<userResponseType>({});
   const {responses, setResponses} = useUserResponses();
 
+  const [progress, setProgress] = useState(0);
+ 
+  const updateProgress = (newProgress: number) => {
+    setProgress(oldProgress => Math.min(Math.max(0, oldProgress + newProgress), 100));
+  }
+  const handleProgressMade = () => {
+    updateProgress(10);
+  };
+
   const handleChoiceChange = (id: number) => (value: string) => {
       setResponses((prev:UserResponsesType) => {
         const updatedResponses = {...prev, [id]:value};
@@ -31,7 +40,6 @@ const BasicQuestions = () => {
   }
 
     return (
-      <UserResponsesProvider>
       <div>
         <h1>Basic Questions Quiz</h1>
         <ProgressBar progress={progress} progressText={`${progress}%`} />
@@ -49,7 +57,6 @@ const BasicQuestions = () => {
     ))};
         </div>
       </div>
-      </UserResponsesProvider>
     );
   };
   
