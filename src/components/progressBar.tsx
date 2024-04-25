@@ -1,22 +1,29 @@
 import React from "react";
-export type ProgressBarProps = {
-    progress: number;
-    progressText?: string;
+
+interface ProgressBarProps {
+  progress: number;
+  progressText: string;
+}
+
+const ProgressBar: React.FC<ProgressBarProps> = ({ progress, progressText }) => {
+  const progressBarStyle = {
+    width: `${progress}%`,
+    backgroundColor: 'blue', 
+    height: '25px', 
+    
+    lineHeight: '25px', 
+    color: 'white', 
+    borderRadius: '5px', 
+    transition: 'width 0.5s ease-in-out' 
   };
-  const ProgressBar = ({ progress, progressText = "" }: ProgressBarProps) => {
-    // Make sure our value stays between 0 and 100.
-    const _progress = Math.min(Math.max(0, progress), 100);
-    return (
-      <div className="flex flex-col items-end justify-start">
-        <div className="w-full border-2 border-indigo-700 h-6 rounded-md">
-          <div
-            className="bg-indigo-500 h-full transition-all duration-250"
-            style={{ width: `${_progress}%` }}
-          ></div>
-        </div>
-        <span>{progressText}</span>
+  return (
+    <div className="progress-bar-container" style={{ width: '100%', backgroundColor: '#ddd', borderRadius: '5px', overflow: 'hidden' }}>
+      <div className="progress-bar" style={progressBarStyle}>
+        {progressText}
       </div>
-    );
-  };
+    </div>
+  );
+};
+
   
   export default ProgressBar;
