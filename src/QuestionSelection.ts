@@ -1,5 +1,6 @@
+
 //where question selection code will go
-interface Job {
+export interface Job {
     id: number,
     name: string,
     relatedDetailedQuestions: number[], //the id of the related questions goes here
@@ -46,11 +47,10 @@ function jobsInAgreement(data: DataStorage, basicQuestionId: number, userRespons
 
     If the userResponse is positive, then the jobs in agreement are the ones whose ith component of the partition vector is a 1
     */
-   //it might be better in terms of accuracy of results if allow the partition vector to take three values -1, 0, 1. Then, we can pretty much 
-   //have any basic questions we want. We still have to consider the question design, but it may be a better approximation of the user interest
-   //if we can have jobs which are neutral with respect to basic questions. It opens up a lot more design space, i.e. more possible basic questions
-   //since the definition allows for a broader classification of questions
-    const responseType = userResponse > 0 ? 1 : 0;
+   if(userResponse === 0){
+     return data.JOBS;
+   } 
+   const responseType = userResponse > 0 ? 1 : -1;
     return data.JOBS.filter(job => job.partitionVector[basicQuestionId] === responseType);
 }
 
@@ -62,11 +62,10 @@ function jobsNotInAgreement(data: DataStorage, basicQuestionId: number, userResp
     return jobsInAgreement(data, basicQuestionId, -1*userResponse);
 }
 
-function DetailedQuestionsInAgreement(jobSet:Job[]): number[]{
-    //const jobSetA = jobsInAgreement(data, basicQuestionId,userResponse);
+export function DetailedQuestionsInAgreement(jobSet:Job[]): number[]{
     var questionSet = new Set<number>();
     jobSet.forEach(job => {
-            job.relatedDetailedQuestions.forEach(questionId => questionSet.add(questionId))
+            job.relatedDetailedQuestions.filter((questionId: number) => questionId > 50).forEach(questionId => questionSet.add(questionId))
     })
     return Array.from(questionSet); 
 }
@@ -79,39 +78,47 @@ function makeUniformMeasure(numDetailedQuestions: number): number[]{
     return new Array(numDetailedQuestions).fill(entryVal);
 }
 
-function updateMeasure(prevMeasure: number[], userResponse: number, jobSetA: Job[], jobSetB: Job[]): number[]{
-    if(userResponse === 0){
+function updateMeasure(prevMeasure: number[], userResponse: number, jobSetA: Job[], jobSetB: Job[]): number[] {
+    if (userResponse === 0) {
         return [...prevMeasure];
     }
-    else if(userResponse < 0){
-        return updateMeasure(prevMeasure, -1*userResponse, jobSetB, jobSetA)
+    if(userResponse < 0){
+        return updateMeasure(prevMeasure, -1*userResponse, jobSetB, jobSetA);
     }
+
     const tempA = DetailedQuestionsInAgreement(jobSetA);
     const tempB = DetailedQuestionsInAgreement(jobSetB);
 
-    const indexSetA = A_without_B(tempA, tempB); 
+    const indexSetA = A_without_B(tempA, tempB);
     const indexSetB = A_without_B(tempB, tempA);
-    
-    const measureToBeRemoved = prevMeasure.reduce((acc, current, index): number => indexSetB.includes(index) ? acc + current : acc) * (1-userResponse)
 
-    return prevMeasure.map(
-            entry => (indexSetA.includes(entry) || indexSetB.includes(entry)) ? 
-            (indexSetA.includes(entry)? entry + (1-userResponse)*measureToBeRemoved / indexSetA.length : userResponse*entry)
-            : entry
+    const measureToBeRemoved = prevMeasure.reduce((acc, current, index) => {
+        return indexSetB.includes(index + 1) ? acc + current : acc; 
+    }, 0) * userResponse; 
 
-    )
+    return prevMeasure.map((entry, index) => {
+        if (indexSetA.includes(index + 1) || indexSetB.includes(index + 1)) {
+            if (indexSetA.includes(index + 1)) {
+                return entry + (measureToBeRemoved / indexSetA.length);
+            } else {
+                return entry * (1 - userResponse);
+            }
+        }
+        return entry; 
+    });
 }
 
-function constructFinalMeasure(data: DataStorage, responseVector: number[]){
+export function constructFinalMeasure(data: DataStorage, responseVector: number[]){
     const baseMeasure = makeUniformMeasure(data.DETAILED_QUESTIONS.length);
     var iterativeMeasure = [...baseMeasure];
     for(var i = 0; i < responseVector.length; i++){
+        //console.log(`\n measure says P(D) = ${iterativeMeasure.reduce((acc, entry, index) => acc + entry, 0 )}\n`)
         iterativeMeasure = updateMeasure(iterativeMeasure, responseVector[i], jobsInAgreement(data,i,responseVector[i]), jobsNotInAgreement(data,i,responseVector[i]));
     };
     return [...iterativeMeasure];
 }
 
-function constructDistribution(measure: number[]){
+export function constructDistribution(measure: number[]){
     /* 
     measure is an array of numbers. measure[i] corresponds to the probability that detailed question i is chosen. We construct the distribution
     by mapping the sum of the elements A[0]+...+A[i] to B[i]
@@ -122,7 +129,7 @@ function constructDistribution(measure: number[]){
 function sampleQuestion(data: DataStorage, dist: number[]){
 
     const r = Math.random();
-    return dist.findIndex(element => element >= r );
+    return dist.findIndex(element => element >= r ) + 1;
 }
 
 export function publishDetailedQuestions(data: DataStorage, responseVector: number[], numQuestions: number): DetailedQuestion[]{
@@ -144,19 +151,10 @@ export function publishDetailedQuestions(data: DataStorage, responseVector: numb
     while(numSampled < numQuestions){
         const currentId = sampleQuestion(copyOfData, dist);
         const question = copyOfData.DETAILED_QUESTIONS.find((q: DetailedQuestion) => q.id === currentId);
-        if(question.published === false){
+        if(question && question.published === false){
             question.published = true;
             numSampled = numSampled + 1;
         }
     }
     return copyOfData.DETAILED_QUESTIONS.filter((q:DetailedQuestion) => q.published === true);
 }
-
-
-
-
-
-
-
-
-
