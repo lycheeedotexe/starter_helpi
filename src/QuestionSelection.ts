@@ -99,6 +99,9 @@ function updateMeasure(prevMeasure: number[], userResponse: number, jobSetA: Job
     How the function works is for every question d in jobSetB we reduce the probability of d being chosen by constructing 
     a new measure and setting newMeasure({d}) = (1-r)*prevMeasure({d}). So if the user strongly agrees (r = 1), then we reduce 
     the probability of detailed quesitons in disagreement from being chosen to 0.
+
+   Then, we look at the total probability removed from the questions not in agreement, divide that value by the number of 
+    questions in agreement, and then update the measure of each question in agreement accordingly
     */
     if (userResponse === 0) {
         return [...prevMeasure];
