@@ -63,6 +63,11 @@ function jobsNotInAgreement(data: DataStorage, basicQuestionId: number, userResp
 }
 
 export function DetailedQuestionsInAgreement(jobSet:Job[]): number[]{
+    /*
+    (jobSet: Job[]) Some subset of the job set. 
+
+    returns the array of detailed questions which related to at least one job in jobSet.
+    */
     var questionSet = new Set<number>();
     jobSet.forEach(job => {
             job.relatedDetailedQuestions.filter((questionId: number) => questionId > 50).forEach(questionId => questionSet.add(questionId))
@@ -79,6 +84,22 @@ function makeUniformMeasure(numDetailedQuestions: number): number[]{
 }
 
 function updateMeasure(prevMeasure: number[], userResponse: number, jobSetA: Job[], jobSetB: Job[]): number[] {
+    /*
+    (prevMeasure: number) is an array of numbers of size equal to the number of detailed questions
+    and it is used to encode a probability measure. 
+
+    (userResponse: number) is some userResponse
+
+    (jobSetA: Job[]) is the set of jobs which are in agreement with the the user response to the question
+
+    (jobSetB: Job[]) is the set of jobs which are not in agreement with the user response to the question
+
+    To understand this function assume, r > 0 as if r = 0 then nothing is changed. If r < 0, then jobSetA(r) = jobSetB(-r), 
+    so we can just call updateMeasure(prevMeasure, -userResponse, jobSetB, jobSetA) to obtain a case where r > 0.
+    How the function works is for every question d in jobSetB we reduce the probability of d being chosen by constructing 
+    a new measure and setting newMeasure({d}) = (1-r)*prevMeasure({d}). So if the user strongly agrees (r = 1), then we reduce 
+    the probability of detailed quesitons in disagreement from being chosen to 0.
+    */
     if (userResponse === 0) {
         return [...prevMeasure];
     }
@@ -109,6 +130,14 @@ function updateMeasure(prevMeasure: number[], userResponse: number, jobSetA: Job
 }
 
 export function constructFinalMeasure(data: DataStorage, responseVector: number[]){
+    /*
+    (data: DataStorage) is the argument we use to pass the questions.json file
+    (responseVector: number[]) is the argument we use to pass in the user responses to the basic questions
+
+    This function first constructs a uniform measure on the set of detailed questions, then uses the updateMeasure function iteratively
+    so that \mu_{i+1} = UpdateMeasure(\mu_{i}, responseVector[i], ...correspondingJobSets). The end result is a probability measure on 
+    the set of detailed questions which should more accurately reflect the users interests.
+    */
     const baseMeasure = makeUniformMeasure(data.DETAILED_QUESTIONS.length);
     var iterativeMeasure = [...baseMeasure];
     for(var i = 0; i < responseVector.length; i++){
@@ -134,9 +163,9 @@ function sampleQuestion(data: DataStorage, dist: number[]){
 
 export function publishDetailedQuestions(data: DataStorage, responseVector: number[], numQuestions: number): DetailedQuestion[]{
     /*
-        data: a copy of the JSON file where all of our questions are stored
-        responseVector: a vector of numbers corresponding to the user responses to the detailed questions
-        numQuestions: the number of detailed questions we want to include in our quiz
+        (data: DataStorage) is the argument we use to pass the questions.json file
+        (responseVector: number[]) is the argument we use to pass in the user responses to the basic questions
+        (numQuestions: number) the number of detailed questions we want to include in our quiz
         
         This function uses the constructDistribution and constructFinalMeasure functions to obtain a probability 
         distribution on the set of detailed questions. It then generates random numbers and uses them to sample question

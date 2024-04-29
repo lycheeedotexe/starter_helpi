@@ -29,7 +29,8 @@ export function displayInfo(responseVector: number[]) {
     console.log(`measure says P(D) = ${testMeasure.reduce((acc, entry, index) => acc + entry, 0 )}`)
     console.log(`The test measure is: `)
     console.log(testMeasure);
-    // Additional tests...
+    //We display the measure of the set of detailed questions related to each cluster. This corresponds to the probability of 
+    //one of the questions related to the cluster being chosen for each sample we take. 
     const clusterProbability = (k: number): number=>{
         const questionIDs = relatedQuestions(k);
         return questionIDs.reduce((acc, i) => acc + testMeasure[i-1], 0.0);
