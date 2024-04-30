@@ -3,6 +3,7 @@ import { Button } from "react-bootstrap";
 //import { render, screen } from "@testing-library/react";
 import BasicQuestions from "../QuizPages/BasicQuestions";
 import DetailedQuestions from "../QuizPages/DetailedQuestions";
+import "./HomePage.css";
 
 export function HomePage(): JSX.Element{
   const [showHome, updateShowHome] = useState<boolean>(true);
@@ -27,6 +28,7 @@ export function HomePage(): JSX.Element{
     // Make sure to return some JSX here
     return (
       <div>
+        <div>
         {showHome && (
           <>
             <h1>Career Guide</h1>
@@ -51,6 +53,7 @@ export function HomePage(): JSX.Element{
             <Button onClick={clickHome}>Return Home</Button>
           </>
         )}
+        </div>
       </div>
     );
   };

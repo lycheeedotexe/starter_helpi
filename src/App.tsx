@@ -4,6 +4,7 @@ import './App.css';
 import { Button, Form } from 'react-bootstrap';
 import {UserResponsesProvider} from './contexts/UserResponsesContext'
 import {HomePage} from "./QuizPages/HomePage";
+import banner from "./image assets/banner 3.png";
 
 //local storage and API Key: key should be entered in by the user and will be stored in local storage (NOT session storage)
 let keyData = "";
@@ -29,10 +30,12 @@ function App() {
   return (
     <UserResponsesProvider>
     <div className="App">
-      <header className="App-header">
-        <HomePage></HomePage>
+      <header className='App-header'>
+        <img src={banner} alt="Banner and Title" className='App-header-image'/>
       </header>
-      
+      <div className='App-body'>
+        <HomePage></HomePage>
+      </div>
       <Form>
         <Form.Label>API Key:</Form.Label>
         <Form.Control type="password" placeholder="Insert API Key Here" onChange={changeKey}></Form.Control>
