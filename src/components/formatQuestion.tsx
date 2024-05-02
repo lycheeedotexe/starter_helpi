@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { BasicQuestion,DetailedQuestion } from "../QuestionSelection";
+import { BasicQuestion,DetailedQuestion } from "../QuizFunctions/QuestionSelection";
 import { Form } from "react-bootstrap";
 
 
