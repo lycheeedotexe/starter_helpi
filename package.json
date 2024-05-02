@@ -1,4 +1,5 @@
 {
+  "type": "module",
   "name": "starter_helpi",
   "version": "0.1.0",
   "private": true,
@@ -12,7 +13,7 @@
     "@types/react-dom": "^18.2.18",
     "bootstrap": "^5.3.2",
     "gh-pages": "^6.1.1",
-    "openai": "^4.40.0",
+    "openai": "^4.40.1",
     "react": "^18.2.0",
     "react-bootstrap": "^2.10.1",
     "react-dom": "^18.2.0",
