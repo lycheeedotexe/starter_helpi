@@ -26,6 +26,15 @@
   width: 100%;
 }
 .App-body {
+  background-image: url('image assets/dark-timber-desk-texture_1194-6756-3544321955.jpg');
+  /* background-image: url('image assets/spiral-notebook-paper-texture.jpg');
+  background-size: 100%;
+  background-repeat: no-repeat;
+  margin-left: auto;
+  margin-right: auto;
+  height: 100%;
+  width: 100%; */
+
   background-color: #84A59D;
   min-height: 100vh;
   display: flex;
