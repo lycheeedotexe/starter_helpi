@@ -1,27 +1,10 @@
-// sample.test.ts
-import { publishDetailedQuestions, constructDistribution, constructFinalMeasure, Job, DetailedQuestionsInAgreement} from './QuestionSelection';
-import questions from './data/questions.json'
+import { constructFinalMeasure, Job, DetailedQuestionsInAgreement} from './QuestionSelection';
+import questions from '../data/questions.json'
 
-describe('generateDetailedQuestions', () => {
-    it('should publish the correct number of questions', () => {
-        const mockData = JSON.parse(JSON.stringify(questions));
-
-        const responseVector = [0, 1, 1, 1, -1, 1, -1]; 
-        const numQuestions = 25;
-
-        const publishedQuestions = publishDetailedQuestions(mockData, responseVector, numQuestions);
-
-        const publishedQuestionCount = publishedQuestions.length;
-        expect(publishedQuestionCount).toBe(numQuestions);
-        //Testing the effectiveness of the system
-        publishedQuestions.forEach(question => {
-            console.log(question.body);
-        });
-
-        //testing the make measure
-        const testMeasure = constructFinalMeasure(mockData, responseVector);
-        const testDistribution = constructDistribution(testMeasure);
-        
+export function displayInfo(responseVector: number[]) {
+    console.log(`Responce vector is: ${responseVector}`)
+    const dataCopy = JSON.parse(JSON.stringify(questions));
+    const testMeasure = constructFinalMeasure(dataCopy, responseVector);
         //the jobs are split into clusters of 5 jobs each. So (5k + 1, ..., 5*k + 5) corresponds to a cluster of jobs
         const jobClusters: Record<number, string> = {
             1:"Technology",
@@ -39,13 +22,15 @@ describe('generateDetailedQuestions', () => {
         const relatedQuestions = (k: number): number[] =>{
             const clusterID = (k-1) % 10;
             const clusterKeys = [5*clusterID + 1, 5* clusterID+2, 5*clusterID+3,5*clusterID+4,5*clusterID+5];
-            return DetailedQuestionsInAgreement(mockData.JOBS.filter((j: Job) => clusterKeys.includes(j.id)));
+            return DetailedQuestionsInAgreement(dataCopy.JOBS.filter((j: Job) => clusterKeys.includes(j.id)));
     };
 
     //comfirming that the measure is a probability measure
     console.log(`measure says P(D) = ${testMeasure.reduce((acc, entry, index) => acc + entry, 0 )}`)
-
-    // Additional tests...
+    console.log(`The test measure is: `)
+    console.log(testMeasure);
+    //We display the measure of the set of detailed questions related to each cluster. This corresponds to the probability of 
+    //one of the questions related to the cluster being chosen for each sample we take. 
     const clusterProbability = (k: number): number=>{
         const questionIDs = relatedQuestions(k);
         return questionIDs.reduce((acc, i) => acc + testMeasure[i-1], 0.0);
@@ -54,5 +39,5 @@ describe('generateDetailedQuestions', () => {
         console.log(`Total probability of picking a question related to ${jobClusters[k]}`)
         console.log(clusterProbability(k))
     }
-})
-});
+}
+

@@ -1,12 +1,12 @@
 import React, {useState, useEffect, useContext} from "react";
 import ProgressBar from "../components/progressBar";
-import {DetailedQuestion, publishDetailedQuestions} from '../QuestionSelection'
+import {DetailedQuestion, publishDetailedQuestions} from '../QuizFunctions/QuestionSelection'
 import { FormatQuestion } from "../components/formatQuestion";
 import questions from "../data/questions.json";
-import { getResponseVector } from "../getResponseVector";
+import { getResponseVector } from "../QuizFunctions/getResponseVector";
 import {UserResponsesContext} from '../contexts/UserResponsesContext'
 import { userResponseType } from "./BasicQuestions";
-import { displayInfo } from "../consoleDisplays";
+import { displayInfo } from "../QuizFunctions/consoleDisplays";
 
 const DetailedQuestions = () => {
     const [DetailedQuestions, setDetailedQuestions] = useState<DetailedQuestion[]>([]);

@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { Form } from "react-bootstrap";
-import { BasicQuestion } from "../QuestionSelection";
+import { BasicQuestion } from "../QuizFunctions/QuestionSelection";
 
 export function FormatQuestion({
     question,
