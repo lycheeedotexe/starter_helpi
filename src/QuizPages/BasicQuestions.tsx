@@ -18,7 +18,6 @@ export type userResponseType = {
 const data = JSON.parse(JSON.stringify(questions))
 const BasicQuestions = () => {
     
-  //const [userResponses, setUserResponse] = useState<userResponseType>({});
   const {responses, setResponses} = useUserResponses();
   console.log(responses)
   const [progress, setProgress] = useState(0);
@@ -51,7 +50,7 @@ const BasicQuestions = () => {
           <FormatQuestion 
             key={q.id}
             question={q} 
-            options={["Neutral","Strongly Disagree", "Disagree", "Agree", "Strongly Agree"]}
+            options={[" ", "Neutral","Strongly Disagree", "Disagree", "Agree", "Strongly Agree"]}
             onChoiceChange={handleChoiceChange(q.id)}
             ></FormatQuestion>
           </div>

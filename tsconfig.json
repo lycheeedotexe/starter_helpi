@@ -22,5 +22,5 @@
   },
   "include": [
     "src"
-  ]
+, "src/QuizFunctions/consoleDisplays.ts", "src/QuizFunctions/getResponseVector.ts", "src/QuizFunctions/QuestionSelection.ts", "src/QuizFunctions/QuestionSelection.Test.tsx"  ]
 }
