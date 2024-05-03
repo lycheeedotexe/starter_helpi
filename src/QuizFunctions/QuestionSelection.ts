@@ -152,14 +152,16 @@ export function constructFinalMeasure(data: DataStorage, responseVector: number[
 
 export function constructDistribution(measure: number[]){
     /* 
-    measure is an array of numbers. measure[i] corresponds to the probability that detailed question i is chosen. We construct the distribution
+    measure is an array of numbers. measure[i] corresponds to the probability that detailed question with ID i is chosen. We construct the distribution
     by mapping the sum of the elements A[0]+...+A[i] to B[i]
     */
     return measure.map((element, i) => measure.slice(0,i+1).reduce((sum, current) => sum + current, 0));
 }
 
 function sampleQuestion(data: DataStorage, dist: number[]){
-
+    /*
+    generates a random 0 <= r <= 1 and finds the smallest index k for which r < k. Then takes k+1 since the smallest index for questions is 1.
+    */
     const r = Math.random();
     return dist.findIndex(element => element >= r ) + 1;
 }
