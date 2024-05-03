@@ -11,6 +11,20 @@ if (prevKey !== null) {
 
 export function ChatGPT(): JSX.Element{
     const [key, setKey] = useState<string>(keyData); //for api key input
+    const { Configuration, OpenAIApi } = require("openai");
+    const configuration = new Configuration({
+        apiKey: key,
+    })
+    const openai = new OpenAIApi(configuration);
+
+    async function getResponseFunction() {
+        const getResponse = await openai.chat.completions.create({
+            messages: [{"role": "system", "content": "You are a robot career counselor named Perceptron, with the ability to peer into college student's souls and give the best career advice."},
+                {"role": "user", "content": ""}],
+            model: "gpt-4-turbo"
+        })
+    }
+
     //sets the local storage item to the api key the user inputed
     function handleSubmit() {
         localStorage.setItem(saveKeyData, JSON.stringify(key));
@@ -23,11 +37,13 @@ export function ChatGPT(): JSX.Element{
     }
 
     return (
-        <Form>
+        <div>
+            <Form>
                 <Form.Label>API Key:</Form.Label>
                 <Form.Control type="password" placeholder="Insert API Key Here" onChange={changeKey}></Form.Control>
                 <br></br>
                 <Button className="Submit-Button" onClick={handleSubmit}>Submit</Button>
-        </Form>
+            </Form>
+        </div>
     )
 }

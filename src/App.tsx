@@ -1,7 +1,4 @@
-import React, { useState } from 'react';
-//import logo from './logo.svg';
 import './App.css';
-import { Button, Form } from 'react-bootstrap';
 import {UserResponsesProvider} from './contexts/UserResponsesContext'
 import {HomePage} from "./QuizPages/HomePage";
 import banner from "./image assets/banner 3.png";
