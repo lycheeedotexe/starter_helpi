@@ -5,19 +5,34 @@ import { FormatQuestion } from "../components/formatQuestion";
 import questions from "../data/questions.json";
 import { getResponseVector } from "../QuizFunctions/getResponseVector";
 import {UserResponsesContext} from '../contexts/UserResponsesContext'
+import { DetailedResponsesType, useDetailedResponses} from "../contexts/DetailedResponsesContext";
 import { userResponseType } from "./BasicQuestions";
 import { displayInfo } from "../QuizFunctions/consoleDisplays";
 
 const DetailedQuestions = () => {
     const [DetailedQuestions, setDetailedQuestions] = useState<DetailedQuestion[]>([]);
     const {responses} = useContext(UserResponsesContext);
-    const [userResponses, setUserResponse] = useState<userResponseType>({}); 
+    const [userResponses] = useState<userResponseType>({}); 
     const [progress, setProgress] = useState(0);
     console.log(userResponses);
     const data = JSON.parse(JSON.stringify(questions))
-    const handleChoiceChange = (id: number) => (value: string) => {
-      setUserResponse(prev => ({...prev, [id]:value }));
-    }
+   // const handleChoiceChange = (id: number) => (value: string) => {
+     // setUserResponse(prev => ({...prev, [id]:value }));
+    //}
+
+    /*
+    new functions related to getting detailed questions responses
+    */
+    const {detailedResponses, setDetailedResponses} = useDetailedResponses();
+    console.log(detailedResponses);
+    const handleDetailedChoiceChange = (id: number) => (value: string) => {
+      setDetailedResponses((prev:DetailedResponsesType) => {
+        const updatedResponses = {...prev, [id]:value};
+        console.log('New Responses:', updatedResponses);
+        return updatedResponses;
+        
+      });
+  }
 
     const updateProgress = (newProgress: number) => {
       setProgress(oldProgress => Math.min(Math.max(0, oldProgress + newProgress), 100));
@@ -32,6 +47,11 @@ const DetailedQuestions = () => {
       displayInfo(responseVec);
       const sampledQuestions = publishDetailedQuestions(data, responseVec, 50);
       setDetailedQuestions(sampledQuestions);
+      //we need to clear the locally store responses in this block of code so that we aren't saving responses to questions which we didn't 
+      //actually serve the user
+      //localStorage.setItem('detailedResponses', JSON.parse(JSON.stringify(defaultDetailedResponses)))
+      console.log("CLEARING LOCAL STORAGE");
+      localStorage.clear();
       // eslint-disable-next-line react-hooks/exhaustive-deps
     },[]);
 
@@ -48,8 +68,8 @@ const DetailedQuestions = () => {
         <FormatQuestion 
           key={q.id}
           question={q} 
-          options={["Neutral","Strongly Disagree", "Disagree", "Agree", "Strongly Agree"]}
-          onChoiceChange={handleChoiceChange(q.id)}
+          options={["", "Neutral","Strongly Disagree", "Disagree", "Agree", "Strongly Agree"]}
+          onChoiceChange={handleDetailedChoiceChange(q.id)}
           ></FormatQuestion>
         </div>
   ))};

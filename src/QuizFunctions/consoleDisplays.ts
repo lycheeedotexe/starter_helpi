@@ -4,6 +4,7 @@ import questions from '../data/questions.json'
 export function displayInfo(responseVector: number[]) {
     console.log(`Responce vector is: ${responseVector}`)
     const dataCopy = JSON.parse(JSON.stringify(questions));
+
     const testMeasure = constructFinalMeasure(dataCopy, responseVector);
         //the jobs are split into clusters of 5 jobs each. So (5k + 1, ..., 5*k + 5) corresponds to a cluster of jobs
         const jobClusters: Record<number, string> = {
@@ -35,9 +36,19 @@ export function displayInfo(responseVector: number[]) {
         const questionIDs = relatedQuestions(k);
         return questionIDs.reduce((acc, i) => acc + testMeasure[i-1], 0.0);
     }
-    for(var k = 1; k <= 10; k++){
-        console.log(`Total probability of picking a question related to ${jobClusters[k]}`)
-        console.log(clusterProbability(k))
+    const normalizedClusterProbability = (k: number): number =>{
+        const clusterQuestionProbability = [1,2,3,4,5,6,7,8,9,10].map((n: number) => clusterProbability(n)).reduce((acc, entry)=> acc + entry, 0)
+        return clusterProbability(k) / clusterQuestionProbability;
     }
+    var testSum = 0;
+    for(var k = 1; k <= 10; k++){
+        testSum = testSum + normalizedClusterProbability(k);
+        console.log(`Total probability of picking a question related to ${jobClusters[k]}`)
+        console.log(normalizedClusterProbability(k));
+    }
+    console.log(`probability of questions in all clusters : ${testSum} (should be about 1)`)
+
+
+    
 }
 
