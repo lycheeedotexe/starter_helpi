@@ -26,6 +26,10 @@ export function displayInfo(responseVector: number[]) {
             return DetailedQuestionsInAgreement(dataCopy.JOBS.filter((j: Job) => clusterKeys.includes(j.id)));
     };
 
+    console.log('Testing to see what is in local storage');
+    console.log(localStorage);
+    console.log(JSON.parse(JSON.stringify(localStorage)));
+    
     //comfirming that the measure is a probability measure
     console.log(`measure says P(D) = ${testMeasure.reduce((acc, entry, index) => acc + entry, 0 )}`)
     console.log(`The test measure is: `)

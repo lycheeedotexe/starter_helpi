@@ -1,3 +1,4 @@
+import { getResponseVector } from "./getResponseVector";
 
 //where question selection code will go
 export interface Job {
@@ -191,4 +192,35 @@ export function publishDetailedQuestions(data: DataStorage, responseVector: numb
         }
     }
     return copyOfData.DETAILED_QUESTIONS.filter((q:DetailedQuestion) => q.published === true);
+}
+
+export function recommendJobs(data: DataStorage, detailedResponceVector: number[], sampledIDNumbers: number[]){
+    const alpha = (dID:number, r: number): number => {
+        if(dID <= 50 && r > 0){
+            return 0.5;
+        }
+        else{
+            return 1
+        }
+    }
+    //const published = data.DETAILED_QUESTIONS.filter((d:DetailedQuestion) => sampledIDNumbers.findIndex((i: number) => i === d.id) !== -1);
+    
+    const scoreJob = (j: Job): number => {
+        const relatedQuestionsId = j.relatedDetailedQuestions;
+        const relatedQuestionsInSample = relatedQuestionsId.filter((i: number) => sampledIDNumbers.findIndex((x: number) => i === x) !== -1);
+        var sum = 0.0;
+        for(var i = 0; i < relatedQuestionsInSample.length; i++){
+            sum = sum + alpha(relatedQuestionsInSample[i], detailedResponceVector[relatedQuestionsInSample[i]])*detailedResponceVector[relatedQuestionsInSample[i]];
+        }
+        console.log(`The sum is ${sum}`)
+        return sum;
+    }
+
+    const recommendJob = (j: Job): boolean => {
+        const jobScore = scoreJob(j);
+        const maxScore = 1.0*j.relatedDetailedQuestions.length - 0.5*j.relatedDetailedQuestions.filter(d => d <= 50).length
+        return(jobScore > .25*maxScore)
+    }   
+
+    return data.JOBS.filter((j:Job) => recommendJob(j) === true);
 }

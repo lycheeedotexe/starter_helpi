@@ -50,7 +50,7 @@ const BasicQuestions = () => {
           <FormatQuestion 
             key={q.id}
             question={q} 
-            options={[" ", "Neutral","Strongly Disagree", "Disagree", "Agree", "Strongly Agree"]}
+            options={["Neutral","Strongly Disagree", "Disagree", "Agree", "Strongly Agree"]}
             onChoiceChange={handleChoiceChange(q.id)}
             ></FormatQuestion>
           </div>

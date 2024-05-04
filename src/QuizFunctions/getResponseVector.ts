@@ -14,3 +14,4 @@ export function getResponseVector(userResponses: userResponseType){
     return Object.keys(usableResponses).sort().map(key => responseConverter[usableResponses[key]]) 
     //the sort ensures that if the user responds to the basic quesiton in a non standard order the math will be the same as if they had answered them 1 through 7
 }
+

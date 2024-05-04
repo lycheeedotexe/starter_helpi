@@ -10,6 +10,7 @@ export function HomePage(): JSX.Element{
   const [showBasic, updateShowBasic] = useState<boolean>(false);
 
   function clickHome() {
+    localStorage.removeItem('detailedResponses');
     updateShowHome(true);
     updateShowBasic(false);
     updateShowDetailed(false);
@@ -21,6 +22,9 @@ export function HomePage(): JSX.Element{
   }
 
   function clickDetailed() {
+    localStorage.removeItem('detailedResponses')
+    console.log("Printing local storage")
+    console.log(JSON.parse(JSON.stringify(localStorage)));
     updateShowHome(false);
     updateShowDetailed(true);
   }

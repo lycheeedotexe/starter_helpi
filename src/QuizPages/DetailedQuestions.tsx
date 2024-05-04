@@ -1,6 +1,6 @@
 import React, {useState, useEffect, useContext} from "react";
 import ProgressBar from "../components/progressBar";
-import {DetailedQuestion, publishDetailedQuestions} from '../QuizFunctions/QuestionSelection'
+import {DetailedQuestion, publishDetailedQuestions, Job} from '../QuizFunctions/QuestionSelection'
 import { FormatQuestion } from "../components/formatQuestion";
 import questions from "../data/questions.json";
 import { getResponseVector } from "../QuizFunctions/getResponseVector";
@@ -8,6 +8,7 @@ import {UserResponsesContext} from '../contexts/UserResponsesContext'
 import { DetailedResponsesType, useDetailedResponses} from "../contexts/DetailedResponsesContext";
 import { userResponseType } from "./BasicQuestions";
 import { displayInfo } from "../QuizFunctions/consoleDisplays";
+import { recommendJobs } from "../QuizFunctions/QuestionSelection";
 
 const DetailedQuestions = () => {
     const [DetailedQuestions, setDetailedQuestions] = useState<DetailedQuestion[]>([]);
@@ -25,14 +26,7 @@ const DetailedQuestions = () => {
     */
     const {detailedResponses, setDetailedResponses} = useDetailedResponses();
     console.log(detailedResponses);
-    const handleDetailedChoiceChange = (id: number) => (value: string) => {
-      setDetailedResponses((prev:DetailedResponsesType) => {
-        const updatedResponses = {...prev, [id]:value};
-        console.log('New Responses:', updatedResponses);
-        return updatedResponses;
-        
-      });
-  }
+    
 
     const updateProgress = (newProgress: number) => {
       setProgress(oldProgress => Math.min(Math.max(0, oldProgress + newProgress), 100));
@@ -40,9 +34,11 @@ const DetailedQuestions = () => {
     const handleProgressMade = () => {
       updateProgress(10);
     };
-
+   
     useEffect(() => {
       const responseVec = getResponseVector(responses);
+      //console.log("CLEARING LOCAL STORAGE");
+      //localStorage.clear();
       console.log(`Responses are ${JSON.stringify(responses, null, 2)}`);
       displayInfo(responseVec);
       const sampledQuestions = publishDetailedQuestions(data, responseVec, 50);
@@ -50,11 +46,18 @@ const DetailedQuestions = () => {
       //we need to clear the locally store responses in this block of code so that we aren't saving responses to questions which we didn't 
       //actually serve the user
       //localStorage.setItem('detailedResponses', JSON.parse(JSON.stringify(defaultDetailedResponses)))
-      console.log("CLEARING LOCAL STORAGE");
-      localStorage.clear();
+
       // eslint-disable-next-line react-hooks/exhaustive-deps
     },[]);
 
+    const handleDetailedChoiceChange = (id: number) => (value: string) => {
+      setDetailedResponses((prev:DetailedResponsesType) => {
+        const updatedResponses = {...prev, [id]:value};
+        console.log('New Responses:', updatedResponses);
+        console.log(`recommended jobs = ${recommendJobs(data, getResponseVector(updatedResponses), Object.keys(updatedResponses).map(key => parseInt(key, 10))).map((j:Job) => j.name)}`)
+        return updatedResponses;
+      });
+  }
     return (
       <div>
       <h1>Detailed Questions Quiz</h1>
