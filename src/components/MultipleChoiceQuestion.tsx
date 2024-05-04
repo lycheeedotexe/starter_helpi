@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { Form } from "react-bootstrap";
-import { BasicQuestion } from "../QuestionSelection";
+import { BasicQuestion } from "../QuizFunctions/QuestionSelection";
 
 export function FormatQuestion({
     question,
@@ -20,7 +20,6 @@ export function FormatQuestion({
             <p>question.body</p>
             <Form.Group controlId="Options">
                 <Form.Select value={currentChoice} onChange={changeChoice}>
-                <option value="" selected>Choose an option...</option>
                     {options.map((option, index) => (
                         <option key={index} value={option}>
                             {option}
