@@ -1,4 +1,4 @@
-import { constructFinalMeasure, Job, DetailedQuestionsInAgreement} from './QuestionSelection';
+/*import { constructFinalMeasure, Job, DetailedQuestionsInAgreement} from "./src/QuizFunctions/QuestionSelection.ts"
 import questions from './data/questions.json'
 
 export function displayInfo(responseVector: number[]) {
@@ -26,16 +26,18 @@ export function displayInfo(responseVector: number[]) {
     };
 
     //comfirming that the measure is a probability measure
-    console.log(`measure says P(D) = ${testMeasure.reduce((acc, entry, index) => acc + entry, 0 )}`)
-    console.log(`The test measure is: `)
-    console.log(testMeasure);
+  //  console.log(`measure says P(D) = ${testMeasure.reduce((acc, entry, index) => acc + entry, 0 )}`)
+   // console.log(`The test measure is: `)
+  //  console.log(testMeasure);
     // Additional tests...
     const clusterProbability = (k: number): number=>{
         const questionIDs = relatedQuestions(k);
         return questionIDs.reduce((acc, i) => acc + testMeasure[i-1], 0.0);
     }
     for(var k = 1; k <= 10; k++){
-        console.log(`Total probability of picking a question related to ${jobClusters[k]}`)
-        console.log(clusterProbability(k))
+   //     console.log(`Total probability of picking a question related to ${jobClusters[k]}`)
+     //   console.log(clusterProbability(k))
     }
 }
+*/
+export{};

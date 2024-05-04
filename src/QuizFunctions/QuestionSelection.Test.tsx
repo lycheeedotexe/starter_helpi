@@ -1,6 +1,6 @@
 // sample.test.ts
 import { publishDetailedQuestions, constructDistribution, constructFinalMeasure, Job, DetailedQuestionsInAgreement} from './QuestionSelection';
-import questions from './data/questions.json'
+import questions from '../data/questions.json'
 
 describe('generateDetailedQuestions', () => {
     it('should publish the correct number of questions', () => {

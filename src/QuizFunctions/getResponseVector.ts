@@ -1,4 +1,4 @@
-import { userResponseType } from "./QuizPages/BasicQuestions";
+import { userResponseType } from "../QuizPages/BasicQuestions";
 
 export function getResponseVector(userResponses: userResponseType){
     const usableResponses = JSON.parse(JSON.stringify(userResponses));
