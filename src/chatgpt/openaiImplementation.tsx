@@ -17,6 +17,9 @@ export function ChatGPT(): JSX.Element{
     })
     const openai = new OpenAIApi(configuration);
 
+
+    const [text, setText] = useState<string>("what does a software engineer do?");
+    function changeText(event: React.ChangeEvent<HTMLInputElement>)
     async function getResponseFunction() {
         const getResponse = await openai.chat.completions.create({
             messages: [{"role": "system", "content": "You are a robot career counselor named Perceptron, with the ability to peer into college student's souls and give the best career advice."},
@@ -38,6 +41,10 @@ export function ChatGPT(): JSX.Element{
 
     return (
         <div>
+            <Form>
+                <Form.Label>test</Form.Label>
+                <Form.Control placeholder="testing response" onChange={getResponseFunction}></Form.Control>
+            </Form>
             <Form>
                 <Form.Label>API Key:</Form.Label>
                 <Form.Control type="password" placeholder="Insert API Key Here" onChange={changeKey}></Form.Control>
