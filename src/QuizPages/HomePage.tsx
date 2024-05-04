@@ -3,11 +3,12 @@ import { Button } from "react-bootstrap";
 //import { render, screen } from "@testing-library/react";
 import BasicQuestions from "../QuizPages/BasicQuestions";
 import DetailedQuestions from "../QuizPages/DetailedQuestions";
-
+import ResponsesPage from "../QuizPages/ResponsesPage"
 export function HomePage(): JSX.Element{
   const [showHome, updateShowHome] = useState<boolean>(true);
   const [showDetailed, updateShowDetailed] = useState<boolean>(false);
   const [showBasic, updateShowBasic] = useState<boolean>(false);
+  const [showResponses, updateShowResponses] = useState<boolean>(false);
 
   function clickHome() {
     localStorage.removeItem('detailedResponses');
@@ -27,6 +28,11 @@ export function HomePage(): JSX.Element{
     console.log(JSON.parse(JSON.stringify(localStorage)));
     updateShowHome(false);
     updateShowDetailed(true);
+  }
+
+  function clickResponses(){
+    updateShowHome(false);
+    updateShowResponses(true);
   }
     // Make sure to return some JSX here
     return (
@@ -53,6 +59,13 @@ export function HomePage(): JSX.Element{
           <>
             <DetailedQuestions></DetailedQuestions>
             <Button onClick={clickHome}>Return Home</Button>
+          </>
+        )}
+
+        {showResponses && (
+          <>
+          <ResponsesPage></ResponsesPage>
+          <Button onClick={clickHome}>Return Home</Button>
           </>
         )}
       </div>
