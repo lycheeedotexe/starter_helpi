@@ -41,7 +41,7 @@ const DetailedQuestions = () => {
       
       <div>
       <p>Detailed Questions begin here</p> 
-      <ProgressBar progress={progress} progressText={`${progress}%`} />
+      <ProgressBar progress={progress} progressText={``} />
         <button onClick={handleProgressMade}>Next</button>
       {DetailedQuestions.map((q: DetailedQuestion) => (
         <div>
