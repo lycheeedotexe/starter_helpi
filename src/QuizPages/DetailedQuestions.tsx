@@ -19,12 +19,19 @@ const DetailedQuestions = () => {
       setUserResponse(prev => ({...prev, [id]:value }));
     }
 
-    const updateProgress = (newProgress: number) => {
-      setProgress(oldProgress => Math.min(Math.max(0, oldProgress + newProgress), 100));
-    }
-    const handleProgressMade = () => {
-      updateProgress(10);
+    const updateProgress = () => {
+      const totalQuestions = 50;
+      console.log("Detailed Q length", totalQuestions);
+     const answeredQuestionsCount= Object.values(responses)
+      .filter(answer => answer !== "Choose an option..." && answer.trim() !== "").length; 
+      const newProgress = (answeredQuestionsCount / totalQuestions) * 100;
+      console.log(`Updating progress: ${newProgress}% (${answeredQuestionsCount}/${totalQuestions} answered)`);
+      setProgress(newProgress);
     };
+
+    useEffect(() => {
+      updateProgress();  // Call updateProgress whenever responses change
+    }, [responses])
 
     useEffect(() => {
       const responseVec = getResponseVector(responses);
@@ -42,7 +49,6 @@ const DetailedQuestions = () => {
       <div>
       <p>Detailed Questions begin here</p> 
       <ProgressBar progress={progress} progressText={``} />
-        <button onClick={handleProgressMade}>Next</button>
       {DetailedQuestions.map((q: DetailedQuestion) => (
         <div>
         <FormatQuestion 

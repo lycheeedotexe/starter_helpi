@@ -27,14 +27,15 @@ const BasicQuestions = () => {
   
  
   
-    const updateProgress = () => {
-      const totalQuestions = data.BASIC_QUESTIONS.length;
-     const answeredQuestionsCount= Object.values(responses)
-      .filter(answer => answer !== null && answer.trim() !== "").length; 
-      const newProgress = (answeredQuestionsCount / totalQuestions) * 100;
-      console.log(`Updating progress: ${newProgress}% (${answeredQuestionsCount}/${totalQuestions} answered)`);
-      setProgress(newProgress);
-    };
+  const updateProgress = () => {
+    const totalQuestions = data.BASIC_QUESTIONS.length;
+    const answeredQuestionsCount = Object.values(responses).filter(answer => 
+      answer && answer.trim() !== ""&& answer !== "Choose an option..."
+      ).length;
+    const newProgress = (answeredQuestionsCount / totalQuestions) * 100;
+    console.log(`Updating progress: ${newProgress}% (${answeredQuestionsCount}/${totalQuestions} answered)`);
+    setProgress(newProgress);
+  };
   
   
   const handleChoiceChange = (id: number) => (value: string) => {
@@ -46,7 +47,6 @@ const BasicQuestions = () => {
   useEffect(() => {
     updateProgress();  // Call updateProgress whenever responses change
   }, [responses])
-                    
 
     return (
       <div>
