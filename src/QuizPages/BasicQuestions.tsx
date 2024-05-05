@@ -26,14 +26,20 @@ const BasicQuestions = () => {
   
  
   
-    const updateProgress = () => {
-      const totalQuestions = data.BASIC_QUESTIONS.length;
-     const answeredQuestionsCount= Object.values(responses)
-      .filter(answer => answer !== null && answer.trim() !== "").length; 
-      const newProgress = (answeredQuestionsCount / totalQuestions) * 100;
-      console.log(`Updating progress: ${newProgress}% (${answeredQuestionsCount}/${totalQuestions} answered)`);
-      setProgress(newProgress);
-    };
+  const updateProgress = () => {
+    const totalQuestions = data.BASIC_QUESTIONS.length;
+    console.log("Total Questions:", totalQuestions);
+    console.log("Current Responses:", responses);
+  
+    const answeredQuestionsCount = Object.values(responses)
+      .filter(answer => answer && answer.trim() !== "" && answer !== "Choose an option...").length;
+  
+    console.log("Answered Questions Count:", answeredQuestionsCount);
+    const newProgress = (answeredQuestionsCount / totalQuestions) * 100;
+    console.log(`Updating progress: ${newProgress}% (${answeredQuestionsCount}/${totalQuestions} answered)`);
+    setProgress(newProgress);
+  };
+  
   
   
   const handleChoiceChange = (id: number) => (value: string) => {

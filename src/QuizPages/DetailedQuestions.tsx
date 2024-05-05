@@ -38,7 +38,7 @@ const DetailedQuestions = () => {
       const responseVec = getResponseVector(responses);
       console.log(`Responses are ${JSON.stringify(responses, null, 2)}`);
       displayInfo(responseVec);
-      const sampledQuestions = publishDetailedQuestions(data, responseVec, 25);
+      const sampledQuestions = publishDetailedQuestions(data, responseVec, 50);
       setDetailedQuestions(sampledQuestions);
       // eslint-disable-next-line react-hooks/exhaustive-deps
     },[]);

@@ -8,11 +8,22 @@ export function HomePage(): JSX.Element{
   const [showHome, updateShowHome] = useState<boolean>(true);
   const [showDetailed, updateShowDetailed] = useState<boolean>(false);
   const [showBasic, updateShowBasic] = useState<boolean>(false);
+  const [progress, setProgress] = useState(0);
+
+  function clearStorage() {
+    localStorage.removeItem("detailedQuestions"); // Modify this according to your storage use
+  }
+
+  function resetProgress() {
+    setProgress(0);
+  }
 
   function clickHome() {
+    clearStorage();
     updateShowHome(true);
     updateShowBasic(false);
     updateShowDetailed(false);
+    resetProgress();
   }
 
   function clickBasic() {
