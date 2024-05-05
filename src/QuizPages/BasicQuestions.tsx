@@ -32,7 +32,7 @@ const BasicQuestions = () => {
     const answeredQuestionsCount = Object.values(responses).filter(answer => 
       answer && answer.trim() !== ""&& answer !== "Choose an option..."
       ).length;
-    const newProgress = (answeredQuestionsCount / totalQuestions) * 100;
+    const newProgress = (answeredQuestionsCount / totalQuestions) *100;
     console.log(`Updating progress: ${newProgress}% (${answeredQuestionsCount}/${totalQuestions} answered)`);
     setProgress(newProgress);
   };

@@ -25,7 +25,7 @@ export function FormatQuestion({ question, options, onChoiceChange }: FormatQues
             <p>{question.body}</p>
             <Form.Group controlId="Options">
                 <Form.Select value={currentChoice} onChange={changeChoice}>
-                <option value="" disabled selected>Choose an option...</option>
+                <option value="" selected>Choose an option</option>
                     {options.map((option, index) => (
                         <option key={index} value={option}>{option}</option>
                     ))}
