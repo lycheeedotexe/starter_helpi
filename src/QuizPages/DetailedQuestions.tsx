@@ -4,35 +4,22 @@ import {DetailedQuestion, publishDetailedQuestions} from '../QuizFunctions/Quest
 import { FormatQuestion } from "../components/formatQuestion";
 import questions from "../data/questions.json";
 import { getResponseVector } from "../QuizFunctions/getResponseVector";
-import {UserResponsesContext} from '../contexts/UserResponsesContext'
+import {UserResponsesContext, UserResponsesType} from '../contexts/UserResponsesContext'
 import { userResponseType } from "./BasicQuestions";
 import { displayInfo } from "../QuizFunctions/consoleDisplays";
 
 const DetailedQuestions = () => {
     const [DetailedQuestions, setDetailedQuestions] = useState<DetailedQuestion[]>([]);
-    const {responses} = useContext(UserResponsesContext);
-    const [userResponses, setUserResponse] = useState<userResponseType>({}); 
+    const {responses , setResponses} = useContext(UserResponsesContext);
+    const [userResponses, setUserResponse] = useState<userResponseType>({});
     const [progress, setProgress] = useState(0);
     console.log(userResponses);
     const data = JSON.parse(JSON.stringify(questions))
     const handleChoiceChange = (id: number) => (value: string) => {
-      setUserResponse(prev => ({...prev, [id]:value }));
-    }
-
-    const updateProgress = () => {
-      //make sure agrees with line49
-      const totalQuestions = 50;
-      console.log("Detailed Q length", totalQuestions);
-     const answeredQuestionsCount= Object.values(responses)
-      .filter(answer => answer !== "Choose an option..." && answer.trim() !== "").length; 
-      const newProgress = (answeredQuestionsCount / totalQuestions) * 100;
-      console.log(`Updating progress: ${newProgress}% (${answeredQuestionsCount}/${totalQuestions} answered)`);
-      setProgress(newProgress);
+      setResponses(prev => ({...prev, [id]: value.trim()}));
     };
 
-    useEffect(() => {
-      updateProgress();  // Call updateProgress whenever responses change
-    }, [responses])
+    
 
     useEffect(() => {
       const responseVec = getResponseVector(responses);
@@ -42,6 +29,28 @@ const DetailedQuestions = () => {
       setDetailedQuestions(sampledQuestions);
       // eslint-disable-next-line react-hooks/exhaustive-deps
     },[]);
+
+
+
+
+    const updateProgress = () => {
+      const totalQuestions = 50;
+      const answeredQuestionsCount = Object.values(responses)
+      .filter(answer => answer && answer.trim() !== "" && answer !== "Choose an option").length;
+      
+      console.log("Total Questions:", totalQuestions);
+      console.log("Current Responses:", responses);
+      console.log("Answered Questions Count:", answeredQuestionsCount);
+  
+      const newProgress = (answeredQuestionsCount / totalQuestions) * 100;
+      console.log(`Updating progress: ${newProgress}% (${answeredQuestionsCount}/${totalQuestions} answered)`);
+      setProgress(newProgress);
+  };
+  
+
+    useEffect(() => {
+      updateProgress();  // Call updateProgress whenever responses change
+    }, [responses])
 
     return (
       <div>

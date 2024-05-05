@@ -3,12 +3,19 @@ import { Button } from "react-bootstrap";
 //import { render, screen } from "@testing-library/react";
 import BasicQuestions from "../QuizPages/BasicQuestions";
 import DetailedQuestions from "../QuizPages/DetailedQuestions";
+import { useUserResponses } from '../contexts/UserResponsesContext';
+
 
 export function HomePage(): JSX.Element{
   const [showHome, updateShowHome] = useState<boolean>(true);
   const [showDetailed, updateShowDetailed] = useState<boolean>(false);
   const [showBasic, updateShowBasic] = useState<boolean>(false);
   const [progress, setProgress] = useState(0);
+
+  const { responses, setResponses } = useUserResponses();
+  const resetResponses = () => {
+    setResponses({}); // Reset to initial state or however you've structured it
+  };
 
   function clearStorage() {
     localStorage.removeItem("detailedQuestions"); // Modify this according to your storage use
@@ -20,6 +27,7 @@ export function HomePage(): JSX.Element{
 
   function clickHome() {
     clearStorage();
+    resetResponses();
     updateShowHome(true);
     updateShowBasic(false);
     updateShowDetailed(false);
