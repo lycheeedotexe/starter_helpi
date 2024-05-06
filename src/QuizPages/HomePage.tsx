@@ -10,9 +10,9 @@ export function HomePage(): JSX.Element{
   const [showHome, updateShowHome] = useState<boolean>(true);
   const [showDetailed, updateShowDetailed] = useState<boolean>(false);
   const [showBasic, updateShowBasic] = useState<boolean>(false);
-  const [progress, setProgress] = useState(0);
+ // const [progress, setProgress] = useState(0);
 
-  const { responses, setResponses } = useUserResponses();
+  const {setResponses } = useUserResponses();
   const resetResponses = () => {
     setResponses({}); // Reset to initial state or however you've structured it
   };
@@ -22,7 +22,7 @@ export function HomePage(): JSX.Element{
   }
 
   function resetProgress() {
-    setProgress(0);
+    setResponses({});
   }
 
   function clickHome() {
