@@ -1,17 +1,17 @@
-import React, {useState, useEffect, useContext} from "react";
+import React, {useState, useEffect, useContext, useCallback} from "react";
 import ProgressBar from "../components/progressBar";
 import {DetailedQuestion, publishDetailedQuestions} from '../QuizFunctions/QuestionSelection'
 import { FormatQuestion } from "../components/formatQuestion";
 import questions from "../data/questions.json";
 import { getResponseVector } from "../QuizFunctions/getResponseVector";
-import {UserResponsesContext, UserResponsesType} from '../contexts/UserResponsesContext'
+import {UserResponsesContext} from '../contexts/UserResponsesContext'
 import { userResponseType } from "./BasicQuestions";
 import { displayInfo } from "../QuizFunctions/consoleDisplays";
 
 const DetailedQuestions = () => {
     const [DetailedQuestions, setDetailedQuestions] = useState<DetailedQuestion[]>([]);
     const {responses , setResponses} = useContext(UserResponsesContext);
-    const [userResponses, setUserResponse] = useState<userResponseType>({});
+    const [userResponses] = useState<userResponseType>({});
     const [progress, setProgress] = useState(0);
     console.log(userResponses);
     const data = JSON.parse(JSON.stringify(questions))
@@ -33,24 +33,25 @@ const DetailedQuestions = () => {
 
 
 
-    const updateProgress = () => {
+    const updateProgress = useCallback(() => {
       const totalQuestions = 25;
-      const answeredQuestionsCount = Object.values(responses)
-      .filter(answer => answer && answer.trim() !== "" && answer !== "Choose an option").length;
-      
       console.log("Total Questions:", totalQuestions);
       console.log("Current Responses:", responses);
+    
+      const answeredQuestionsCount = Object.values(responses)
+        .filter(answer => answer && answer.trim() !== "" && answer !== "Choose an option").length;
+    
       console.log("Answered Questions Count:", answeredQuestionsCount);
-  
       const newProgress = (answeredQuestionsCount / totalQuestions) * 100;
       console.log(`Updating progress: ${newProgress}% (${answeredQuestionsCount}/${totalQuestions} answered)`);
       setProgress(newProgress);
-  };
+    }, [responses]); 
+    
   
 
     useEffect(() => {
       updateProgress();  // Call updateProgress whenever responses change
-    }, [responses])
+    }, [updateProgress])
 
     return (
       <div>

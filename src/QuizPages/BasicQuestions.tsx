@@ -1,4 +1,4 @@
-import React, {useState , useEffect} from "react";
+import React, {useState , useEffect, useCallback} from "react";
 import questions from "../data/questions.json";
 import { FormatQuestion } from "../components/formatQuestion";
 import { UserResponsesType, useUserResponses } from "../contexts/UserResponsesContext";
@@ -26,7 +26,7 @@ const BasicQuestions = () => {
   
  
   
-  const updateProgress = () => {
+  const updateProgress = useCallback(() => {
     const totalQuestions = data.BASIC_QUESTIONS.length;
     console.log("Total Questions:", totalQuestions);
     console.log("Current Responses:", responses);
@@ -38,7 +38,8 @@ const BasicQuestions = () => {
     const newProgress = (answeredQuestionsCount / totalQuestions) * 100;
     console.log(`Updating progress: ${newProgress}% (${answeredQuestionsCount}/${totalQuestions} answered)`);
     setProgress(newProgress);
-  };
+  }, [responses]); 
+  
   
   
   
@@ -49,8 +50,9 @@ const BasicQuestions = () => {
     });
   };
   useEffect(() => {
-    updateProgress();  // Call updateProgress whenever responses change
-  }, [responses])
+    updateProgress();  // This will now only re-run when `updateProgress` or `responses` changes
+  }, [updateProgress]);
+  
                     
 
     return (
