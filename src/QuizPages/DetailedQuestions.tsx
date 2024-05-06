@@ -25,7 +25,7 @@ const DetailedQuestions = () => {
       const responseVec = getResponseVector(responses);
       console.log(`Responses are ${JSON.stringify(responses, null, 2)}`);
       displayInfo(responseVec);
-      const sampledQuestions = publishDetailedQuestions(data, responseVec, 50);
+      const sampledQuestions = publishDetailedQuestions(data, responseVec, 25);
       setDetailedQuestions(sampledQuestions);
       // eslint-disable-next-line react-hooks/exhaustive-deps
     },[]);
@@ -34,7 +34,7 @@ const DetailedQuestions = () => {
 
 
     const updateProgress = () => {
-      const totalQuestions = 50;
+      const totalQuestions = 25;
       const answeredQuestionsCount = Object.values(responses)
       .filter(answer => answer && answer.trim() !== "" && answer !== "Choose an option").length;
       
