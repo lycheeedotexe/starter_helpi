@@ -1,3 +1,4 @@
+import { getResponseVector } from "./getResponseVector";
 
 //where question selection code will go
 export interface Job {
@@ -152,14 +153,16 @@ export function constructFinalMeasure(data: DataStorage, responseVector: number[
 
 export function constructDistribution(measure: number[]){
     /* 
-    measure is an array of numbers. measure[i] corresponds to the probability that detailed question i is chosen. We construct the distribution
+    measure is an array of numbers. measure[i] corresponds to the probability that detailed question with ID i is chosen. We construct the distribution
     by mapping the sum of the elements A[0]+...+A[i] to B[i]
     */
     return measure.map((element, i) => measure.slice(0,i+1).reduce((sum, current) => sum + current, 0));
 }
 
 function sampleQuestion(data: DataStorage, dist: number[]){
-
+    /*
+    generates a random 0 <= r <= 1 and finds the smallest index k for which r < k. Then takes k+1 since the smallest index for questions is 1.
+    */
     const r = Math.random();
     return dist.findIndex(element => element >= r ) + 1;
 }
@@ -189,4 +192,38 @@ export function publishDetailedQuestions(data: DataStorage, responseVector: numb
         }
     }
     return copyOfData.DETAILED_QUESTIONS.filter((q:DetailedQuestion) => q.published === true);
+}
+
+export function recommendJobs(data: DataStorage, detailedResponceDict: Record<number,number>, sampledIDNumbers: number[]){
+    const alpha = (dID:number, r: number): number => {
+        if(dID <= 50 && r > 0){
+            return 0.5;
+        }
+        else{
+            return 1
+        }
+    }
+    //const published = data.DETAILED_QUESTIONS.filter((d:DetailedQuestion) => sampledIDNumbers.findIndex((i: number) => i === d.id) !== -1);
+    
+    const scoreJob = (j: Job): number => {
+        const relatedQuestionsId = j.relatedDetailedQuestions;
+        const relatedQuestionsInSample = relatedQuestionsId.filter((i: number) => sampledIDNumbers.findIndex((x: number) => i === x) !== -1);
+        var sum = 0.0;
+        console.log("Detailed Response Dict: \n")
+        console.log(detailedResponceDict)
+        for(var i = 0; i < relatedQuestionsInSample.length; i++){
+            const currentId = relatedQuestionsInSample[i];
+            sum = sum + alpha(currentId, detailedResponceDict[currentId])*detailedResponceDict[currentId];
+        }
+        console.log(`The sum is ${sum}`)
+        return sum;
+    }
+
+    const recommendJob = (j: Job): boolean => {
+        const jobScore = scoreJob(j);
+        const maxScore = 1.0*j.relatedDetailedQuestions.length - 0.5*j.relatedDetailedQuestions.filter(d => d <= 50).length
+        return(jobScore > .25*maxScore)
+    }   
+
+    return data.JOBS.filter((j:Job) => recommendJob(j) === true);
 }
