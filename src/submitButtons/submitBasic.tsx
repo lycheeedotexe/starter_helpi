@@ -2,6 +2,8 @@ import { openai } from "./submitKey";
 import { useState } from "react";
 import { Button, Form } from 'react-bootstrap';
 
+export type JobFieldDescr = string;
+
 export function SubmitBasic(): JSX.Element{
     const [gptResponse, setGptResponse] = useState<string | null>("no response");
 
@@ -17,6 +19,7 @@ export function SubmitBasic(): JSX.Element{
             model: "gpt-4-turbo"
         })
         setGptResponse(response.choices[0].message.content);
+        
     }
 
     return (
