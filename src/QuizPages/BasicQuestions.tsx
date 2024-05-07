@@ -1,4 +1,4 @@
-import React, {useState} from "react";
+import React, {useState, useEffect, useCallback} from "react";
 import questions from "../data/questions.json";
 import { FormatQuestion } from "../components/formatQuestion";
 import { UserResponsesType, useUserResponses } from "../contexts/UserResponsesContext";
@@ -22,13 +22,21 @@ const BasicQuestions = () => {
   console.log(responses)
   const [progress, setProgress] = useState(0);
  
-  const updateProgress = (newProgress: number) => {
-    setProgress(oldProgress => Math.min(Math.max(0, oldProgress + newProgress), 100));
-  }
-  const handleProgressMade = () => {
-    updateProgress(10);
-  };
+  const updateProgress = useCallback(() => {
+    const totalQuestions = data.BASIC_QUESTIONS.length;
+    console.log("Total Questions:", totalQuestions);
+    console.log("Current Responses:", responses);
+  
+    const answeredQuestionsCount = Object.values(responses)
+      .filter(answer => answer && answer.trim() !== "" && answer !== "Choose an option").length;
+  
+    console.log("Answered Questions Count:", answeredQuestionsCount);
+    const newProgress = (answeredQuestionsCount / totalQuestions) * 100;
+    console.log(`Updating progress: ${newProgress}% (${answeredQuestionsCount}/${totalQuestions} answered)`);
+    setProgress(newProgress);
+  }, [responses]); 
 
+ 
   const handleChoiceChange = (id: number) => (value: string) => {
       setResponses((prev:UserResponsesType) => {
         const updatedResponses = {...prev, [id]:value};
@@ -38,11 +46,14 @@ const BasicQuestions = () => {
       });
   }
 
+  useEffect(() => {
+    updateProgress();  // This will now only re-run when `updateProgress` or `responses` changes
+  }, [updateProgress]);
+
     return (
       <div>
         <h1>Basic Questions Quiz</h1>
         <ProgressBar progress={progress} progressText={`${progress}%`} />
-        <button onClick={handleProgressMade}>Next</button>
         <div>
         <p>Basic Questions begin here</p> 
         {data.BASIC_QUESTIONS.map((q: BasicQuestionProp) => (
