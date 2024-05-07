@@ -3,6 +3,7 @@ import questions from "../data/questions.json";
 import { FormatQuestion } from "../components/formatQuestion";
 import { UserResponsesType, useUserResponses } from "../contexts/UserResponsesContext";
 import ProgressBar from "../components/progressBar";
+import { SubmitBasic } from "../submitButtons/submitBasic";
 
 interface BasicQuestionProp {
 
@@ -70,7 +71,8 @@ const BasicQuestions = () => {
             onChoiceChange={handleChoiceChange(q.id)}
             ></FormatQuestion>
           </div>
-    ))};
+    ))}
+          <SubmitBasic></SubmitBasic>
         </div>
       </div>
     );
