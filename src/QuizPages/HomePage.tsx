@@ -3,11 +3,14 @@ import { Button } from "react-bootstrap";
 //import { render, screen } from "@testing-library/react";
 import BasicQuestions from "../QuizPages/BasicQuestions";
 import DetailedQuestions from "../QuizPages/DetailedQuestions";
+import ResultsPage from "./ResultsPage";
 
 export function HomePage(): JSX.Element{
   const [showHome, updateShowHome] = useState<boolean>(true);
   const [showDetailed, updateShowDetailed] = useState<boolean>(false);
   const [showBasic, updateShowBasic] = useState<boolean>(false);
+  const [showResults, updateShowResults] = useState<boolean>(false);
+
 
   function clickHome() {
     localStorage.removeItem('detailedResponses');
@@ -28,6 +31,11 @@ export function HomePage(): JSX.Element{
     updateShowHome(false);
     updateShowDetailed(true);
   }
+
+  function clickResults() {
+      updateShowHome(false);
+      updateShowResults(true);
+  }
     // Make sure to return some JSX here
     return (
       <div>
@@ -39,6 +47,11 @@ export function HomePage(): JSX.Element{
            <div> <Button onClick={clickBasic}>Basic</Button> </div> </p>
             <p className="style2">Do you have an area of interest already but need help nailing it down? Then our detailed quiz is right for you click to get started! 
            <div> <Button onClick={clickDetailed}>Detailed</Button> </div> </p>
+           <div>
+            <p className='style3'>See Results</p>  
+            <Button onClick={clickResults}> Results</Button>
+           </div>
+          
           </>
         )}
 
@@ -55,6 +68,14 @@ export function HomePage(): JSX.Element{
             <Button onClick={clickHome}>Return Home</Button>
           </>
         )}
+        {showResults && (
+          <>
+            <ResultsPage></ResultsPage>
+            <Button onClick={clickResults}>Results</Button>
+          </>
+
+        )}
       </div>
+
     );
   };

@@ -3,7 +3,7 @@ import ProgressBar from "../components/progressBar";
 import {DetailedQuestion, publishDetailedQuestions, Job} from '../QuizFunctions/QuestionSelection'
 import { FormatQuestion } from "../components/formatQuestion";
 import questions from "../data/questions.json";
-import { getResponseVector } from "../QuizFunctions/getResponseVector";
+import { getResponseVector, getResponseDictionary } from "../QuizFunctions/getResponseVector";
 import {UserResponsesContext} from '../contexts/UserResponsesContext'
 import { DetailedResponsesType, useDetailedResponses} from "../contexts/DetailedResponsesContext";
 import { userResponseType } from "./BasicQuestions";
@@ -54,7 +54,7 @@ const DetailedQuestions = () => {
       setDetailedResponses((prev:DetailedResponsesType) => {
         const updatedResponses = {...prev, [id]:value};
         console.log('New Responses:', updatedResponses);
-        console.log(`recommended jobs = ${recommendJobs(data, getResponseVector(updatedResponses), Object.keys(updatedResponses).map(key => parseInt(key, 10))).map((j:Job) => j.name)}`)
+        console.log(`recommended jobs = ${recommendJobs(data, getResponseDictionary(updatedResponses), Object.keys(updatedResponses).map(key => parseInt(key, 10))).map((j:Job) => j.name)}`)
         return updatedResponses;
       });
   }

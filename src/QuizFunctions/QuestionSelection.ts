@@ -194,7 +194,7 @@ export function publishDetailedQuestions(data: DataStorage, responseVector: numb
     return copyOfData.DETAILED_QUESTIONS.filter((q:DetailedQuestion) => q.published === true);
 }
 
-export function recommendJobs(data: DataStorage, detailedResponceVector: number[], sampledIDNumbers: number[]){
+export function recommendJobs(data: DataStorage, detailedResponceDict: Record<number,number>, sampledIDNumbers: number[]){
     const alpha = (dID:number, r: number): number => {
         if(dID <= 50 && r > 0){
             return 0.5;
@@ -209,8 +209,11 @@ export function recommendJobs(data: DataStorage, detailedResponceVector: number[
         const relatedQuestionsId = j.relatedDetailedQuestions;
         const relatedQuestionsInSample = relatedQuestionsId.filter((i: number) => sampledIDNumbers.findIndex((x: number) => i === x) !== -1);
         var sum = 0.0;
+        console.log("Detailed Response Dict: \n")
+        console.log(detailedResponceDict)
         for(var i = 0; i < relatedQuestionsInSample.length; i++){
-            sum = sum + alpha(relatedQuestionsInSample[i], detailedResponceVector[relatedQuestionsInSample[i]])*detailedResponceVector[relatedQuestionsInSample[i]];
+            const currentId = relatedQuestionsInSample[i];
+            sum = sum + alpha(currentId, detailedResponceDict[currentId])*detailedResponceDict[currentId];
         }
         console.log(`The sum is ${sum}`)
         return sum;
