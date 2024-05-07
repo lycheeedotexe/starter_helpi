@@ -18,6 +18,7 @@ if (prevKey !== null) {
 export function ChatGPT(): JSX.Element{
     // type APIKey = chatgpt;
     const [key, setKey] = useState<string>(keyData); //for api key input
+    const [gptResponse, setGptResponse] = useState<string | null>("no response");
     
     //sets the local storage item to the api key the user inputed
     function handleSubmit() {
@@ -53,19 +54,21 @@ export function ChatGPT(): JSX.Element{
     function changeText(event: React.ChangeEvent<HTMLInputElement>) {
         setText(event.target.value);
     }
+
     const getResponseFunction = async() => {
         const response = await openai.chat.completions.create({
             messages: [{"role": "system", "content": "You are a robot career counselor named Perceptron, with the ability to peer into college student's souls and give the best career advice."},
                 {"role": "user", "content": text}],
-            model: "gpt-3.5-turbo"
+            model: "gpt-4-turbo"
         })
-        console.log(response.choices[0]);
+        setGptResponse(response.choices[0].message.content);
     }
 
 
 
     return (
         <div>
+            {gptResponse}
             <Form>
                 <Form.Label>test</Form.Label>
                 <Form.Control 
