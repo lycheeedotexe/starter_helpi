@@ -1,15 +1,17 @@
 {
   "files": {
-    "main.css": "/starter_helpi/static/css/main.3266f35a.css",
-    "main.js": "/starter_helpi/static/js/main.406c5709.js",
+    "main.css": "/starter_helpi/static/css/main.6647948a.css",
+    "main.js": "/starter_helpi/static/js/main.f2ed64ae.js",
     "static/js/453.bad6c33a.chunk.js": "/starter_helpi/static/js/453.bad6c33a.chunk.js",
+    "static/media/banner 3.png": "/starter_helpi/static/media/banner 3.089abde86db458b8101f.png",
+    "static/media/dark-timber-desk-texture_1194-6756-3544321955.jpg": "/starter_helpi/static/media/dark-timber-desk-texture_1194-6756-3544321955.e1414f23b2deef188b47.jpg",
     "index.html": "/starter_helpi/index.html",
-    "main.3266f35a.css.map": "/starter_helpi/static/css/main.3266f35a.css.map",
-    "main.406c5709.js.map": "/starter_helpi/static/js/main.406c5709.js.map",
+    "main.6647948a.css.map": "/starter_helpi/static/css/main.6647948a.css.map",
+    "main.f2ed64ae.js.map": "/starter_helpi/static/js/main.f2ed64ae.js.map",
     "453.bad6c33a.chunk.js.map": "/starter_helpi/static/js/453.bad6c33a.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.3266f35a.css",
-    "static/js/main.406c5709.js"
+    "static/css/main.6647948a.css",
+    "static/js/main.f2ed64ae.js"
   ]
 }

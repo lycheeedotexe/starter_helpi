@@ -7,11 +7,12 @@
         at div
         at p
         at div
-        at HomePage (/home/runner/work/starter_helpi/starter_helpi/src/QuizPages/HomePage.tsx:10:46)
-        at header
+        at div
+        at HomePage (/home/runner/work/starter_helpi/starter_helpi/src/QuizPages/HomePage.tsx:11:46)
+        at div
         at div
         at UserResponsesProvider (/home/runner/work/starter_helpi/starter_helpi/src/contexts/UserResponsesContext.tsx:22:74)
-        at App (/home/runner/work/starter_helpi/starter_helpi/src/App.tsx:17:33)
+        at App
 
       4 |
       5 | test('renders learn react link', () => {
@@ -43,7 +44,7 @@
       at runCLI (node_modules/@jest/core/build/cli/index.js:173:3)
 
 FAIL src/App.test.tsx
-  ✕ renders learn react link (73 ms)
+  ✕ renders learn react link (76 ms)
 
   ● renders learn react link
 
@@ -58,65 +59,101 @@ FAIL src/App.test.tsx
           [36m<header[39m
             [33mclass[39m=[32m"App-header"[39m
           [36m>[39m
-            [36m<div>[39m
-              [36m<h1>[39m
-                [0mCareer Guide[0m
-              [36m</h1>[39m
-              [36m<p[39m
-                [33mclass[39m=[32m"style1"[39m
-              [36m>[39m
-                [0mWith so many careers to choose from do you have NO IDEA what you want to do? Our basic career quiz is right for you, click to get started![0m
-                [36m<div>[39m
-                  [0m [0m
-                  [36m<button[39m
-                    [33mclass[39m=[32m"btn btn-primary"[39m
-                    [33mtype[39m=[32m"button"[39m
-                  [36m>[39m
-                    [0mBasic[0m
-                  [36m</button>[39m
-                  [0m [0m
-                [36m</div>[39m
-                [0m [0m
-              [36m</p>[39m
-              [36m<p[39m
-                [33mclass[39m=[32m"style2"[39m
-              [36m>[39m
-                [0mDo you have an area of interest already but need help nailing it down? Then our detailed quiz is right for you click to get started![0m
-                [36m<div>[39m
-                  [0m [0m
-                  [36m<button[39m
-                    [33mclass[39m=[32m"btn btn-primary"[39m
-                    [33mtype[39m=[32m"button"[39m
-                  [36m>[39m
-                    [0mDetailed[0m
-                  [36m</button>[39m
-                  [0m [0m
-                [36m</div>[39m
-                [0m [0m
-              [36m</p>[39m
-            [36m</div>[39m
-          [36m</header>[39m
-          [36m<form[39m
-            [33mclass[39m=[32m""[39m
-          [36m>[39m
-            [36m<label[39m
-              [33mclass[39m=[32m"form-label"[39m
-            [36m>[39m
-              [0mAPI Key:[0m
-            [36m</label>[39m
-            [36m<input[39m
-              [33mclass[39m=[32m"form-control"[39m
-              [33mplaceholder[39m=[32m"Insert API Key Here"[39m
-              [33mtype[39m=[32m"password"[39m
+            [36m<img[39m
+              [33malt[39m=[32m"Banner and Title"[39m
+              [33mclass[39m=[32m"App-header-image"[39m
+              [33msrc[39m=[32m"banner 3.png"[39m
             [36m/>[39m
-            [36m<br />[39m
-            [36m<button[39m
-              [33mclass[39m=[32m"Submit-Button btn btn-primary"[39m
-              [33mtype[39m=[32m"button"[39m
+          [36m</header>[39m
+          [36m<div[39m
+            [33mclass[39m=[32m"App-body"[39m
+          [36m>[39m
+            [36m<div>[39m
+              [36m<div>[39m
+                [36m<h1>[39m
+                  [0mCareer Guide[0m
+                [36m</h1>[39m
+                [36m<p[39m
+                  [33mclass[39m=[32m"style1"[39m
+                [36m>[39m
+                  [0mWith so many careers to choose from do you have NO IDEA what you want to do? Our basic career quiz is right for you, click to get started![0m
+                  [36m<div>[39m
+                    [0m [0m
+                    [36m<button[39m
+                      [33mclass[39m=[32m"btn btn-primary"[39m
+                      [33mtype[39m=[32m"button"[39m
+                    [36m>[39m
+                      [0mBasic[0m
+                    [36m</button>[39m
+                    [0m [0m
+                  [36m</div>[39m
+                  [0m [0m
+                [36m</p>[39m
+                [36m<p[39m
+                  [33mclass[39m=[32m"style2"[39m
+                [36m>[39m
+                  [0mDo you have an area of interest already but need help nailing it down? Then our detailed quiz is right for you click to get started![0m
+                  [36m<div>[39m
+                    [0m [0m
+                    [36m<button[39m
+                      [33mclass[39m=[32m"btn btn-primary"[39m
+                      [33mtype[39m=[32m"button"[39m
+                    [36m>[39m
+                      [0mDetailed[0m
+                    [36m</button>[39m
+                    [0m [0m
+                  [36m</div>[39m
+                  [0m [0m
+                [36m</p>[39m
+              [36m</div>[39m
+            [36m</div>[39m
+          [36m</div>[39m
+          [36m<div>[39m
+            [0mno response[0m
+            [36m<form[39m
+              [33mclass[39m=[32m""[39m
             [36m>[39m
-              [0mSubmit[0m
-            [36m</button>[39m
-          [36m</form>[39m
+              [36m<label[39m
+                [33mclass[39m=[32m"form-label"[39m
+              [36m>[39m
+                [0mtest[0m
+              [36m</label>[39m
+              [36m<textarea[39m
+                [33mclass[39m=[32m"form-control"[39m
+                [33mrows[39m=[32m"3"[39m
+              [36m>[39m
+                [0mwhat does a software engineer do?[0m
+              [36m</textarea>[39m
+              [36m<br />[39m
+              [36m<button[39m
+                [33mclass[39m=[32m"Submit-Button btn btn-primary"[39m
+                [33mtype[39m=[32m"button"[39m
+              [36m>[39m
+                [0mSubmit question[0m
+              [36m</button>[39m
+            [36m</form>[39m
+            [36m<form[39m
+              [33mclass[39m=[32m""[39m
+            [36m>[39m
+              [36m<label[39m
+                [33mclass[39m=[32m"form-label"[39m
+              [36m>[39m
+                [0mAPI Key:[0m
+              [36m</label>[39m
+              [36m<input[39m
+                [33mclass[39m=[32m"form-control"[39m
+                [33mplaceholder[39m=[32m"Insert API Key Here"[39m
+                [33mtype[39m=[32m"password"[39m
+              [36m/>[39m
+              [36m<br />[39m
+              [36m<button[39m
+                [33mclass[39m=[32m"Submit-Button btn btn-primary"[39m
+                [33mtype[39m=[32m"button"[39m
+              [36m>[39m
+                [0mSubmit[0m
+              [36m</button>[39m
+            [36m</form>[39m
+          [36m</div>[39m
         [36m</div>[39m
       [36m</div>[39m
     [36m</body>[39m
@@ -154,9 +191,10 @@ go away.[0m
 -----------------------------|---------|----------|---------|---------|-------------------
 File                         | % Stmts | % Branch | % Funcs | % Lines | Uncovered Line #s 
 -----------------------------|---------|----------|---------|---------|-------------------
-All files                    |   11.73 |    14.28 |    7.59 |   12.56 |                   
- src                         |   28.57 |    16.66 |      20 |   28.57 |                   
-  App.tsx                    |      60 |       50 |   33.33 |      60 | 13,20-26          
+All files                    |   13.44 |    14.28 |    8.53 |   14.41 |                   
+ src                         |   37.93 |    16.66 |      25 |   37.93 |                   
+  App.tsx                    |     100 |      100 |     100 |     100 |                   
+  chatGPT.tsx                |   58.82 |       50 |      20 |   58.82 | 11,25-31,55,59-64 
   index.tsx                  |       0 |      100 |     100 |       0 | 7-19              
   reportWebVitals.ts         |       0 |        0 |       0 |       0 | 3-10              
  src/QuizFunctions           |       0 |        0 |       0 |       0 |                   
@@ -167,7 +205,7 @@ All files                    |   11.73 |    14.28 |    7.59 |   12.56 |
  src/QuizPages               |      12 |    33.33 |    4.16 |    12.5 |                   
   BasicQuestions.tsx         |       8 |        0 |       0 |    8.33 | 22-65             
   DetailedQuestions.tsx      |    3.22 |        0 |       0 |    3.44 | 12-64             
-  HomePage.tsx               |   31.57 |    66.66 |   14.28 |   31.57 | 17-44             
+  HomePage.tsx               |   31.57 |    66.66 |   14.28 |   31.57 | 18-45             
  src/components              |    7.69 |        0 |       0 |    7.69 |                   
   MultipleChoiceQuestion.tsx |       0 |      100 |       0 |       0 | 12-24             
   formatQuestion.tsx         |       0 |        0 |       0 |       0 | 14-30             
@@ -178,5 +216,5 @@ All files                    |   11.73 |    14.28 |    7.59 |   12.56 |
 Test Suites: 1 failed, 1 total
 Tests:       1 failed, 1 total
 Snapshots:   0 total
-Time:        3.362 s
+Time:        3.513 s
 Ran all test suites.
