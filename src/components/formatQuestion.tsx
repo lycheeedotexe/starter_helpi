@@ -1,24 +1,23 @@
 import React, { useState } from "react";
-import { BasicQuestion,DetailedQuestion } from "../QuizFunctions/QuestionSelection";
 import { Form } from "react-bootstrap";
-
+import { BasicQuestion, DetailedQuestion } from "../QuizFunctions/QuestionSelection";
 
 type questionType = BasicQuestion | DetailedQuestion;
 
-export function FormatQuestion({
-    question,
-    options,
-    onChoiceChange
-}: {
+interface FormatQuestionProps {
     question: questionType;
     options: string[];
-    onChoiceChange: (value: string) => void
-}): JSX.Element {
-    const [currentChoice, setCurrentChoice] = useState<string>(options[0]);
+    onChoiceChange: (value: string) => void;
+}
+
+export function FormatQuestion({ question, options, onChoiceChange }: FormatQuestionProps): JSX.Element {
+    const [currentChoice, setCurrentChoice] = useState<string>("");
 
     function changeChoice(event: React.ChangeEvent<HTMLSelectElement>) {
         setCurrentChoice(event.target.value);
-        onChoiceChange(event.target.value);
+        if (event.target.value !== "") {
+            onChoiceChange(event.target.value);
+        }
     }
 
     return (
@@ -26,13 +25,16 @@ export function FormatQuestion({
             <p>{question.body}</p>
             <Form.Group controlId="Options">
                 <Form.Select value={currentChoice} onChange={changeChoice}>
+                    <option disabled value="">Choose an option</option>
                     {options.map((option, index) => (
-                        <option key={index} value={option}>
-                            {option}
-                        </option>
+                        <option key={index} value={option}>{option}</option>
                     ))}
                 </Form.Select>
             </Form.Group>
         </div>
     );
 }
+
+
+
+
