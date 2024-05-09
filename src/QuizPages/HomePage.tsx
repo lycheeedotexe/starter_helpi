@@ -5,7 +5,7 @@ import BasicQuestions from "../QuizPages/BasicQuestions";
 import DetailedQuestions from "../QuizPages/DetailedQuestions";
 import { useUserResponses } from '../contexts/UserResponsesContext';
 
-import "./HomePage.css";
+import "../App.css";
 
 export function HomePage(): JSX.Element{
   const [showHome, updateShowHome] = useState<boolean>(true);
@@ -50,11 +50,9 @@ export function HomePage(): JSX.Element{
         <div>
         {showHome && (
           <>
-            <h1>Career Guide</h1>
-
-            <p className='style1'>With so many careers to choose from do you have NO IDEA what you want to do? Our basic career quiz is right for you, click to get started!
+            <p>With so many careers to choose from do you have NO IDEA what you want to do? Our basic career quiz is right for you, click to get started!
            <div> <Button onClick={clickBasic}>Basic</Button> </div> </p>
-            <p className="style2">Do you have an area of interest already but need help nailing it down? Then our detailed quiz is right for you click to get started! 
+            <p>Do you have an area of interest already but need help nailing it down? Then our detailed quiz is right for you click to get started! 
            <div> <Button onClick={clickDetailed}>Detailed</Button> </div> </p>
           </>
         )}

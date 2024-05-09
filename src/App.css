@@ -27,14 +27,6 @@
 }
 .App-body {
   background-image: url('image assets/dark-timber-desk-texture_1194-6756-3544321955.jpg');
-  /* background-image: url('image assets/spiral-notebook-paper-texture.jpg');
-  background-size: 100%;
-  background-repeat: no-repeat;
-  margin-left: auto;
-  margin-right: auto;
-  height: 100%;
-  width: 100%; */
-
   background-color: #84A59D;
   min-height: 100vh;
   display: flex;
@@ -48,9 +40,10 @@ p {
   color: #F7EDE2;
   text-align: center;
   font-style:italic;
-  border-style: solid;
+  /* border-style: solid; */
   inset-block: 100px;
   align-content: center;
+  padding: 2% 0 0;
 }
 
 .style1 {
@@ -66,7 +59,11 @@ p {
   width: 50%;        
   box-sizing: border-box; 
 }
-
+.progress-bar {
+  position: sticky;
+  top: 0;
+  padding: 0 0 0;
+}
 .App-link {
   color: hsl(193, 95%, 68%);
 }

@@ -3,7 +3,7 @@ import './App.css';
 import {UserResponsesProvider} from './contexts/UserResponsesContext'
 import {HomePage} from "./QuizPages/HomePage";
 import banner from "./image assets/banner 3.png";
-import { ChatGPT } from './chatGPT';
+import { APIKey } from './submitButtons/submitKey';
 
 
 function App() {
@@ -17,7 +17,7 @@ function App() {
       <div className='App-body'>
         <HomePage></HomePage>
         </div>
-    <ChatGPT></ChatGPT>
+    <APIKey></APIKey>
     </div>
     </UserResponsesProvider>
     
