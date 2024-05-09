@@ -58,18 +58,23 @@ const BasicQuestions = () => {
 
     return (
       <div>
-        <h1>Basic Questions Quiz</h1>
-        <ProgressBar progress={progress} progressText={``} />
+        <span className="progress-bar">
+          <ProgressBar progress={progress} progressText={``} />
+        </span> 
         <div>
-        <p>Basic Questions begin here</p> 
+          <h1>Basic Questions Quiz</h1>
+        </div>
+        <div>
         {data.BASIC_QUESTIONS.map((q: BasicQuestionProp) => (
           <div>
+            <p>
           <FormatQuestion 
             key={q.id}
             question={q} 
-            options={["Neutral","Strongly Disagree", "Disagree", "Agree", "Strongly Agree"]}
+            options={["Strongly Disagree", "Disagree","Neutral", "Agree", "Strongly Agree"]}
             onChoiceChange={handleChoiceChange(q.id)}
             ></FormatQuestion>
+            </p>
           </div>
     ))}
           <SubmitBasic></SubmitBasic>
