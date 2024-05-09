@@ -47,6 +47,7 @@ const BasicQuestions = () => {
   const handleChoiceChange = (id: number) => (value: string) => {
     setResponses((prev: UserResponsesType) => {
       const updatedResponses = {...prev, [id]: value.trim()};
+      console.log("Basic Q updated Responses:", updatedResponses);
       return updatedResponses; 
     });
   };

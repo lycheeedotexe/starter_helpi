@@ -26,28 +26,7 @@ const DetailedQuestions = () => {
     */
     const {detailedResponses, setDetailedResponses} = useDetailedResponses();
     console.log(detailedResponses);
-    
-
-    const updateProgress = useCallback(() => {
-      const totalQuestions = 25;
-      console.log("Total Questions:", totalQuestions);
-      console.log("Current Responses:", responses);
-    
-      const answeredQuestionsCount = Object.values(responses)
-        .filter(answer => answer && answer.trim() !== "" && answer !== "Choose an option").length;
-    
-      console.log("Answered Questions Count:", answeredQuestionsCount);
-      const newProgress = (answeredQuestionsCount / totalQuestions) * 100;
-      console.log(`Updating progress: ${newProgress}% (${answeredQuestionsCount}/${totalQuestions} answered)`);
-      setProgress(newProgress);
-    }, [responses]);
-    
-
-    useEffect(() => {
-      updateProgress();  // Call updateProgress whenever responses change
-    }, [updateProgress])
-    
-  
+      
     useEffect(() => {
       const responseVec = getResponseVector(responses);
       //console.log("CLEARING LOCAL STORAGE");
@@ -65,12 +44,34 @@ const DetailedQuestions = () => {
 
     const handleDetailedChoiceChange = (id: number) => (value: string) => {
       setDetailedResponses((prev:DetailedResponsesType) => {
-        const updatedResponses = {...prev, [id]:value};
+        const updatedResponses = {...prev, [id]:value.trim()};
         console.log('New Responses:', updatedResponses);
         console.log(`recommended jobs = ${recommendJobs(data, getResponseDictionary(updatedResponses), Object.keys(updatedResponses).map(key => parseInt(key, 10))).map((j:Job) => j.name)}`)
         return updatedResponses;
       });
   }
+
+
+
+
+
+  const updateProgress = useCallback(() => {
+    const totalQuestions = 25;
+    console.log("Total Questions:", totalQuestions);
+  
+    const answeredQuestionsCount = Object.values(detailedResponses)
+      .filter(answer => answer && answer.trim() !== "" && answer !== "Choose an option").length;
+  
+    const newProgress = (answeredQuestionsCount / totalQuestions) * 100;
+    console.log(`Updating progress: ${newProgress}% (${answeredQuestionsCount}/${totalQuestions} answered)`);
+    setProgress(newProgress);
+  }, [detailedResponses]);
+  
+
+  useEffect(() => {
+    updateProgress();  // Call updateProgress whenever responses change
+  }, [updateProgress])
+  
     return (
       <div>
       <h1>Detailed Questions Quiz</h1>
@@ -83,7 +84,7 @@ const DetailedQuestions = () => {
         <FormatQuestion 
           key={q.id}
           question={q} 
-          options={["", "Neutral","Strongly Disagree", "Disagree", "Agree", "Strongly Agree"]}
+          options={["Neutral","Strongly Disagree", "Disagree", "Agree", "Strongly Agree"]}
           onChoiceChange={handleDetailedChoiceChange(q.id)}
           ></FormatQuestion>
         </div>
@@ -95,6 +96,3 @@ const DetailedQuestions = () => {
   
   export default DetailedQuestions;
 
-function updateProgress() {
-  throw new Error("Function not implemented.");
-}
