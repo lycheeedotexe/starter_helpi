@@ -2,10 +2,21 @@ import { openai } from "./submitKey";
 import { useState } from "react";
 import { Button, Form } from 'react-bootstrap';
 
+//silo's jobRecommendation function
+import { recommendJobs } from "../QuizFunctions/QuestionSelection";
+import questions from "../data/questions.json"
+//import { getresponseDictionary } from "../QuizFunctions/getResponseVector"
+//import { DetailedResponsesContext } from "../contexts/Deta"
+
 export type JobFieldDescr = string;
 
 export function SubmitBasic(): JSX.Element{
     const [gptResponse, setGptResponse] = useState<string | null>("no response");
+    
+    //silo's jobRecommendation function
+    const dataCopy = JSON.parse(JSON.stringify(questions));
+    //const responseDict = 
+    //const recommendedJob = recommendJobs(dataCopy,)
 
     const [text, setText] = useState<string>("what does a software engineer do?");
     function changeText(event: React.ChangeEvent<HTMLInputElement>) {

@@ -4,6 +4,7 @@ import { Button } from "react-bootstrap";
 import BasicQuestions from "../QuizPages/BasicQuestions";
 import DetailedQuestions from "../QuizPages/DetailedQuestions";
 import { useUserResponses } from '../contexts/UserResponsesContext';
+import mascotPonder from "../image assets/mascot ponder 2 2.png"
 
 import "../App.css";
 
@@ -50,6 +51,7 @@ export function HomePage(): JSX.Element{
         <div>
         {showHome && (
           <>
+          <img src={mascotPonder} alt="the mascot is pondering"></img>
             <p>With so many careers to choose from do you have NO IDEA what you want to do? Our basic career quiz is right for you, click to get started!
            <div> <Button onClick={clickBasic}>Basic</Button> </div> </p>
             <p>Do you have an area of interest already but need help nailing it down? Then our detailed quiz is right for you click to get started! 
