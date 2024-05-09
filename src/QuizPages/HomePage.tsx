@@ -22,8 +22,6 @@ export function HomePage(): JSX.Element {
   }
 
   function clickHome() {
-    clearStorage();
-    resetResponses();
     updateShowHome(true);
     updateShowBasic(false);
     updateShowDetailed(false);
@@ -31,6 +29,8 @@ export function HomePage(): JSX.Element {
   }
 
   function clickBasic() {
+    clearStorage();
+    resetResponses();
     updateShowHome(false);
     updateShowBasic(true);
   }
