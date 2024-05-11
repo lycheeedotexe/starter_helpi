@@ -155,15 +155,15 @@ A worker process has failed to exit gracefully and has been force exited. This i
 -------------------------------|---------|----------|---------|---------|-------------------
 File                           | % Stmts | % Branch | % Funcs | % Lines | Uncovered Line #s 
 -------------------------------|---------|----------|---------|---------|-------------------
-All files                      |   12.28 |     12.5 |    9.48 |   13.37 |                   
+All files                      |   12.07 |     12.5 |     9.4 |   13.16 |                   
  src                           |    3.44 |        0 |    12.5 |    3.44 |                   
   App.tsx                      |     100 |      100 |     100 |     100 |                   
   chatGPT.tsx                  |       0 |        0 |       0 |       0 | 7-69              
   index.tsx                    |       0 |      100 |     100 |       0 | 7-19              
   reportWebVitals.ts           |       0 |        0 |       0 |       0 | 3-10              
- src/QuizFunctions             |    0.66 |        0 |       0 |    0.81 |                   
+ src/QuizFunctions             |    0.64 |        0 |       0 |    0.79 |                   
   QuestionSelection.Test.tsx   |       0 |      100 |       0 |       0 | 5-55              
-  QuestionSelection.ts         |       0 |        0 |       0 |       0 | 36-228            
+  QuestionSelection.ts         |       0 |        0 |       0 |       0 | 36-231            
   consoleDisplays.ts           |       0 |      100 |       0 |       0 | 5-53              
   getResponseVector.ts         |    12.5 |        0 |       0 |   16.66 | 15-26             
  src/QuizPages                 |   11.49 |    35.71 |    3.57 |   12.04 |                   
@@ -179,13 +179,13 @@ All files                      |   12.28 |     12.5 |    9.48 |   13.37 |
  src/contexts                  |   95.45 |       50 |      70 |     100 |                   
   DetailedResponsesContext.tsx |    90.9 |       50 |      60 |     100 | 25                
   UserResponsesContext.tsx     |     100 |       50 |      80 |     100 | 25                
- src/submitButtons             |   14.89 |     8.33 |   11.11 |    15.9 |                   
+ src/submitButtons             |   14.28 |     8.33 |   11.11 |   15.21 |                   
   submitBasic.tsx              |       0 |      100 |       0 |       0 | 8-25              
-  submitDetailed.tsx           |       0 |        0 |       0 |       0 | 12-52             
+  submitDetailed.tsx           |       0 |        0 |       0 |       0 | 12-55             
   submitKey.tsx                |   63.63 |       50 |   33.33 |   63.63 | 10,23-29          
 -------------------------------|---------|----------|---------|---------|-------------------
 Test Suites: 1 failed, 1 passed, 2 total
 Tests:       1 failed, 1 passed, 2 total
 Snapshots:   0 total
-Time:        4.82 s
+Time:        4.882 s
 Ran all test suites.
