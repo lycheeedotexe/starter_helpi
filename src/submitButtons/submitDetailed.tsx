@@ -20,7 +20,7 @@ export function SubmitDetailed(): JSX.Element{
     console.log("number of jobs: " + num);
 
     const getResponseFunction = async() => {
-        for(var i = 0; i < 3; i++) {
+        for(var i = 0; i < num; i++) {
             resultsDetailed.CAREER_RESULTS[i].title = recommendations[i].name;
             const question = [`Generate a 1-3 sentence job description for "${recommendations[i].name}".`,
                               `In one sentence, state the entry or starting salary as a dollar amount for "${recommendations[i].name}".`,
