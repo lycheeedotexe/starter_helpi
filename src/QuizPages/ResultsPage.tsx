@@ -8,7 +8,7 @@ const ResultsPage = () => {
 <div>
       <h1>Response Page</h1>
       <div>
-      {resultsDetailed.CAREER_RESULTS.map((j) => (
+      {resultsDetailed.CAREER_RESULTS.filter((j): boolean => j.title !== "Title").map((j) => (
             <FormatResult
                 id={j.id}
                 title = {j.title}
