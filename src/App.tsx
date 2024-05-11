@@ -5,13 +5,13 @@ import {HomePage} from "./QuizPages/HomePage";
 import banner from "./image assets/banner 3.png";
 import { APIKey } from './submitButtons/submitKey';
 import { DetailedResponsesProvider } from './contexts/DetailedResponsesContext';
-import { useState } from 'react';
+//import { useState } from 'react';
 function App() {
-  const [keyGiven, setKeyGiven] = useState<boolean>(false);
+  // const [keyGiven, setKeyGiven] = useState<boolean>(false);
 
-  function changeKeyGiven() {
-    setKeyGiven(true);
-  }
+  // function changeKeyGiven() {
+  //   setKeyGiven(true);
+  // }
 
   return (
     <UserResponsesProvider>
