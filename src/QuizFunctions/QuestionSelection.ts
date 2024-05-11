@@ -218,12 +218,15 @@ export function recommendJobs(data: DataStorage, detailedResponceDict: Record<nu
         console.log(`The sum is ${sum}`)
         return sum;
     }
-
-    const recommendJob = (j: Job): boolean => {
-        const jobScore = scoreJob(j);
+    function recommendJob(j: Job, numFailures: number){
+        const offSet = .25*numFailures;
+        const jobScore = scoreJob(j) + offSet;
         const maxScore = 1.0*j.relatedDetailedQuestions.length - 0.5*j.relatedDetailedQuestions.filter(d => d <= 50).length
         return(jobScore > .25*maxScore)
     }   
-
-    return data.JOBS.filter((j:Job) => recommendJob(j) === true);
+    var numFailures = 0;
+    while(data.JOBS.filter((j:Job) => recommendJob(j,0) === true).length < 3){
+        numFailures += 1;
+    }
+    return data.JOBS.filter((j:Job) => recommendJob(j,numFailures) === true);
 }
