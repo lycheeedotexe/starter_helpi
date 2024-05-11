@@ -10,14 +10,13 @@ if (prevKey !== null) {
   keyData = JSON.parse(prevKey);
 }
 
-export type keyOut = string;
 export const openai = new OpenAI({
   apiKey: keyData,
   dangerouslyAllowBrowser: true
 });
 
 export function APIKey(): JSX.Element{
-  const [key, setKey] = useState<keyOut>(keyData); //for api key input
+  const [key, setKey] = useState<string>(keyData); //for api key input
 
   //sets the local storage item to the api key the user inputed
   function handleSubmit() {

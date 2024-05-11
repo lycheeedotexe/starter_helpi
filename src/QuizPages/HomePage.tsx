@@ -6,7 +6,7 @@ import ResultsPage from "./ResultsPage";
 import { useUserResponses } from '../contexts/UserResponsesContext';
 import { useDetailedResponses } from "../contexts/DetailedResponsesContext";
 
-export function HomePage(): JSX.Element {
+export function HomePage(): JSX.Element{
   const [showHome, updateShowHome] = useState<boolean>(true);
   const [showDetailed, updateShowDetailed] = useState<boolean>(false);
   const [showBasic, updateShowBasic] = useState<boolean>(false);
