@@ -155,7 +155,7 @@ A worker process has failed to exit gracefully and has been force exited. This i
 -------------------------------|---------|----------|---------|---------|-------------------
 File                           | % Stmts | % Branch | % Funcs | % Lines | Uncovered Line #s 
 -------------------------------|---------|----------|---------|---------|-------------------
-All files                      |   12.21 |     12.5 |    9.48 |   13.29 |                   
+All files                      |   12.18 |     12.5 |     9.4 |   13.24 |                   
  src                           |    3.44 |        0 |    12.5 |    3.44 |                   
   App.tsx                      |     100 |      100 |     100 |     100 |                   
   chatGPT.tsx                  |       0 |        0 |       0 |       0 | 7-69              
@@ -166,11 +166,11 @@ All files                      |   12.21 |     12.5 |    9.48 |   13.29 |
   QuestionSelection.ts         |       0 |        0 |       0 |       0 | 37-229            
   consoleDisplays.ts           |       0 |      100 |       0 |       0 | 5-53              
   getResponseVector.ts         |    12.5 |        0 |       0 |   16.66 | 15-26             
- src/QuizPages                 |   11.49 |    35.71 |    3.57 |   12.04 |                   
+ src/QuizPages                 |   11.36 |    35.71 |    3.44 |    11.9 |                   
   BasicQuestions.tsx           |    7.69 |        0 |       0 |       8 | 23-70             
   DetailedQuestions.tsx        |    2.77 |        0 |       0 |    3.03 | 15-86             
   HomePage.tsx                 |   27.27 |     62.5 |   14.28 |   27.27 | 20-50             
-  ResultsPage.tsx              |   33.33 |      100 |       0 |   33.33 | 7-12              
+  ResultsPage.tsx              |      25 |      100 |       0 |      25 | 7-12              
  src/components                |      20 |        0 |   11.11 |      20 |                   
   MultipleChoiceQuestion.tsx   |       0 |      100 |       0 |       0 | 12-24             
   formatQuestion.tsx           |       0 |        0 |       0 |       0 | 14-30             
@@ -187,5 +187,5 @@ All files                      |   12.21 |     12.5 |    9.48 |   13.29 |
 Test Suites: 1 failed, 1 passed, 2 total
 Tests:       1 failed, 1 passed, 2 total
 Snapshots:   0 total
-Time:        4.684 s
+Time:        4.712 s
 Ran all test suites.
