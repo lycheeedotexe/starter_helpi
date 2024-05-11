@@ -155,7 +155,7 @@ A worker process has failed to exit gracefully and has been force exited. This i
 -------------------------------|---------|----------|---------|---------|-------------------
 File                           | % Stmts | % Branch | % Funcs | % Lines | Uncovered Line #s 
 -------------------------------|---------|----------|---------|---------|-------------------
-All files                      |   12.35 |     12.5 |    9.48 |   13.46 |                   
+All files                      |   12.28 |     12.5 |    9.48 |   13.37 |                   
  src                           |    3.44 |        0 |    12.5 |    3.44 |                   
   App.tsx                      |     100 |      100 |     100 |     100 |                   
   chatGPT.tsx                  |       0 |        0 |       0 |       0 | 7-69              
@@ -179,13 +179,13 @@ All files                      |   12.35 |     12.5 |    9.48 |   13.46 |
  src/contexts                  |   95.45 |       50 |      70 |     100 |                   
   DetailedResponsesContext.tsx |    90.9 |       50 |      60 |     100 | 25                
   UserResponsesContext.tsx     |     100 |       50 |      80 |     100 | 25                
- src/submitButtons             |   15.55 |     8.33 |   11.11 |   16.66 |                   
+ src/submitButtons             |   14.89 |     8.33 |   11.11 |    15.9 |                   
   submitBasic.tsx              |       0 |      100 |       0 |       0 | 8-25              
-  submitDetailed.tsx           |       0 |        0 |       0 |       0 | 13-64             
+  submitDetailed.tsx           |       0 |        0 |       0 |       0 | 12-52             
   submitKey.tsx                |   63.63 |       50 |   33.33 |   63.63 | 10,23-29          
 -------------------------------|---------|----------|---------|---------|-------------------
 Test Suites: 1 failed, 1 passed, 2 total
 Tests:       1 failed, 1 passed, 2 total
 Snapshots:   0 total
-Time:        4.846 s
+Time:        4.735 s
 Ran all test suites.
