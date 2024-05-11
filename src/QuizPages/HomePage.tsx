@@ -4,7 +4,7 @@ import BasicQuestions from "../QuizPages/BasicQuestions";
 import DetailedQuestions from "../QuizPages/DetailedQuestions";
 import ResultsPage from "./ResultsPage";
 import { useUserResponses } from '../contexts/UserResponsesContext';
-import mascotPonder from "../image assets/mascot ponder 2 2.png"
+//import mascotPonder from "../image assets/mascot ponder 2 2.png"
 
 import "../App.css";
 
