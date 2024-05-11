@@ -2,7 +2,7 @@ import { openai } from "./submitKey";
 import { Button, Form } from 'react-bootstrap';
 import resultsDetailed from "../data/resultsDetailed.json"
 
-import React, { useContext} from "react";
+import { useContext} from "react";
 import questions from "../data/questions.json";
 import { getResponseDictionary } from "../QuizFunctions/getResponseVector";
 import { DetailedResponsesContext } from "../contexts/DetailedResponsesContext";
@@ -16,8 +16,11 @@ export function SubmitDetailed(): JSX.Element{
     const recommendations = recommendJobs(dataCopy, responseDict, sampledKeys);
     let loading = "not done";
 
+    const num = recommendations.length;
+    console.log("number of jobs: " + num);
+
     const getResponseFunction = async() => {
-        for(var i = 0; i < recommendJobs.length-1; i++) {
+        for(var i = 0; i < 3; i++) {
             resultsDetailed.CAREER_RESULTS[i].title = recommendations[i].name;
             const question = [`Generate a 1-3 sentence job description for "${recommendations[i].name}".`,
                               `In one sentence, state the entry or starting salary as a dollar amount for "${recommendations[i].name}".`,
