@@ -36,7 +36,8 @@ export function HomePage(): JSX.Element {
   }
 
   function clickDetailed() {
-    localStorage.removeItem('detailedResponses');
+    clearStorage();
+    //localStorage.removeItem('detailedResponses');
     console.log("Printing local storage", JSON.parse(JSON.stringify(localStorage)));
     updateShowHome(false);
     updateShowDetailed(true);
