@@ -6,7 +6,7 @@ import { Button, Form } from 'react-bootstrap';
 import { recommendJobs } from "../QuizFunctions/QuestionSelection";
 import questions from "../data/questions.json"
 //import { getresponseDictionary } from "../QuizFunctions/getResponseVector"
-//import { DetailedResponsesContext } from "../contexts/Deta"
+//import { DetailedResponsesContext } from "../contexts/DetailedResponsesContexts"
 
 export type JobFieldDescr = string;
 
@@ -15,8 +15,9 @@ export function SubmitBasic(): JSX.Element{
     
     //silo's jobRecommendation function
     const dataCopy = JSON.parse(JSON.stringify(questions));
-    //const responseDict = 
-    //const recommendedJob = recommendJobs(dataCopy,)
+    //sampledKeys = object.keys(detailedResponses).map(key => parseInt(key,10));
+    //const responseDict = getResponseDictionary(detailedResponses);
+    //const recommendedJob = recommendJobs(dataCopy, responseDict, sampledKeys)
 
     const [text, setText] = useState<string>("what does a software engineer do?");
     function changeText(event: React.ChangeEvent<HTMLInputElement>) {
