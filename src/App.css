@@ -45,6 +45,15 @@ p {
   align-content: center;
   padding: 2% 0 0;
 }
+.p2 {
+  color: #485053;
+  text-align: center;
+  font-style:italic;
+  /* border-style: solid; */
+  inset-block: 100px;
+  align-content: center;
+  padding: 2% 0 0;
+}
 
 .style1 {
   text-align: left;  

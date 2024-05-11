@@ -89,7 +89,7 @@ const DetailedQuestions = () => {
           onChoiceChange={handleDetailedChoiceChange(q.id)}
           ></FormatQuestion>
         </div>
-  ))};
+  ))}
   <SubmitDetailed></SubmitDetailed>
       </div>
     </div>

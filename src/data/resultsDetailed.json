@@ -1,25 +1,28 @@
 {
     "CAREER_RESULTS": [
         {   
+            "id": 0,
             "title": "Title1", 
             "description": "Description", 
-            "entrySalary": "$0", 
+            "entrySalary": "$", 
             "medianSalary": "$", 
-            "careerPath": []
+            "careerPath": ["blah", "blah"]
         },
         {   
+            "id": 1,
             "title": "Title2", 
             "description": "Description", 
-            "entrySalary": "$0", 
-            "medianSalary": "$0", 
-            "careerPath": []
+            "entrySalary": "$", 
+            "medianSalary": "$", 
+            "careerPath": ["blah", "blah"]
         },
         {   
+            "id": 2,
             "title": "Title3", 
             "description": "Description", 
-            "entrySalary": "$0", 
-            "medianSalary": "$0", 
-            "careerPath": []
+            "entrySalary": "$", 
+            "medianSalary": "$", 
+            "careerPath": ["blah", "blah"]
         }
     ]
 }
