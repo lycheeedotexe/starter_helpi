@@ -19,7 +19,7 @@ export function SubmitBasic(): JSX.Element{
             model: "gpt-4-turbo"
         })
         setGptResponse(response.choices[0].message.content);
-        
+        console.log(response);
     }
 
     return (
