@@ -2,7 +2,7 @@
     "CAREER_RESULTS": [
         {   
             "id": 0,
-            "title": "Title1", 
+            "title": "Title", 
             "description": "Description", 
             "entrySalary": "$", 
             "medianSalary": "$", 
@@ -10,7 +10,7 @@
         },
         {   
             "id": 1,
-            "title": "Title2", 
+            "title": "Title", 
             "description": "Description", 
             "entrySalary": "$", 
             "medianSalary": "$", 
@@ -18,7 +18,7 @@
         },
         {   
             "id": 2,
-            "title": "Title3", 
+            "title": "Title", 
             "description": "Description", 
             "entrySalary": "$", 
             "medianSalary": "$", 
