@@ -9,6 +9,7 @@ import { DetailedResponsesType, useDetailedResponses} from "../contexts/Detailed
 import { userResponseType } from "./BasicQuestions";
 import { displayInfo } from "../QuizFunctions/consoleDisplays";
 import { recommendJobs } from "../QuizFunctions/QuestionSelection";
+import { SubmitDetailed } from "../submitButtons/submitDetailed";
 
 const DetailedQuestions = () => {
     const [DetailedQuestions, setDetailedQuestions] = useState<DetailedQuestion[]>([]);
@@ -88,7 +89,8 @@ const DetailedQuestions = () => {
           onChoiceChange={handleDetailedChoiceChange(q.id)}
           ></FormatQuestion>
         </div>
-  ))};
+  ))}
+  <SubmitDetailed></SubmitDetailed>
       </div>
     </div>
     );

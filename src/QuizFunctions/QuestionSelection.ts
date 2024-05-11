@@ -1,4 +1,4 @@
-import { getResponseVector } from "./getResponseVector";
+//import { getResponseVector } from "./getResponseVector";
 
 //where question selection code will go
 export interface Job {

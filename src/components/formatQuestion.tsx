@@ -32,7 +32,7 @@ export function FormatQuestion({ question, options, onChoiceChange }: FormatQues
                 </Form.Select>
             </Form.Group>
         </div>
-    );
+    )
 }
 
 
