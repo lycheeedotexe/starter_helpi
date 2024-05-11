@@ -1,9 +1,10 @@
-import React, { useState } from "react";
+import React, { useDebugValue, useState } from "react";
 import { Button } from "react-bootstrap";
 import BasicQuestions from "../QuizPages/BasicQuestions";
 import DetailedQuestions from "../QuizPages/DetailedQuestions";
 import ResultsPage from "./ResultsPage";
 import { useUserResponses } from '../contexts/UserResponsesContext';
+import { useDetailedResponses } from "../contexts/DetailedResponsesContext";
 
 export function HomePage(): JSX.Element {
   const [showHome, updateShowHome] = useState<boolean>(true);
@@ -12,9 +13,11 @@ export function HomePage(): JSX.Element {
   const [showResults, updateShowResults] = useState<boolean>(false);
 
   const { setResponses } = useUserResponses();
+  const {setDetailedResponses} = useDetailedResponses();
 
   function resetResponses() {
-    setResponses({}); // Assuming this resets to the initial state
+    setResponses({});
+    setDetailedResponses({}); // Assuming this resets to the initial state
   }
 
   function clearStorage() {
@@ -22,6 +25,8 @@ export function HomePage(): JSX.Element {
   }
 
   function clickHome() {
+    resetResponses();
+    clearStorage();
     updateShowHome(true);
     updateShowBasic(false);
     updateShowDetailed(false);
