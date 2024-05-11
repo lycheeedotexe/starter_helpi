@@ -2,17 +2,21 @@
 > starter_helpi@0.1.0 test
 > react-scripts test --coverage
 
-  console.error
-    Warning: validateDOMNesting(...): <div> cannot appear as a descendant of <p>.
-        at div
-        at p
-        at div
-        at div
-        at HomePage (/home/runner/work/starter_helpi/starter_helpi/src/QuizPages/HomePage.tsx:11:46)
-        at div
-        at div
-        at UserResponsesProvider (/home/runner/work/starter_helpi/starter_helpi/src/contexts/UserResponsesContext.tsx:22:74)
-        at App
+PASS src/Test/ProgressBar.test.js
+FAIL src/App.test.tsx
+  ● Console
+
+    console.error
+      Warning: validateDOMNesting(...): <div> cannot appear as a descendant of <p>.
+          at div
+          at p
+          at div
+          at HomePage (/home/runner/work/starter_helpi/starter_helpi/src/QuizPages/HomePage.tsx:12:46)
+          at div
+          at div
+          at DetailedResponsesProvider (/home/runner/work/starter_helpi/starter_helpi/src/contexts/DetailedResponsesContext.tsx:22:78)
+          at UserResponsesProvider (/home/runner/work/starter_helpi/starter_helpi/src/contexts/UserResponsesContext.tsx:22:74)
+          at App
 
       4 |
       5 | test('renders learn react link', () => {
@@ -38,13 +42,6 @@
       at renderRoot (node_modules/@testing-library/react/dist/pure.js:159:26)
       at render (node_modules/@testing-library/react/dist/pure.js:246:10)
       at Object.<anonymous> (src/App.test.tsx:6:9)
-      at TestScheduler.scheduleTests (node_modules/@jest/core/build/TestScheduler.js:333:13)
-      at runJest (node_modules/@jest/core/build/runJest.js:404:19)
-      at _run10000 (node_modules/@jest/core/build/cli/index.js:320:7)
-      at runCLI (node_modules/@jest/core/build/cli/index.js:173:3)
-
-FAIL src/App.test.tsx
-  ✕ renders learn react link (71 ms)
 
   ● renders learn react link
 
@@ -69,35 +66,47 @@ FAIL src/App.test.tsx
             [33mclass[39m=[32m"App-body"[39m
           [36m>[39m
             [36m<div>[39m
+              [36m<h1>[39m
+                [0mCareer Guide[0m
+              [36m</h1>[39m
+              [36m<p[39m
+                [33mclass[39m=[32m"style1"[39m
+              [36m>[39m
+                [0mWith so many careers to choose from do you have NO IDEA what you want to do? Our basic career quiz is right for you, click to get started![0m
+                [36m<div>[39m
+                  [36m<button[39m
+                    [33mclass[39m=[32m"btn btn-primary"[39m
+                    [33mtype[39m=[32m"button"[39m
+                  [36m>[39m
+                    [0mBasic[0m
+                  [36m</button>[39m
+                [36m</div>[39m
+              [36m</p>[39m
+              [36m<p[39m
+                [33mclass[39m=[32m"style2"[39m
+              [36m>[39m
+                [0mDo you have an area of interest already but need help nailing it down? Then our detailed quiz is right for you click to get started![0m
+                [36m<div>[39m
+                  [36m<button[39m
+                    [33mclass[39m=[32m"btn btn-primary"[39m
+                    [33mtype[39m=[32m"button"[39m
+                  [36m>[39m
+                    [0mDetailed[0m
+                  [36m</button>[39m
+                [36m</div>[39m
+              [36m</p>[39m
               [36m<div>[39m
-                [36m<p>[39m
-                  [0mWith so many careers to choose from do you have NO IDEA what you want to do? Our basic career quiz is right for you, click to get started![0m
-                  [36m<div>[39m
-                    [0m [0m
-                    [36m<button[39m
-                      [33mclass[39m=[32m"btn btn-primary"[39m
-                      [33mtype[39m=[32m"button"[39m
-                    [36m>[39m
-                      [0mBasic[0m
-                    [36m</button>[39m
-                    [0m [0m
-                  [36m</div>[39m
-                  [0m [0m
+                [36m<p[39m
+                  [33mclass[39m=[32m"style3"[39m
+                [36m>[39m
+                  [0mSee Results[0m
                 [36m</p>[39m
-                [36m<p>[39m
-                  [0mDo you have an area of interest already but need help nailing it down? Then our detailed quiz is right for you click to get started![0m
-                  [36m<div>[39m
-                    [0m [0m
-                    [36m<button[39m
-                      [33mclass[39m=[32m"btn btn-primary"[39m
-                      [33mtype[39m=[32m"button"[39m
-                    [36m>[39m
-                      [0mDetailed[0m
-                    [36m</button>[39m
-                    [0m [0m
-                  [36m</div>[39m
-                  [0m [0m
-                [36m</p>[39m
+                [36m<button[39m
+                  [33mclass[39m=[32m"btn btn-primary"[39m
+                  [33mtype[39m=[32m"button"[39m
+                [36m>[39m
+                  [0mResults[0m
+                [36m</button>[39m
               [36m</div>[39m
             [36m</div>[39m
           [36m</div>[39m
@@ -141,53 +150,42 @@ FAIL src/App.test.tsx
       at node_modules/@testing-library/react/node_modules/@testing-library/dom/dist/query-helpers.js:52:17
       at getByText (node_modules/@testing-library/react/node_modules/@testing-library/dom/dist/query-helpers.js:95:19)
       at Object.<anonymous> (src/App.test.tsx:7:30)
-      at TestScheduler.scheduleTests (node_modules/@jest/core/build/TestScheduler.js:333:13)
-      at runJest (node_modules/@jest/core/build/runJest.js:404:19)
-      at _run10000 (node_modules/@jest/core/build/cli/index.js:320:7)
-      at runCLI (node_modules/@jest/core/build/cli/index.js:173:3)
 
-[0;33mOne of your dependencies, babel-preset-react-app, is importing the
-"@babel/plugin-proposal-private-property-in-object" package without
-declaring it in its dependencies. This is currently working because
-"@babel/plugin-proposal-private-property-in-object" is already in your
-node_modules folder for unrelated reasons, but it [1mmay break at any time[0;33m.
-
-babel-preset-react-app is part of the create-react-app project, [1mwhich
-is not maintianed anymore[0;33m. It is thus unlikely that this bug will
-ever be fixed. Add "@babel/plugin-proposal-private-property-in-object" to
-your devDependencies to work around this error. This will make this message
-go away.[0m
-  
------------------------------|---------|----------|---------|---------|-------------------
-File                         | % Stmts | % Branch | % Funcs | % Lines | Uncovered Line #s 
------------------------------|---------|----------|---------|---------|-------------------
-All files                    |   11.32 |    13.63 |    7.95 |   12.01 |                   
- src                         |    3.44 |        0 |    12.5 |    3.44 |                   
-  App.tsx                    |     100 |      100 |     100 |     100 |                   
-  chatGPT.tsx                |       0 |        0 |       0 |       0 | 7-69              
-  index.tsx                  |       0 |      100 |     100 |       0 | 7-19              
-  reportWebVitals.ts         |       0 |        0 |       0 |       0 | 3-10              
- src/QuizFunctions           |       0 |        0 |       0 |       0 |                   
-  QuestionSelection.Test.tsx |       0 |      100 |       0 |       0 | 5-55              
-  QuestionSelection.ts       |       0 |        0 |       0 |       0 | 35-191            
-  consoleDisplays.ts         |       0 |      100 |       0 |       0 | 5-40              
-  getResponseVector.ts       |       0 |      100 |       0 |       0 | 4-14              
- src/QuizPages               |      12 |    33.33 |    4.16 |    12.5 |                   
-  BasicQuestions.tsx         |       8 |        0 |       0 |    8.33 | 23-69             
-  DetailedQuestions.tsx      |    3.22 |        0 |       0 |    3.44 | 12-64             
-  HomePage.tsx               |   31.57 |    66.66 |   14.28 |   31.57 | 18-45             
- src/components              |    7.69 |        0 |       0 |    7.69 |                   
-  MultipleChoiceQuestion.tsx |       0 |      100 |       0 |       0 | 12-24             
-  formatQuestion.tsx         |       0 |        0 |       0 |       0 | 14-30             
-  progressBar.tsx            |   33.33 |      100 |       0 |   33.33 | 9-19              
- src/contexts                |     100 |       50 |      80 |     100 |                   
-  UserResponsesContext.tsx   |     100 |       50 |      80 |     100 | 25                
- src/submitButtons           |   38.88 |       50 |   16.66 |   38.88 |                   
-  submitBasic.tsx            |       0 |      100 |       0 |       0 | 8-25              
-  submitKey.tsx              |   63.63 |       50 |   33.33 |   63.63 | 10,23-29          
------------------------------|---------|----------|---------|---------|-------------------
-Test Suites: 1 failed, 1 total
-Tests:       1 failed, 1 total
+A worker process has failed to exit gracefully and has been force exited. This is likely caused by tests leaking due to improper teardown. Try running with --detectOpenHandles to find leaks. Active timers can also cause this, ensure that .unref() was called on them.
+-------------------------------|---------|----------|---------|---------|-------------------
+File                           | % Stmts | % Branch | % Funcs | % Lines | Uncovered Line #s 
+-------------------------------|---------|----------|---------|---------|-------------------
+All files                      |   12.35 |     12.5 |    9.48 |   13.46 |                   
+ src                           |    3.44 |        0 |    12.5 |    3.44 |                   
+  App.tsx                      |     100 |      100 |     100 |     100 |                   
+  chatGPT.tsx                  |       0 |        0 |       0 |       0 | 7-69              
+  index.tsx                    |       0 |      100 |     100 |       0 | 7-19              
+  reportWebVitals.ts           |       0 |        0 |       0 |       0 | 3-10              
+ src/QuizFunctions             |    0.66 |        0 |       0 |    0.81 |                   
+  QuestionSelection.Test.tsx   |       0 |      100 |       0 |       0 | 5-55              
+  QuestionSelection.ts         |       0 |        0 |       0 |       0 | 36-228            
+  consoleDisplays.ts           |       0 |      100 |       0 |       0 | 5-53              
+  getResponseVector.ts         |    12.5 |        0 |       0 |   16.66 | 15-26             
+ src/QuizPages                 |   11.49 |    35.71 |    3.57 |   12.04 |                   
+  BasicQuestions.tsx           |    7.69 |        0 |       0 |       8 | 23-70             
+  DetailedQuestions.tsx        |    2.77 |        0 |       0 |    3.03 | 15-84             
+  HomePage.tsx                 |   27.27 |     62.5 |   14.28 |   27.27 | 20-50             
+  ResultsPage.tsx              |   33.33 |      100 |       0 |   33.33 | 7-12              
+ src/components                |      20 |        0 |   11.11 |      20 |                   
+  MultipleChoiceQuestion.tsx   |       0 |      100 |       0 |       0 | 12-24             
+  formatQuestion.tsx           |       0 |        0 |       0 |       0 | 14-30             
+  formatResults.tsx            |       0 |      100 |       0 |       0 | 15-46             
+  progressBar.tsx              |     100 |      100 |     100 |     100 |                   
+ src/contexts                  |   95.45 |       50 |      70 |     100 |                   
+  DetailedResponsesContext.tsx |    90.9 |       50 |      60 |     100 | 25                
+  UserResponsesContext.tsx     |     100 |       50 |      80 |     100 | 25                
+ src/submitButtons             |   15.55 |     8.33 |   11.11 |   16.66 |                   
+  submitBasic.tsx              |       0 |      100 |       0 |       0 | 8-25              
+  submitDetailed.tsx           |       0 |        0 |       0 |       0 | 13-64             
+  submitKey.tsx                |   63.63 |       50 |   33.33 |   63.63 | 10,23-29          
+-------------------------------|---------|----------|---------|---------|-------------------
+Test Suites: 1 failed, 1 passed, 2 total
+Tests:       1 failed, 1 passed, 2 total
 Snapshots:   0 total
-Time:        3.459 s
+Time:        4.846 s
 Ran all test suites.
