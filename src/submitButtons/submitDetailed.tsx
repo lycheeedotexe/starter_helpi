@@ -17,7 +17,7 @@ export function SubmitDetailed(): JSX.Element{
     let loading = "not done";
 
     const getResponseFunction = async() => {
-        for(var i = 0; i < 3; i++) {
+        for(var i = 0; i < 2; i++) {
             resultsDetailed.CAREER_RESULTS[i].title = recommendations[i].name;
             const question = [`Generate a 1-3 sentence job description for "${recommendations[i].name}".`,
                               `In one sentence, state the entry or starting salary as a dollar amount for "${recommendations[i].name}".`,
@@ -26,7 +26,7 @@ export function SubmitDetailed(): JSX.Element{
                             ]
             for(var j = 0; j < 4; j++) {
                 const response = await openai.chat.completions.create({
-                    messages: [{"role": "system", "content": "You are generating career report information that is being inputted into a JSON file."},
+                    messages: [{"role": "system", "content": "You are a robot career counselor named Perceptron, with the ability to peer into college student's souls and give the best career advice."},
                         {"role": "user", "content": question[j]}
                     ],
                     model: "gpt-4-turbo",
