@@ -52,15 +52,10 @@ const BasicQuestions = () => {
   
                     
 
-  useEffect(() => {
-    updateProgress();  // This will now only re-run when `updateProgress` or `responses` changes
-  }, [updateProgress]);
-
     return (
       <div>
         <h1>Basic Questions Quiz</h1>
         <ProgressBar progress={progress} progressText={``} />
-        <ProgressBar progress={progress} progressText={`${progress}%`} />
         <div>
         <p>Basic Questions begin here</p> 
         {data.BASIC_QUESTIONS.map((q: BasicQuestionProp) => (
