@@ -8,6 +8,7 @@ import { DetailedResponsesContext, DetailedResponsesType, useDetailedResponses} 
 import { userResponseType } from "./BasicQuestions";
 import { displayInfo } from "../QuizFunctions/consoleDisplays";
 import { recommendJobs } from "../QuizFunctions/QuestionSelection";
+import { FormatResult } from "../components/formatResults";
 
 
 const ResultsPage = () => {
@@ -19,13 +20,18 @@ const ResultsPage = () => {
     return(
 <div>
       <h1>Response Page</h1>
+      <div>
       {recommendations.map((j:Job) => (
-        <div>
-            <p>{j.name}</p>
-        </div>
+            <FormatResult
+                job={j} 
+                description={`Desc of job ${j.id}`} 
+                salary="50000" 
+                education="bachelors"
+            ></FormatResult>
         )
         )
       }
+      </div>
 </div>
     )
     

@@ -1,4 +1,4 @@
-import React, {useState, useEffect, useCallback} from "react";
+import React, {useState , useEffect, useCallback} from "react";
 import questions from "../data/questions.json";
 import { FormatQuestion } from "../components/formatQuestion";
 import { UserResponsesType, useUserResponses } from "../contexts/UserResponsesContext";
@@ -24,6 +24,7 @@ const BasicQuestions = () => {
   console.log(responses)
   const [progress, setProgress] = useState(0);
  
+  
   const updateProgress = useCallback(() => {
     const totalQuestions = data.BASIC_QUESTIONS.length;
     console.log("Total Questions:", totalQuestions);
@@ -37,8 +38,10 @@ const BasicQuestions = () => {
     console.log(`Updating progress: ${newProgress}% (${answeredQuestionsCount}/${totalQuestions} answered)`);
     setProgress(newProgress);
   }, [responses]); 
-
- 
+  
+  
+  
+  
   const handleChoiceChange = (id: number) => (value: string) => {
     setResponses((prev: UserResponsesType) => {
       const updatedResponses = {...prev, [id]: value.trim()};

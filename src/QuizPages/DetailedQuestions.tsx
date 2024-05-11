@@ -44,7 +44,7 @@ const DetailedQuestions = () => {
 
     const handleDetailedChoiceChange = (id: number) => (value: string) => {
       setDetailedResponses((prev:DetailedResponsesType) => {
-        const updatedResponses = {...prev, [id]:value.trim()};
+        const updatedResponses = {...prev, [id]:value.trim()}; 
         console.log('New Responses:', updatedResponses);
         console.log(`recommended jobs = ${recommendJobs(data, getResponseDictionary(updatedResponses), Object.keys(updatedResponses).map(key => parseInt(key, 10))).map((j:Job) => j.name)}`)
         return updatedResponses;

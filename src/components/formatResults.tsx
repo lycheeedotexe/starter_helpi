@@ -1,14 +1,15 @@
 import React, { useState } from "react";
 import { Card, ListGroup} from "react-bootstrap";
-
+import {Job} from "../QuizFunctions/QuestionSelection"
 interface FormatResultsProps {
-    jobs : string[];
-    salary : number;
-    education : string[];
+    job : Job;
+    description: string;
+    salary : string;
+    education : string;
 }
 
 
-export function displayResultInfo ({ jobs, salary, education} : FormatResultsProps): JSX.Element {
+export function FormatResult ({ job, description, salary, education} : FormatResultsProps): JSX.Element {
     return(
         <div className="results-container">
             <Card className="text-center">
@@ -16,9 +17,8 @@ export function displayResultInfo ({ jobs, salary, education} : FormatResultsPro
                 <Card.Body>
                     <Card.Title>Job Description</Card.Title>
                     <ListGroup variant="flush">
-                        {jobs.map((job, index) => (
-                            <ListGroup.Item key={index}>{job}</ListGroup.Item>
-                        ))}
+                    <ListGroup.Item key={job.id}>{job.name}</ListGroup.Item>
+                    <ListGroup.Item key={job.id}>{description}</ListGroup.Item>
                     </ListGroup>
                 </Card.Body>
             </Card>
@@ -38,10 +38,9 @@ export function displayResultInfo ({ jobs, salary, education} : FormatResultsPro
                 <Card.Body>
                     <Card.Title>Educational Qualifications</Card.Title>
                     <ListGroup variant="flush">
-                        {education.map((edu, index) => (
-                            <ListGroup.Item key={index}>{edu}</ListGroup.Item>
-                        ))}      
+                    <ListGroup.Item key={job.id}>{education}</ListGroup.Item>
                     </ListGroup>
+
                 </Card.Body>
             </Card>
         </div>
