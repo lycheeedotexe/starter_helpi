@@ -12,8 +12,16 @@ export function HomePage(): JSX.Element{
   const [showBasic, updateShowBasic] = useState<boolean>(false);
   const [showResults, updateShowResults] = useState<boolean>(false);
 
+
   const { setResponses } = useUserResponses();
   const {setDetailedResponses} = useDetailedResponses();
+
+  function goToDetailedQuestions() {
+    updateShowHome(false); 
+    updateShowBasic(false); 
+    updateShowDetailed(true); 
+    updateShowResults(false); 
+}
 
   function resetResponses() {
     setResponses({});
@@ -78,6 +86,7 @@ export function HomePage(): JSX.Element{
       {showBasic && (
         <>
           <BasicQuestions />
+          <Button onClick={goToDetailedQuestions}>Continue</Button>
           <Button onClick={clickHome}>Return Home</Button>
         </>
       )}
