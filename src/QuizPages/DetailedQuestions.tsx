@@ -79,7 +79,9 @@ const DetailedQuestions = () => {
       
       <div>
       <p>Detailed Questions begin here</p> 
-      <ProgressBar progress={progress} progressText={``} />
+      <span className="progress-bar">
+        <ProgressBar progress={progress} progressText={``} />
+      </span>
       {DetailedQuestions.map((q: DetailedQuestion) => (
         <div>
         <FormatQuestion 
