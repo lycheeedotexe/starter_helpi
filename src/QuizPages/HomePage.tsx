@@ -58,16 +58,19 @@ export function HomePage(): JSX.Element{
         <>
           <h1>Career Guide</h1>
           <p className='style1'>
-            With so many careers to choose from do you have NO IDEA what you want to do? Our basic career quiz is right for you, click to get started!
+          Our Basic Quiz will help you select a field of study based on your responses. From there, you can choose to see your recommended field of study by selecting the 'Results' button or, if you prefer, obtain a specific job recommendation select our 'Continue' button. Either way, click the 'Basic' button below to get started
+            
             <div><Button onClick={clickBasic}>Basic</Button></div>
           </p>
           <p className="style2">
-            Do you have an area of interest already but need help nailing it down? Then our detailed quiz is right for you click to get started!
+          Our Detailed Quiz is designed to help you select very specific careers. While we recommend starting with our 'Basic Quiz' and selecting 'Continue' upon completion for more tailored questions, you are more than welcome to jump ahead if you prefer.
             <div><Button onClick={clickDetailed}>Detailed</Button></div>
           </p>
           <div>
+            <div>
             <p className='style3'>See Results</p>
             <Button onClick={clickResults}>Results</Button>
+            </div>
           </div>
         </>
       )}
