@@ -59,12 +59,12 @@ const BasicQuestions = () => {
 
     return (
       <div>
-        <span className="progress-bar">
-          <ProgressBar progress={progress} progressText={``} />
-        </span> 
         <div>
           <h1>Basic Questions Quiz</h1>
         </div>
+        <span className="progress-bar">
+          <ProgressBar progress={progress} progressText={``} />
+        </span> 
         <div>
         {data.BASIC_QUESTIONS.map((q: BasicQuestionProp) => (
           <div>

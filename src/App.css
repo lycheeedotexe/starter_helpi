@@ -35,6 +35,7 @@
   justify-content: flex-start;
   font-size: calc(10px + 2vmin);
   color: #F6BD60;
+  padding: 10%;
 }
 p {
   color: #F7EDE2;
@@ -43,7 +44,7 @@ p {
   /* border-style: solid; */
   inset-block: 100px;
   align-content: center;
-  padding: 2% 0 0;
+  padding: 10% 0 0;
 }
 .p2 {
   color: #485053;
@@ -72,6 +73,9 @@ p {
   position: sticky;
   top: 0;
   padding: 0 0 0;
+}
+.button {
+  padding: 10% 0 10%
 }
 .App-link {
   color: hsl(193, 95%, 68%);

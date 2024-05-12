@@ -55,16 +55,16 @@ export function HomePage(): JSX.Element{
       {showHome && (
         <>
           <h1>Career Guide</h1>
-          <p className='style1'>
+          <p>
             With so many careers to choose from do you have NO IDEA what you want to do? Our basic career quiz is right for you, click to get started!
-            <div><Button onClick={clickBasic}>Basic</Button></div>
+            <div className="button"><Button onClick={clickBasic}>Basic</Button></div>
           </p>
-          <p className="style2">
+          <p>
             Do you have an area of interest already but need help nailing it down? Then our detailed quiz is right for you click to get started!
             <div><Button onClick={clickDetailed}>Detailed</Button></div>
           </p>
           <div>
-            <p className='style3'>See Results</p>
+            <p>See Results</p>
             <Button onClick={clickResults}>Results</Button>
           </div>
         </>
