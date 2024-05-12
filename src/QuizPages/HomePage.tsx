@@ -54,18 +54,15 @@ export function HomePage(): JSX.Element{
     <div>
       {showHome && (
         <>
-          <h1>Career Guide</h1>
           <p>
             With so many careers to choose from do you have NO IDEA what you want to do? Our basic career quiz is right for you, click to get started!
-            <div className="button"><Button onClick={clickBasic}>Basic</Button></div>
+            <p><center><Button className="button-53" role="button" onClick={clickBasic}>Basic Career Quiz</Button></center></p>
           </p>
           <p>
             Do you have an area of interest already but need help nailing it down? Then our detailed quiz is right for you click to get started!
-            <div><Button onClick={clickDetailed}>Detailed</Button></div>
+            <p><center><Button className="button-53" role="button" onClick={clickDetailed}>Detailed Career Quiz</Button></center></p>
           </p>
           <div>
-            <p>See Results</p>
-            <Button onClick={clickResults}>Results</Button>
           </div>
         </>
       )}
@@ -81,6 +78,8 @@ export function HomePage(): JSX.Element{
         <>
           <DetailedQuestions />
           <Button onClick={clickHome}>Return Home</Button>
+          <p>See Results</p>
+          <Button onClick={clickResults}>See My Results!</Button>
         </>
       )}
 

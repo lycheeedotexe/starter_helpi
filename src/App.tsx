@@ -9,11 +9,7 @@ import { useState } from 'react';
 import { Button } from 'react-bootstrap';
 function App() {
   const [keyGiven, setKeyGiven] = useState<boolean>(false);
-  let text = "Please enter an OpenAI API Key above."
-
-  function changeKeyGiven() {
-    setKeyGiven(true);
-  }
+  const [text, setText] = useState<string>("Please enter an OpenAI API Key below.");
 
   const checkKey = async() => {
     const response = await openai.chat.completions.create({
@@ -22,9 +18,9 @@ function App() {
         model: "gpt-4-turbo"
     })
     if(response){
-      changeKeyGiven();
+      setKeyGiven(true);
     } else {
-      text = "Not a valid key, please try again!"
+      setText("Not a valid key, please try again!");
     }
     console.log(response);
 }
@@ -41,17 +37,20 @@ function App() {
           <div className='App-body'>
             <HomePage></HomePage>
           </div>
+          <APIKey></APIKey>
         </>
-        )}
-    <APIKey></APIKey>
-    {!keyGiven && (
-      <>
-      <br></br>
-        <Button onClick={checkKey}>Continue</Button>
-        <br></br>
-        {text}
-      </>
-    )}
+      )}
+      {!keyGiven && (
+        <>
+        <p className='key'>
+          {text}
+          <br></br>
+          <APIKey></APIKey>
+          <br></br>
+          <Button onClick={checkKey}>Check Key & Continue</Button>
+        </p>
+        </>
+      )}
     </div>
     </DetailedResponsesProvider>
     </UserResponsesProvider>
