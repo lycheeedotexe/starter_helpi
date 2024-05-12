@@ -25,7 +25,7 @@ export function SubmitDetailed(): JSX.Element{
             const question = [`Generate a 1-3 sentence job description for "${recommendations[i].name}".`,
                               `In one sentence, state the entry or starting salary as a dollar amount for "${recommendations[i].name}".`,
                               `In one sentence, state the median or average salary as a dollar amount for "${recommendations[i].name}".`,
-                              `What is the career path or steps to becoming a "${recommendations[i].name}".`
+                              `What is the career path or steps to becoming a "${recommendations[i].name}". Remove any * and # in the response.`
                             ]
             for(var j = 0; j < 4; j++) {
                 const response = await openai.chat.completions.create({
