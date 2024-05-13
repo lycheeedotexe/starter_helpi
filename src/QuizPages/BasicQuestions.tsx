@@ -23,8 +23,6 @@ const BasicQuestions = () => {
   const {responses, setResponses} = useUserResponses();
   console.log(responses)
   const [progress, setProgress] = useState(0);
-  console.log( "progress is",progress)
-  
  
   
   const updateProgress = useCallback(() => {
