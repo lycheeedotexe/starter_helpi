@@ -1,4 +1,4 @@
-import React, { useDebugValue, useState } from "react";
+import React, { useState } from "react";
 import { Button } from "react-bootstrap";
 import BasicQuestions from "../QuizPages/BasicQuestions";
 import DetailedQuestions from "../QuizPages/DetailedQuestions";
@@ -70,15 +70,19 @@ export function HomePage(): JSX.Element{
       {showBasic && (
         <>
           <BasicQuestions />
-          <Button onClick={goToDetailedQuestions}>Continue</Button>
-          <Button onClick={clickHome}>Return Home</Button>
+          <p style={{paddingTop: "20%"}}><center><Button className="button-53" 
+                     onClick={goToDetailedQuestions}
+                     style={{transform: "rotate(1deg)"}}>Continue to Detailed Quiz!</Button></center></p>
+          <p><center><Button className="button-53" onClick={clickHome}>Return Home</Button></center></p>
         </>
       )}
 
       {showDetailed && (
         <>
           <DetailedQuestions />
-          <Button onClick={clickHome}>Return Home</Button>
+          <p style={{paddingTop: "10%"}}>
+          <center><Button className="button-53" onClick={clickHome}>Return Home</Button></center>
+          </p>
         </>
       )}
     </div>

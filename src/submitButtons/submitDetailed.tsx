@@ -76,7 +76,7 @@ export function SubmitDetailed(): JSX.Element{
         <div>
             <Form>
                 <br></br>
-                <Button className="Submit-Button" onClick={getResponseFunction}>Submit question</Button>
+                <center><Button className="button-53" style={{backgroundColor: "#84A59D", transform:"rotate(0deg)"}} onClick={getResponseFunction}>Submit Responses</Button></center>
                 {!loading && seeResults &&
                     <ResultsPage></ResultsPage>
                 }

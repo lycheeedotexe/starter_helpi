@@ -1,5 +1,6 @@
 .App {
   text-align: center;
+  text-shadow: 3px 3px 3px #000000;
 }
 
 .App-logo {
@@ -36,6 +37,9 @@
   font-size: calc(10px + 2vmin);
   color: #F6BD60;
   padding: 5%;
+}
+h1 {
+  font-weight: bold;
 }
 p {
   color: #F7EDE2;
@@ -80,8 +84,8 @@ p {
 
 .progress-bar {
   position: sticky;
-  top: 0;
-  padding: 0 0 0;
+  top: 0%;
+  padding: 0 0 0;;
 }
 .App-link {
   color: hsl(193, 95%, 68%);
@@ -109,7 +113,7 @@ div.center, .center {
   font-family: ui-sans-serif,system-ui,-apple-system,system-ui,"Segoe UI",Roboto,"Helvetica Neue",Arial,"Noto Sans",sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol","Noto Color Emoji";
   font-size: 1rem;
   font-weight: 700;
-  position: center;
+  justify-content: center;
   line-height: 1.75rem;
   padding: .75rem 1.65rem;
   position: relative;

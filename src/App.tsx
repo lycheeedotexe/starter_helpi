@@ -46,6 +46,7 @@ function App() {
               ) : (
                 <div className="api-key-input">
                   <div className="intro-text">
+                  <img src={banner} alt="Banner and Title" className='App-header-image' />
                     <p className="style4">Welcome to A.I. Assisted Career Quiz! Our mission is to provide personalized career guidance using AI technology. To access our tailored advice, please enter your OpenAI API key below.</p>
                   </div>
                   <p className="style4">{text}</p>
@@ -64,6 +65,9 @@ function App() {
               </div>
             </>
           )}
+          {keyGiven && 
+            <APIKey />
+          }
         </div>
       </DetailedResponsesProvider>
     </UserResponsesProvider>

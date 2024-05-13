@@ -33,7 +33,7 @@ export function SubmitBasic(): JSX.Element{
                     value={text}
                     onChange={changeText}></Form.Control>
                 <br></br>
-                <Button className="Submit-Button" onClick={getResponseFunction}>Submit question</Button>
+                <center><Button className="button-53" style={{backgroundColor: "#84A59D"}} onClick={getResponseFunction}>Submit question</Button></center>
             </Form>
         </div>
     )

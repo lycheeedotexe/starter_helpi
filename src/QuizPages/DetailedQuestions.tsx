@@ -92,7 +92,7 @@ const DetailedQuestions = () => {
         </div>
   ))}
   {progress === 100 &&
-    <SubmitDetailed></SubmitDetailed>
+    <p><SubmitDetailed></SubmitDetailed></p>
   }
       </div>
     </div>
