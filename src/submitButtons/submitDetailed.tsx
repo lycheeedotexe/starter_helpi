@@ -2,11 +2,13 @@ import { openai } from "./submitKey";
 import { Button, Form } from 'react-bootstrap';
 import resultsDetailed from "../data/resultsDetailed.json"
 import { LoadingPage } from "../components/Loading";
-import { useContext, useState} from "react";
+import { useContext, useState, useState} from "react";
 import questions from "../data/questions.json";
 import { getResponseDictionary } from "../QuizFunctions/getResponseVector";
 import { DetailedResponsesContext } from "../contexts/DetailedResponsesContext";
 import { recommendJobs } from "../QuizFunctions/QuestionSelection";
+
+import ResultsPage from "../QuizPages/ResultsPage";
 
 export function SubmitDetailed(): JSX.Element{
     const dataCopy = JSON.parse(JSON.stringify(questions));
@@ -14,19 +16,35 @@ export function SubmitDetailed(): JSX.Element{
     const sampledKeys = Object.keys(detailedResponses).map(key => parseInt(key, 10));
     const responseDict = getResponseDictionary(detailedResponses);
     const recommendations = recommendJobs(dataCopy, responseDict, sampledKeys);
-    const [isLoading , setIsLoading] = useState<boolean>(false);
+    const [loading, setLoading] = useState<boolean>(false);
 
     const num = recommendations.length;
     console.log("number of jobs: " + num);
 
     const getResponseFunction = async() => {
-        setIsLoading(true);
-        for(var i = 0; i < num; i++) {
-            resultsDetailed.CAREER_RESULTS[i].title = recommendations[i].name;
-            const question = [`Generate a 1-3 sentence job description for "${recommendations[i].name}".`,
-                              `In one sentence, state the entry or starting salary as a dollar amount for "${recommendations[i].name}".`,
-                              `In one sentence, state the median or average salary as a dollar amount for "${recommendations[i].name}".`,
-                              `What is the career path or steps to becoming a "${recommendations[i].name}". Remove any * and # in the response.`
+        let recs;
+        setLoading(true)
+        if(num === 0) {
+            const a = 1 + Math.floor(Math.random() * 50);
+            let b = 1 + Math.floor(Math.random() * 50);
+            let c = 1 + Math.floor(Math.random() * 50);
+            while(b === a) {
+                b = 1 + Math.floor(Math.random() * 50);
+            }
+            while(c === a || c === b) {
+                c = 1 + Math.floor(Math.random() * 50);
+            }
+            recs = [questions.JOBS[a], questions.JOBS[b], questions.JOBS[c]];
+        } else {
+            recs = [...recommendations];
+        }
+        console.log(recs);
+        for(var i = 0; i < recs.length; i++) {
+            resultsDetailed.CAREER_RESULTS[i].title = recs[i].name;
+            const question = [`Generate a 1-3 sentence job description for "${recs[i].name}".`,
+                              `In one sentence, state the entry or starting salary as a dollar amount for "${recs[i].name}".`,
+                              `In one sentence, state the median or average salary as a dollar amount for "${recs[i].name}".`,
+                              `What is the career path or steps to becoming a "${recs[i].name}". Remove any * and # in the response.`
                             ]
             for(var j = 0; j < 4; j++) {
                 const response = await openai.chat.completions.create({
@@ -49,21 +67,19 @@ export function SubmitDetailed(): JSX.Element{
                 }
             }
         }
-        console.log(resultsDetailed);
-       // loading = "done";
-        setIsLoading(false);
+        setLoading(false);
     }
 
     return (
         <div>
-            {isLoading ? (
-                <LoadingPage/>
-            ) : (
-                <Form>
-                    <Form.Label>Detailed Response</Form.Label>
-                    <Button className="Submit-Button" onClick={getResponseFunction}>Submit Question</Button>
-                </Form>
-            )}
+            <Form>
+                <Form.Label>detailed response</Form.Label>
+                <br></br>
+                {loading}
+                <br></br>
+                <Button className="Submit-Button" onClick={getResponseFunction}>Submit question</Button>
+                <ResultsPage></ResultsPage>
+            </Form>
         </div>
     );
 }
