@@ -41,12 +41,14 @@ function App() {
             <>
               {isLoading ? (
                 <div className="loading-container">
-                  <p className="style4">Verifying API Key</p> {}
+                  <p>Loading...</p> {/* Loading indicator text */}
                 </div>
               ) : (
                 <div className="api-key-input">
                   <div className="intro-text">
                     <p className="style4">Welcome to A.I. Assisted Career Quiz! Our mission is to provide personalized career guidance using AI technology. To access our tailored advice, please enter your OpenAI API key below.</p>
+                    {/* Adding the Learn React link for testing */}
+                    <p><a href="https://reactjs.org" target="_blank" rel="noopener noreferrer">Learn React</a></p>
                   </div>
                   <p className="style4">{text}</p>
                   <APIKey />
@@ -71,4 +73,9 @@ function App() {
 }
 
 export default App;
+
+
+
+
+
 
