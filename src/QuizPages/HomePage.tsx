@@ -2,7 +2,6 @@ import React, { useState } from "react";
 import { Button } from "react-bootstrap";
 import BasicQuestions from "../QuizPages/BasicQuestions";
 import DetailedQuestions from "../QuizPages/DetailedQuestions";
-import ResultsPage from "./ResultsPage";
 import { useUserResponses } from '../contexts/UserResponsesContext';
 //import mascotPonder from "../image assets/mascot ponder 2 2.png"
 
@@ -12,7 +11,6 @@ export function HomePage(): JSX.Element{
   const [showHome, updateShowHome] = useState<boolean>(true);
   const [showDetailed, updateShowDetailed] = useState<boolean>(false);
   const [showBasic, updateShowBasic] = useState<boolean>(false);
-  const [showResults, updateShowResults] = useState<boolean>(false);
 
   const { setResponses } = useUserResponses();
 
@@ -28,7 +26,6 @@ export function HomePage(): JSX.Element{
     updateShowHome(true);
     updateShowBasic(false);
     updateShowDetailed(false);
-    updateShowResults(false);
   }
 
   function clickBasic() {
@@ -43,11 +40,6 @@ export function HomePage(): JSX.Element{
     console.log("Printing local storage", JSON.parse(JSON.stringify(localStorage)));
     updateShowHome(false);
     updateShowDetailed(true);
-  }
-
-  function clickResults() {
-    updateShowHome(false);
-    updateShowResults(true);
   }
 
   return (
@@ -77,15 +69,6 @@ export function HomePage(): JSX.Element{
       {showDetailed && (
         <>
           <DetailedQuestions />
-          <Button onClick={clickHome}>Return Home</Button>
-          <p>See Results</p>
-          <Button onClick={clickResults}>See My Results!</Button>
-        </>
-      )}
-
-      {showResults && (
-        <>
-          <ResultsPage />
           <Button onClick={clickHome}>Return Home</Button>
         </>
       )}
