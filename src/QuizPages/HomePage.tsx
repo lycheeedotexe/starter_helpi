@@ -12,7 +12,6 @@ export function HomePage(): JSX.Element{
   const [showBasic, updateShowBasic] = useState<boolean>(false);
   const [showResults, updateShowResults] = useState<boolean>(false);
 
-
   const { setResponses } = useUserResponses();
   const {setDetailedResponses} = useDetailedResponses();
 
@@ -58,6 +57,8 @@ export function HomePage(): JSX.Element{
   function clickResults() {
     updateShowHome(false);
     updateShowResults(true);
+    updateShowDetailed(false);
+    updateShowBasic(false);
   }
 
   return (
@@ -103,3 +104,5 @@ export function HomePage(): JSX.Element{
     </div>
   );
 }
+
+     

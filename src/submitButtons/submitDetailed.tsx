@@ -1,8 +1,8 @@
 import { openai } from "./submitKey";
 import { Button, Form } from 'react-bootstrap';
 import resultsDetailed from "../data/resultsDetailed.json"
-
-import { useContext} from "react";
+import { LoadingPage } from "../components/Loading";
+import { useContext, useState} from "react";
 import questions from "../data/questions.json";
 import { getResponseDictionary } from "../QuizFunctions/getResponseVector";
 import { DetailedResponsesContext } from "../contexts/DetailedResponsesContext";
@@ -14,12 +14,13 @@ export function SubmitDetailed(): JSX.Element{
     const sampledKeys = Object.keys(detailedResponses).map(key => parseInt(key, 10));
     const responseDict = getResponseDictionary(detailedResponses);
     const recommendations = recommendJobs(dataCopy, responseDict, sampledKeys);
-    let loading = "not done";
+    const [isLoading , setIsLoading] = useState<boolean>(false);
 
     const num = recommendations.length;
     console.log("number of jobs: " + num);
 
     const getResponseFunction = async() => {
+        setIsLoading(true);
         for(var i = 0; i < num; i++) {
             resultsDetailed.CAREER_RESULTS[i].title = recommendations[i].name;
             const question = [`Generate a 1-3 sentence job description for "${recommendations[i].name}".`,
@@ -49,18 +50,26 @@ export function SubmitDetailed(): JSX.Element{
             }
         }
         console.log(resultsDetailed);
-        loading = "done";
+       // loading = "done";
+        setIsLoading(false);
     }
 
     return (
         <div>
-            <Form>
-                <Form.Label>detailed response</Form.Label>
-                <br></br>
-                {loading}
-                <br></br>
-                <Button className="Submit-Button" onClick={getResponseFunction}>Submit question</Button>
-            </Form>
+            {isLoading ? (
+                <LoadingPage/>
+            ) : (
+                <Form>
+                    <Form.Label>Detailed Response</Form.Label>
+                    <Button className="Submit-Button" onClick={getResponseFunction}>Submit Question</Button>
+                </Form>
+            )}
         </div>
-    )
+    );
 }
+
+
+
+
+
+
