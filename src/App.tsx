@@ -40,18 +40,20 @@ function App() {
           {!keyGiven ? (
             <>
               {isLoading ? (
-                <div className="loading-container">
+                <div className="loading-container" style={{textShadow:"none"}}>
                   <p className="style4">Verifying API Key</p> {}
                 </div>
               ) : (
-                <div className="api-key-input">
+                <div><img src={banner} alt="Banner and Title" className='App-header-image' />
+                <div className="key" style={{textShadow:"none"}}>
                   <div className="intro-text">
-                  <img src={banner} alt="Banner and Title" className='App-header-image' />
+                  
                     <p className="style4">Welcome to A.I. Assisted Career Quiz! Our mission is to provide personalized career guidance using AI technology. To access our tailored advice, please enter your OpenAI API key below.</p>
                   </div>
                   <p className="style4">{text}</p>
                   <APIKey />
                   <Button onClick={checkKey}>Check Key & Continue</Button>
+                </div>
                 </div>
               )}
             </>
