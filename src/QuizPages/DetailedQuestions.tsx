@@ -55,7 +55,6 @@ const DetailedQuestions = () => {
 
 
 
-
   const updateProgress = useCallback(() => {
     const totalQuestions = 25;
     console.log("Total Questions:", totalQuestions);
@@ -79,18 +78,22 @@ const DetailedQuestions = () => {
       
       <div>
       <p>Detailed Questions begin here</p> 
-      <ProgressBar progress={progress} progressText={``} />
+      <span className="progress-bar">
+        <ProgressBar progress={progress} progressText={``} />
+      </span>
       {DetailedQuestions.map((q: DetailedQuestion) => (
         <div>
         <FormatQuestion 
           key={q.id}
           question={q} 
-          options={["Neutral","Strongly Disagree", "Disagree", "Agree", "Strongly Agree"]}
+          options={["Strongly Disagree", "Disagree", "Neutral","Agree", "Strongly Agree"]}
           onChoiceChange={handleDetailedChoiceChange(q.id)}
           ></FormatQuestion>
         </div>
   ))}
-  <SubmitDetailed></SubmitDetailed>
+  {progress === 100 &&
+    <SubmitDetailed></SubmitDetailed>
+  }
       </div>
     </div>
     );

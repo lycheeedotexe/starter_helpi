@@ -32,10 +32,9 @@ export function APIKey(): JSX.Element{
   return (
     <div>
       <Form>
-          <Form.Label>API Key:</Form.Label>
-          <Form.Control type="password" placeholder="Insert API Key Here" onChange={changeKey}></Form.Control>
-          <br></br>
-          <Button className="Submit-Button" onClick={handleSubmit}>Submit</Button>
+        <Form.Control type="password" placeholder="Insert API Key Here" onChange={changeKey}></Form.Control>
+        <br></br>
+        <Button className="Submit-Button" onClick={handleSubmit}>Submit</Button>
       </Form>
     </div>
   )
