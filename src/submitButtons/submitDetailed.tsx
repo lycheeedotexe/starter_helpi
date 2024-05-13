@@ -17,6 +17,7 @@ export function SubmitDetailed(): JSX.Element{
     const responseDict = getResponseDictionary(detailedResponses);
     const recommendations = recommendJobs(dataCopy, responseDict, sampledKeys);
     const [loading, setLoading] = useState<boolean>(false);
+    const [seeResults, setSeeResults] = useState<boolean>(false);
 
     const num = recommendations.length;
     console.log("number of jobs: " + num);
@@ -68,17 +69,17 @@ export function SubmitDetailed(): JSX.Element{
             }
         }
         setLoading(false);
+        setSeeResults(true);
     }
 
     return (
         <div>
             <Form>
-                <Form.Label>detailed response</Form.Label>
-                <br></br>
-                {loading}
                 <br></br>
                 <Button className="Submit-Button" onClick={getResponseFunction}>Submit question</Button>
-                <ResultsPage></ResultsPage>
+                {!loading && seeResults &&
+                    <ResultsPage></ResultsPage>
+                }
             </Form>
         </div>
     )
