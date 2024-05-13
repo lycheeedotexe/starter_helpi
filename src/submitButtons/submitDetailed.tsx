@@ -2,7 +2,7 @@ import { openai } from "./submitKey";
 import { Button, Form } from 'react-bootstrap';
 import resultsDetailed from "../data/resultsDetailed.json"
 import { LoadingPage } from "../components/Loading";
-import { useContext, useState, useState} from "react";
+import { useContext, useState} from "react";
 import questions from "../data/questions.json";
 import { getResponseDictionary } from "../QuizFunctions/getResponseVector";
 import { DetailedResponsesContext } from "../contexts/DetailedResponsesContext";

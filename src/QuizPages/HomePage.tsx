@@ -17,7 +17,6 @@ export function HomePage(): JSX.Element{
     updateShowHome(false); 
     updateShowBasic(false); 
     updateShowDetailed(true); 
-    updateShowResults(false); 
 }
 
   function resetResponses() {
