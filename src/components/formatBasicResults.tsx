@@ -4,16 +4,15 @@ interface FormatBasicResultsProps {
     id: number;
     title: string;
     description: string;
-    jobs: string;
 }
 
-export function FormatBasicResults({ id, title, description, jobs }: FormatBasicResultsProps): JSX.Element {
+export function FormatBasicResults({ id, title, description }: FormatBasicResultsProps): JSX.Element {
     return (
         <div className="results-container">
             <Card className="text-center">
-                <Card.Header>Your Career Field</Card.Header>
+                <Card.Header>Job Title</Card.Header>
                 <Card.Body>
-                    <Card.Title>Description of your career field</Card.Title>
+                    <Card.Title>Job Description</Card.Title>
                     <ListGroup variant="flush">
                         <ListGroup.Item key={id}>{title}</ListGroup.Item>
                         <ListGroup.Item key={id}>{description}</ListGroup.Item>
@@ -21,7 +20,7 @@ export function FormatBasicResults({ id, title, description, jobs }: FormatBasic
                 </Card.Body>
             </Card>
 
-            <Card className="text-center mt-3">
+            {/* <Card className="text-center mt-3">
                 <Card.Header>Potential Jobs</Card.Header>
                 <Card.Body>
                     <Card.Title>Jobs within the field</Card.Title>
@@ -29,7 +28,7 @@ export function FormatBasicResults({ id, title, description, jobs }: FormatBasic
                         <br></br>
                     </Card.Text>
                 </Card.Body>
-            </Card>
+            </Card> */}
 
             {}
 

@@ -7,7 +7,7 @@ import questions from "../data/questions.json";
 import { getResponseDictionary } from "../QuizFunctions/getResponseVector";
 import { DetailedResponsesContext } from "../contexts/DetailedResponsesContext";
 import { recommendJobs } from "../QuizFunctions/QuestionSelection";
-
+import DetailedQuestions from "../QuizPages/DetailedQuestions";
 import ResultsPage from "../QuizPages/ResultsPage";
 
 export function SubmitDetailed(): JSX.Element{
@@ -16,15 +16,16 @@ export function SubmitDetailed(): JSX.Element{
     const sampledKeys = Object.keys(detailedResponses).map(key => parseInt(key, 10));
     const responseDict = getResponseDictionary(detailedResponses);
     const recommendations = recommendJobs(dataCopy, responseDict, sampledKeys);
-    const [loading, setLoading] = useState<boolean>(false);
-    const [seeResults, setSeeResults] = useState<boolean>(false);
-
+    const [isLoading, setIsLoading] = useState<boolean>(false);
+    const [showResults, setShowResults] = useState(false);
+   // const [hideDetailed, setHideDetailed] = useState(false); 
     const num = recommendations.length;
     console.log("number of jobs: " + num);
-
+   
     const getResponseFunction = async() => {
         let recs;
-        setLoading(true)
+        setIsLoading(true);
+      //  setHideDetailed(true);
         if(num === 0) {
             const a = 1 + Math.floor(Math.random() * 50);
             let b = 1 + Math.floor(Math.random() * 50);
@@ -68,24 +69,24 @@ export function SubmitDetailed(): JSX.Element{
                 }
             }
         }
-        setLoading(false);
-        setSeeResults(true);
+        setShowResults(true);
+        setIsLoading(false);
     }
 
     return (
         <div>
-            <Form>
-                <br></br>
-                <center><Button className="button-53" style={{backgroundColor: "#84A59D", transform:"rotate(0deg)"}} onClick={getResponseFunction}>Submit Responses</Button></center>
-                {!loading && seeResults &&
-                    <ResultsPage></ResultsPage>
-                }
-            </Form>
+                <Form>
+                    <Form.Label>Detailed Response</Form.Label>
+                    <Button className="Submit-Button" onClick={getResponseFunction}>Submit Question</Button>
+                </Form>
+            
+            {isLoading &&  <LoadingPage />}
+            {showResults && <ResultsPage />}
         </div>
     );
 }
 
-
+export default SubmitDetailed;
 
 
 
