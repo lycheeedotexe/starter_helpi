@@ -10,7 +10,7 @@ import { Button } from 'react-bootstrap';
 function App() {
   const [keyGiven, setKeyGiven] = useState<boolean>(false);
   const [isLoading, setIsLoading] = useState<boolean>(false);
-  const [text, setText] = useState<string>("Please enter an OpenAI API Key here.");
+  const [text, setText] = useState<string>("Please enter an OpenAI API Key here. Select 'Submit' and then select 'Check Key and Continue' ");
 
   const checkKey = async () => {
     setIsLoading(true);  // Start loading
@@ -40,20 +40,17 @@ function App() {
           {!keyGiven ? (
             <>
               {isLoading ? (
-                <div className="loading-container">
-                  <p className="style4" style={{ fontFamily: 'Comic Sans MS, cursive'}}>Loading...</p> {/* Loading indicator text */}
                 <div className="loading-container" style={{textShadow:"none"}}>
-                  <p>Loading...</p> {/* Loading indicator text */}
+                  <p  style={{color: '#000000', fontStyle: 'italic' ,  fontFamily: 'Comic Sans MS, cursive' }}>Loading...</p> {/* Loading indicator text */}
                 </div>
               ) : (
                 <div><img src={banner} alt="Banner and Title" className='App-header-image' />
                 <div className="key" style={{textShadow:"none"}}>
                   <div className="intro-text">
-                    <p className="style4" style={{ fontFamily: 'Comic Sans MS, cursive' }}>Welcome to A.I. Assisted Career Quiz! Our mission is to provide personalized career guidance using AI technology. To access our tailored advice, please enter your OpenAI API key below.</p>
                   
-                    <p className="style4">Welcome to A.I. Assisted Career Quiz! Our mission is to provide personalized career guidance using AI technology. To access our tailored advice, please enter your OpenAI API key below.</p>
+                    <p className="style4" style={{color: '#000000', fontStyle: 'italic' ,  fontFamily: 'Comic Sans MS, cursive' }}>Welcome to A.I. Assisted Career Quiz! Our mission is to provide personalized career guidance using AI technology. To access our tailored advice, please enter your OpenAI API key below.</p>
                     {/* Adding the Learn React link for testing */}
-                    <p><a href="https://reactjs.org" target="_blank" rel="noopener noreferrer">Learn React</a></p>
+                   
                   </div>
                   <p className="style4">{text}</p>
                   <APIKey />
@@ -76,12 +73,14 @@ function App() {
             <APIKey />
           }
         </div>
+        <p><a href="https://reactjs.org" target="_blank" rel="noopener noreferrer">Learn React</a></p>
       </DetailedResponsesProvider>
     </UserResponsesProvider>
   );
 }
 
 export default App;
+
 
 
 

@@ -10,12 +10,12 @@ export function FormatBasicResults({ id, title, description }: FormatBasicResult
     return (
         <div className="results-container">
             <Card className="text-center">
-                <Card.Header>Job Title</Card.Header>
+                <Card.Header style={{ fontWeight: 'bold', color: '#597cf0', fontStyle: 'italic' ,  fontFamily: 'Comic Sans MS, cursive' }}>Job Title</Card.Header>
                 <Card.Body>
-                    <Card.Title>Job Description</Card.Title>
+                    <Card.Title style={{ fontWeight: 'bold', color: '#597cf0', fontStyle: 'italic' ,  fontFamily: 'Comic Sans MS, cursive' }}>Job Description</Card.Title>
                     <ListGroup variant="flush">
                         <ListGroup.Item key={id} style={{ fontWeight: 'bold', color: '#f71460', fontStyle: 'italic' ,  fontFamily: 'Comic Sans MS, cursive' }}>{title}</ListGroup.Item>
-                        <ListGroup.Item key={id}>{description}</ListGroup.Item>
+                        <ListGroup.Item key={id}  style={{  color: '#08c97f', fontStyle: 'italic' ,  fontFamily: 'Comic Sans MS, cursive' }}>{description}</ListGroup.Item>
                     </ListGroup>
                 </Card.Body>
             </Card>

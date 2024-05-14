@@ -48,6 +48,7 @@ import { openai } from "../submitButtons/submitKey"
 import { Button } from "react-bootstrap"
 import resultsBasic from "../data/resultsBasic.json"
 import BasicResultsPage from "../QuizPages/BasicResultsPage";
+import { LoadingPage } from "../components/Loading";
 
 const jobClusters: Record<number, string> = {
     1:"Technology",
@@ -69,6 +70,8 @@ export function SubmitBasic(): JSX.Element{
     const {responses} = useContext(UserResponsesContext);
     const responseVec = getResponseVector(responses);
     const measure = constructFinalMeasure(dataCopy,responseVec);
+const [isLoading, setIsLoading] = useState<boolean>(false);
+
 
     const relatedQuestions = (k: number): number[] =>{
         const clusterID = (k-1) % 10;
@@ -90,6 +93,7 @@ export function SubmitBasic(): JSX.Element{
 
     const [seeResults, setSeeResults] = useState<boolean>(false);
     const getResponseFunction = async() => {
+        setIsLoading(true);
         for(var i = 0; i<relatedJobs.length; i++) {
             resultsBasic.BASIC_RESULTS[i].id = relatedJobs[i].id;
             resultsBasic.BASIC_RESULTS[i].name = relatedJobs[i].name;
@@ -104,6 +108,7 @@ export function SubmitBasic(): JSX.Element{
             console.log(response);
         }
         setSeeResults(true);
+        setIsLoading(false);
     }
 
 
@@ -112,6 +117,8 @@ export function SubmitBasic(): JSX.Element{
         <Button onClick={getResponseFunction}>Get my results!</Button>
         {}
              <h1>Your potential career field is {jobClusters[topClusterID]}. You may be well suited for the following careers:</h1>
+          {isLoading &&
+           <LoadingPage></LoadingPage>}
             {seeResults &&
                 <BasicResultsPage></BasicResultsPage>
             }
