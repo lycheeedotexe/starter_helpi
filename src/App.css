@@ -72,6 +72,12 @@ p {
   width: 20%;        
   box-sizing: border-box; 
 }
+
+.style4 {
+  font-weight: bold;
+  color: black;
+}
+
 .progress-bar {
   position: sticky;
   top: 0;
