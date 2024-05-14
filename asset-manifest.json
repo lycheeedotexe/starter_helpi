@@ -1,18 +1,18 @@
 {
   "files": {
     "main.css": "/starter_helpi/static/css/main.3354f169.css",
-    "main.js": "/starter_helpi/static/js/main.df475a13.js",
+    "main.js": "/starter_helpi/static/js/main.a0dd1863.js",
     "static/js/453.bad6c33a.chunk.js": "/starter_helpi/static/js/453.bad6c33a.chunk.js",
     "static/media/banner 3.png": "/starter_helpi/static/media/banner 3.089abde86db458b8101f.png",
     "static/media/dark-timber-desk-texture_1194-6756-3544321955.jpg": "/starter_helpi/static/media/dark-timber-desk-texture_1194-6756-3544321955.e1414f23b2deef188b47.jpg",
     "static/media/mascot ponder 2 2.png": "/starter_helpi/static/media/mascot ponder 2 2.53505957589801173e6f.png",
     "index.html": "/starter_helpi/index.html",
     "main.3354f169.css.map": "/starter_helpi/static/css/main.3354f169.css.map",
-    "main.df475a13.js.map": "/starter_helpi/static/js/main.df475a13.js.map",
+    "main.a0dd1863.js.map": "/starter_helpi/static/js/main.a0dd1863.js.map",
     "453.bad6c33a.chunk.js.map": "/starter_helpi/static/js/453.bad6c33a.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.3354f169.css",
-    "static/js/main.df475a13.js"
+    "static/js/main.a0dd1863.js"
   ]
 }
