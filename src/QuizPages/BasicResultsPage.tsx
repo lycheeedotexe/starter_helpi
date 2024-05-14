@@ -1,4 +1,5 @@
 import {useContext} from "react";
+import React from "react"
 import {UserResponsesContext} from '../contexts/UserResponsesContext'
 import { constructFinalMeasure } from "../QuizFunctions/QuestionSelection";
 import questions from "../data/questions.json"
@@ -7,6 +8,7 @@ import { DetailedQuestionsInAgreement, Job } from "../QuizFunctions/QuestionSele
 import BarGraph from "../components/BarGraph";
 import {DataItem} from "../components/BarGraph"
 import { FormatBasicResults } from "../components/formatBasicResults";
+import resultsBasic from "../data/resultsBasic.json"
 
 const jobClusters: Record<number, string> = {
     1:"Technology",
@@ -30,7 +32,7 @@ const BasicResultsPage = () => {
     const measure = constructFinalMeasure(dataCopy,responseVec);
 
     const relatedQuestions = (k: number): number[] =>{
-        const clusterID = (k-1) % 10;
+        const clusterID = (k-1) % 10; //although it is not the id in the sense of the record. 
         const clusterKeys = [5*clusterID + 1, 5* clusterID+2, 5*clusterID+3,5*clusterID+4,5*clusterID+5];
         return DetailedQuestionsInAgreement(dataCopy.JOBS.filter((j: Job) => clusterKeys.includes(j.id)));
     };
@@ -39,10 +41,10 @@ const BasicResultsPage = () => {
         return questionIDs.reduce((acc, i) => acc + measure[i-1], 0.0);
     }
     const rankedClusters = [1,2,3,4,5,6,7,8,9,10].sort((a,b) => clusterProbability(b) - clusterProbability(a)); //sorts in reverse
-    const topClusterID = rankedClusters[0];
+    const topClusterID = rankedClusters[0] -1;
     console.log(`topClusterID = ${topClusterID}`)
     const clusterKeys = [5*topClusterID + 1, 5* topClusterID+2, 5*topClusterID+3,5*topClusterID+4,5*topClusterID+5];
-    const relatedJobs = clusterKeys.map((k:number) => dataCopy.JOBS[k]);
+    const relatedJobs = clusterKeys.map((k:number) => dataCopy.JOBS[k-1]);
 
    
     const normalizedClusterProbability = (k: number): number =>{
@@ -69,14 +71,18 @@ const BasicResultsPage = () => {
                 />
 
             </div>
-             <h1>Your top cluster is {jobClusters[topClusterID]}. You may be well suited for the following careers</h1>
-            {
-            
-            relatedJobs.map(j => <div>{j.name}</div>)}
+            <div style={{textShadow:"none"}}>
+            {resultsBasic.BASIC_RESULTS.filter(j => j.description !== "Description").map((j) => {
+                return <FormatBasicResults
+                    id={j.id}
+                    title={j.name}
+                    description={j.description}
+                ></FormatBasicResults>
+                })}
+    </div>
         </div>
-
+        
     );
-
 }
 
 export default BasicResultsPage;
