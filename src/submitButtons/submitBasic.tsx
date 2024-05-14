@@ -92,6 +92,7 @@ const [isLoading, setIsLoading] = useState<boolean>(false);
     console.log(`relatedJobs = ${relatedJobs}`)
 
     const [seeResults, setSeeResults] = useState<boolean>(false);
+
     const getResponseFunction = async() => {
         setIsLoading(true);
         for(var i = 0; i<relatedJobs.length; i++) {
@@ -108,19 +109,44 @@ const [isLoading, setIsLoading] = useState<boolean>(false);
             console.log(response);
         }
         setSeeResults(true);
-        setIsLoading(false);
     }
+
+    // const getResponseFunction = async() => {
+    //     for(var i = 0; i< 3; i++) {
+    //         const title = await openai.chat.completions.create({
+    //             messages: [{"role": "system", "content": "You are part of a code function that gives the name of a recommended career."},
+    //                 {"role": "user", "content": `List just one job title for "${topClusterID}" that you did not state before in this list.`}],
+    //             model: "gpt-4-turbo"
+    //         })
+    //         resultsBasic.BASIC_RESULTS[i].id = i;
+    //         const jobTitle = title.choices[0].message.content
+    //         if(jobTitle !== null) {
+    //             resultsBasic.BASIC_RESULTS[i].name = jobTitle;
+    //         }
+    //         const response = await openai.chat.completions.create({
+    //             messages: [{"role": "system", "content": "You are a robot career counselor named Perceptron, with the ability to peer into college student's souls and give the best career advice."},
+    //                 {"role": "user", "content": `Generate a 1-3 sentence job description for "${jobTitle}".`}],
+    //             model: "gpt-4-turbo"
+    //         })
+    //         if(response.choices[0].message.content !== null) {
+    //             resultsBasic.BASIC_RESULTS[i].description = response.choices[0].message.content;
+    //         }
+    //         console.log(response);
+    //     }
+    //     setSeeResults(true);
+    // }
 
 
     return(
         <div>
         <Button onClick={getResponseFunction}>Get my results!</Button>
         {}
-             <h1>Your potential career field is {jobClusters[topClusterID]}. You may be well suited for the following careers:</h1>
-          {isLoading &&
-           <LoadingPage></LoadingPage>}
-            {seeResults &&
+            {seeResults && ( 
+            <>
+            <h1>Your potential career field is {jobClusters[topClusterID]}. You may be well suited for the following careers:</h1>
                 <BasicResultsPage></BasicResultsPage>
+            </>
+            )
             }
         </div>
 
