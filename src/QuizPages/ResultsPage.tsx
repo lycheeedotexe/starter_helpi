@@ -5,7 +5,7 @@ import resultsDetailed from "../data/resultsDetailed.json";
 const ResultsPage = () => {
     return (
         <div>
-            <h1>Response Page</h1>
+            
             <div>
                 {resultsDetailed.CAREER_RESULTS.filter(j => j.title !== "Title").map((j) => {
                     // Regex to extract dollar amounts correctly

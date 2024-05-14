@@ -7,7 +7,6 @@ import questions from "../data/questions.json";
 import { getResponseDictionary } from "../QuizFunctions/getResponseVector";
 import { DetailedResponsesContext } from "../contexts/DetailedResponsesContext";
 import { recommendJobs } from "../QuizFunctions/QuestionSelection";
-import DetailedQuestions from "../QuizPages/DetailedQuestions";
 import ResultsPage from "../QuizPages/ResultsPage";
 
 export function SubmitDetailed(): JSX.Element{
@@ -76,8 +75,8 @@ export function SubmitDetailed(): JSX.Element{
     return (
         <div>
                 <Form>
-                    <Form.Label>Detailed Response</Form.Label>
-                    <Button className="Submit-Button" onClick={getResponseFunction}>Submit Question</Button>
+                    <Form.Label></Form.Label>
+                    <Button className="Submit-Button" onClick={getResponseFunction}>Submit</Button>
                 </Form>
             
             {isLoading &&  <LoadingPage />}

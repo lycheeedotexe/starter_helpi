@@ -1,12 +1,12 @@
 import React from 'react';
 
-// Define the data type
+
 type DataItem = {
   name: string;
   value: number;
 };
 
-// Props type
+
 type BarGraphProps = {
   data: DataItem[];
   color?: string;
