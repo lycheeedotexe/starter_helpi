@@ -109,6 +109,7 @@ const [isLoading, setIsLoading] = useState<boolean>(false);
             console.log(response);
         }
         setSeeResults(true);
+        setIsLoading(false);
     }
 
     // const getResponseFunction = async() => {
@@ -137,19 +138,20 @@ const [isLoading, setIsLoading] = useState<boolean>(false);
     // }
 
 
-    return(
-        <div>
-        <Button onClick={getResponseFunction}>Get my results!</Button>
-        {}
-            {seeResults && ( 
-            <>
-            <h1>Your potential career field is {jobClusters[topClusterID]}. You may be well suited for the following careers:</h1>
-                <BasicResultsPage></BasicResultsPage>
-            </>
-            )
-            }
-        </div>
-
-    );
+        return (
+        <div>
+            <Button onClick={getResponseFunction}>Get my results!</Button>
+            {isLoading ? (
+                <LoadingPage />  // Display the loading page when isLoading is true
+            ) : (
+                seeResults && (
+                    <>
+                        <h1>Your potential career field is {jobClusters[topClusterID]}. You may be well suited for the following careers:</h1>
+                        <BasicResultsPage></BasicResultsPage>
+                    </>
+                )
+            )}
+        </div>
+    );
 
 }
