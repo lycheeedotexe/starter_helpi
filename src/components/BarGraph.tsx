@@ -2,7 +2,7 @@ import React from 'react';
 
 
 export type DataItem = { //exported for use in BasicResultsPage
-  name: string | number; //number for when name is a number
+  name: string ; 
   value: number;
 };
 
