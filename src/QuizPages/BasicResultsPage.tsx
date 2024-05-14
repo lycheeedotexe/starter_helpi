@@ -4,8 +4,8 @@ import resultsBasic from "../data/resultsBasic.json"
 
 const BasicResultsPage = () => {   
     return ( 
-        <div>
-            {resultsBasic.BASIC_RESULTS.filter(j => j.description !== "Description").map((j) => {
+        <div style={{textShadow:"none"}}>
+            {resultsBasic.BASIC_RESULTS.filter(j => j.name !== "None").map((j) => {
                 return <FormatBasicResults
                     id={j.id}
                     title={j.name}
