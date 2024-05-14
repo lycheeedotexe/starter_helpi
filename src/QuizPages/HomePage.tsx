@@ -1,4 +1,4 @@
-import React, { useDebugValue, useState } from "react";
+import React, { useDebugValue, useEffect, useState } from "react";
 import { Button } from "react-bootstrap";
 import BasicQuestions from "../QuizPages/BasicQuestions";
 import DetailedQuestions from "../QuizPages/DetailedQuestions";
@@ -10,8 +10,19 @@ export function HomePage(): JSX.Element{
   const [showDetailed, updateShowDetailed] = useState<boolean>(false);
   const [showBasic, updateShowBasic] = useState<boolean>(false);
 
+
   const { setResponses } = useUserResponses();
   const {setDetailedResponses} = useDetailedResponses();
+
+  useEffect(() => {
+    // Clears local storage, console, and responses when the component mounts
+    console.clear(); 
+    clearStorage(); 
+    resetResponses();
+    setDetailedResponses({});
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []); // Include these dependencies here
+  
 
   function goToDetailedQuestions() {
     updateShowHome(false); 

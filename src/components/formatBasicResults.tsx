@@ -11,18 +11,18 @@ export function FormatBasicResults({ id, title, description, jobs }: FormatBasic
     return (
         <div className="results-container">
             <Card className="text-center">
-                <Card.Header>Your Career Field</Card.Header>
+                <Card.Header style={{ fontWeight: 'bold', color: '#597cf0', fontStyle: 'italic' ,  fontFamily: 'Comic Sans MS, cursive' }}>Your Career Field</Card.Header>
                 <Card.Body>
-                    <Card.Title>Description of your career field</Card.Title>
+                    <Card.Title style={{ fontWeight: 'bold', color: '#597cf0', fontStyle: 'italic' ,  fontFamily: 'Comic Sans MS, cursive' }}>Description of your career field</Card.Title>
                     <ListGroup variant="flush">
-                        <ListGroup.Item key={id}>{title}</ListGroup.Item>
+                        <ListGroup.Item key={id} style={{ fontWeight: 'bold', color: '#f71460', fontStyle: 'italic' ,  fontFamily: 'Comic Sans MS, cursive' }}>{title}</ListGroup.Item>
                         <ListGroup.Item key={id}>{description}</ListGroup.Item>
                     </ListGroup>
                 </Card.Body>
             </Card>
 
             <Card className="text-center mt-3">
-                <Card.Header>Potential Jobs</Card.Header>
+                <Card.Header style={{ fontWeight: 'bold', color: '#597cf0', fontStyle: 'italic' ,  fontFamily: 'Comic Sans MS, cursive' }}>Potential Jobs</Card.Header>
                 <Card.Body>
                     <Card.Title>Jobs within the field</Card.Title>
                     <Card.Text>
