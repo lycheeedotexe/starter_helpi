@@ -200,7 +200,7 @@ export function publishDetailedQuestions(data: DataStorage, responseVector: numb
 
 export function recommendJobs(data: DataStorage, detailedResponceDict: Record<number,number>, sampledIDNumbers: number[]){
     if(Object.keys(detailedResponceDict).length < 25){
-        return {};
+        return [];
     }
     const alpha = (dID:number, r: number): number => {
         if(dID <= 50 && r > 0){
@@ -232,8 +232,9 @@ export function recommendJobs(data: DataStorage, detailedResponceDict: Record<nu
         return(jobScore > .25*maxScore)
     }   
     var numFailures = 0;
+    // eslint-disable-next-line no-loop-func
     while(data.JOBS.filter((j:Job) => recommendJob(j,numFailures) === true).length < 3){
-        numFailures += 1;
+        numFailures = numFailures + 1;
     }
     return data.JOBS.filter((j:Job) => recommendJob(j,numFailures) === true);
 }
