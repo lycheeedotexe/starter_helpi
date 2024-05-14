@@ -1,4 +1,4 @@
-import React, { useDebugValue, useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Button } from "react-bootstrap";
 import BasicQuestions from "../QuizPages/BasicQuestions";
 import DetailedQuestions from "../QuizPages/DetailedQuestions";
@@ -66,12 +66,12 @@ export function HomePage(): JSX.Element{
     <div>
       {showHome && (
         <>
-          <p>
-          Our Basic Quiz will help you select a field of study based on your responses. From there, you can choose to see your field of study or, if you prefer, obtain a specific job recommendation select the 'Continue' button upon compleation. Either way, click the 'Basic' button below to get started.
+          <p style={{ fontFamily: 'Comic Sans MS, cursive'}}>
+          Our Basic Quiz will help you select a field of study based on your responses. From there, you can choose to see your field of study by clicking the 'Get my Results!' button or, if you prefer, obtain a specific job recommendation select the 'Continue to Detailed Quiz!' button upon compleation. Either way, click the 'Basic Career Quiz' button below to get started.
             <p><center><Button className="button-53" role="button" onClick={clickBasic}>Basic Career Quiz</Button></center></p>
           </p>
-          <p>
-          Our Detailed Quiz is designed to help you select very specific careers. While we recommend starting with our 'Basic Quiz' and selecting 'Continue' upon completion for more tailored questions, you are more than welcome to jump ahead if you prefer.
+          <p style={{ fontFamily: 'Comic Sans MS, cursive'}}>
+          Our Detailed Quiz is designed to help you select very specific careers. While we recommend starting with our 'Basic Quiz' and selecting 'Continue to Detailed Quiz' upon completion for more tailored questions, you are more than welcome to jump ahead if you prefer.
             <p><center><Button className="button-53" role="button" onClick={clickDetailed}>Detailed Career Quiz</Button></center></p>
           </p>
           <div>
