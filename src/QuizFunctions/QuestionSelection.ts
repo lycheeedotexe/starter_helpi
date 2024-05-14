@@ -195,7 +195,13 @@ export function publishDetailedQuestions(data: DataStorage, responseVector: numb
     return copyOfData.DETAILED_QUESTIONS.filter((q:DetailedQuestion) => q.published === true);
 }
 
+
+
+
 export function recommendJobs(data: DataStorage, detailedResponceDict: Record<number,number>, sampledIDNumbers: number[]){
+    if(Object.keys(detailedResponceDict).length < 25){
+        return [];
+    }
     const alpha = (dID:number, r: number): number => {
         if(dID <= 50 && r > 0){
             return 0.5;
@@ -219,12 +225,16 @@ export function recommendJobs(data: DataStorage, detailedResponceDict: Record<nu
         console.log(`The sum is ${sum}`)
         return sum;
     }
-
-    const recommendJob = (j: Job): boolean => {
-        const jobScore = scoreJob(j);
+    function recommendJob(j: Job, numFailures: number){
+        const offSet = .25*numFailures;
+        const jobScore = scoreJob(j) + offSet;
         const maxScore = 1.0*j.relatedDetailedQuestions.length - 0.5*j.relatedDetailedQuestions.filter(d => d <= 50).length
         return(jobScore > .25*maxScore)
     }   
-
-    return data.JOBS.filter((j:Job) => recommendJob(j) === true);
+    var numFailures = 0;
+    // eslint-disable-next-line no-loop-func
+    while(data.JOBS.filter((j:Job) => recommendJob(j,numFailures) === true).length < 3){
+        numFailures = numFailures + 1;
+    }
+    return data.JOBS.filter((j:Job) => recommendJob(j,numFailures) === true);
 }

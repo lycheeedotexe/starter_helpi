@@ -25,7 +25,6 @@ export const DetailedResponsesProvider: React.FC<{children: ReactNode}> = ({ chi
         return savedResponses ? JSON.parse(savedResponses) : {};
     });
     useEffect(() => {
-        //this may not work because the storage is controlled by a parent element.
         localStorage.setItem('detailedResponses', JSON.stringify(detailedResponses));
     }, [detailedResponses]);
     return (

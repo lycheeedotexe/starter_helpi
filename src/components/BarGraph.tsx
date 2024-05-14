@@ -1,8 +1,8 @@
 import React from 'react';
 
 
-type DataItem = {
-  name: string;
+export type DataItem = { //exported for use in BasicResultsPage
+  name: string ; 
   value: number;
 };
 
