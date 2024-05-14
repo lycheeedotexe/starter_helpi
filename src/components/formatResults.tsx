@@ -52,6 +52,7 @@ export function FormatResult({
                         Average Median Salary: $ {medianSalary}
                     </Card.Text>
                     {/* BarGraph to visualize the salary */}
+                    
                     <BarGraph data={salaryData} color="#b745f5" />
                 </Card.Body>
             </Card>
