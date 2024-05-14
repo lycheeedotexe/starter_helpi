@@ -10,6 +10,7 @@ import { userResponseType } from "./BasicQuestions";
 import { displayInfo } from "../QuizFunctions/consoleDisplays";
 import { recommendJobs } from "../QuizFunctions/QuestionSelection";
 import { SubmitDetailed } from "../submitButtons/submitDetailed";
+import { Button } from "react-bootstrap";
 
 const DetailedQuestions = () => {
     const [DetailedQuestions, setDetailedQuestions] = useState<DetailedQuestion[]>([]);
@@ -55,7 +56,6 @@ const DetailedQuestions = () => {
 
 
 
-
   const updateProgress = useCallback(() => {
     const totalQuestions = 25;
     console.log("Total Questions:", totalQuestions);
@@ -87,12 +87,16 @@ const DetailedQuestions = () => {
         <FormatQuestion 
           key={q.id}
           question={q} 
-          options={["Neutral","Strongly Disagree", "Disagree", "Agree", "Strongly Agree"]}
+          options={["Strongly Disagree", "Disagree", "Neutral","Agree", "Strongly Agree"]}
           onChoiceChange={handleDetailedChoiceChange(q.id)}
           ></FormatQuestion>
         </div>
   ))}
-  <SubmitDetailed></SubmitDetailed>
+  {progress === 100 ? (
+      <p><SubmitDetailed></SubmitDetailed></p>
+    ) : (
+      <p style={{paddingTop:"50px"}}><center><Button disabled className="button-53" style={{backgroundColor: "#84A59D", transform:"rotate(0deg)"}}>Submit Responses</Button></center></p>
+    )}
       </div>
     </div>
     );

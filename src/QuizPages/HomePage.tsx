@@ -1,23 +1,38 @@
-import React, { useState } from "react";
+import React, { useDebugValue, useEffect, useState } from "react";
 import { Button } from "react-bootstrap";
 import BasicQuestions from "../QuizPages/BasicQuestions";
 import DetailedQuestions from "../QuizPages/DetailedQuestions";
-import ResultsPage from "./ResultsPage";
 import { useUserResponses } from '../contexts/UserResponsesContext';
-//import mascotPonder from "../image assets/mascot ponder 2 2.png"
-
-import "../App.css";
+import { useDetailedResponses } from "../contexts/DetailedResponsesContext";
 
 export function HomePage(): JSX.Element{
   const [showHome, updateShowHome] = useState<boolean>(true);
   const [showDetailed, updateShowDetailed] = useState<boolean>(false);
   const [showBasic, updateShowBasic] = useState<boolean>(false);
-  const [showResults, updateShowResults] = useState<boolean>(false);
+
 
   const { setResponses } = useUserResponses();
+  const {setDetailedResponses} = useDetailedResponses();
+
+  useEffect(() => {
+    // Clears local storage, console, and responses when the component mounts
+    console.clear(); 
+    clearStorage(); 
+    resetResponses();
+    setDetailedResponses({});
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []); // Include these dependencies here
+  
+
+  function goToDetailedQuestions() {
+    updateShowHome(false); 
+    updateShowBasic(false); 
+    updateShowDetailed(true); 
+}
 
   function resetResponses() {
-    setResponses({}); // Assuming this resets to the initial state
+    setResponses({});
+    setDetailedResponses({}); // Assuming this resets to the initial state
   }
 
   function clearStorage() {
@@ -25,10 +40,11 @@ export function HomePage(): JSX.Element{
   }
 
   function clickHome() {
+    resetResponses();
+    clearStorage();
     updateShowHome(true);
     updateShowBasic(false);
     updateShowDetailed(false);
-    updateShowResults(false);
   }
 
   function clickBasic() {
@@ -39,33 +55,26 @@ export function HomePage(): JSX.Element{
   }
 
   function clickDetailed() {
-    localStorage.removeItem('detailedResponses');
+    clearStorage();
+    //localStorage.removeItem('detailedResponses');
     console.log("Printing local storage", JSON.parse(JSON.stringify(localStorage)));
     updateShowHome(false);
     updateShowDetailed(true);
-  }
-
-  function clickResults() {
-    updateShowHome(false);
-    updateShowResults(true);
   }
 
   return (
     <div>
       {showHome && (
         <>
-          <h1>Career Guide</h1>
-          <p className='style1'>
-            With so many careers to choose from do you have NO IDEA what you want to do? Our basic career quiz is right for you, click to get started!
-            <div><Button onClick={clickBasic}>Basic</Button></div>
+          <p>
+          Our Basic Quiz will help you select a field of study based on your responses. From there, you can choose to see your field of study or, if you prefer, obtain a specific job recommendation select the 'Continue' button upon compleation. Either way, click the 'Basic' button below to get started.
+            <p><center><Button className="button-53" role="button" onClick={clickBasic}>Basic Career Quiz</Button></center></p>
           </p>
-          <p className="style2">
-            Do you have an area of interest already but need help nailing it down? Then our detailed quiz is right for you click to get started!
-            <div><Button onClick={clickDetailed}>Detailed</Button></div>
+          <p>
+          Our Detailed Quiz is designed to help you select very specific careers. While we recommend starting with our 'Basic Quiz' and selecting 'Continue' upon completion for more tailored questions, you are more than welcome to jump ahead if you prefer.
+            <p><center><Button className="button-53" role="button" onClick={clickDetailed}>Detailed Career Quiz</Button></center></p>
           </p>
           <div>
-            <p className='style3'>See Results</p>
-            <Button onClick={clickResults}>Results</Button>
           </div>
         </>
       )}
@@ -73,23 +82,23 @@ export function HomePage(): JSX.Element{
       {showBasic && (
         <>
           <BasicQuestions />
-          <Button onClick={clickHome}>Return Home</Button>
+          <p style={{paddingTop: "20%"}}><center><Button className="button-53" 
+                     onClick={goToDetailedQuestions}
+                     style={{transform: "rotate(1deg)"}}>Continue to Detailed Quiz!</Button></center></p>
+          <p><center><Button className="button-53" onClick={clickHome}>Return Home</Button></center></p>
         </>
       )}
 
       {showDetailed && (
         <>
           <DetailedQuestions />
-          <Button onClick={clickHome}>Return Home</Button>
-        </>
-      )}
-
-      {showResults && (
-        <>
-          <ResultsPage />
-          <Button onClick={clickHome}>Return Home</Button>
+          <p style={{paddingTop: "10%"}}>
+          <center><Button className="button-53" onClick={clickHome}>Return Home</Button></center>
+          </p>
         </>
       )}
     </div>
   );
 }
+
+     
