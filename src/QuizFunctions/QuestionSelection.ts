@@ -232,6 +232,11 @@ export function recommendJobs(data: DataStorage, detailedResponceDict: Record<nu
         return(jobScore > .25*maxScore)
     }   
     var numFailures = 0;
+    /*
+    this line is disabled because the loop is supposed to be nondeterministic. We need to use a loop function. The reason for non-determinisim
+    is to ensure that some results are given, as it would take more research to find an optimal implementation of the jobRecommend function
+    and determine the quality of this specific data set.
+    */
     // eslint-disable-next-line no-loop-func
     while(data.JOBS.filter((j:Job) => recommendJob(j,numFailures) === true).length < 3){
         numFailures = numFailures + 1;
