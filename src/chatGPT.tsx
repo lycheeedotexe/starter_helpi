@@ -1,3 +1,8 @@
+
+
+//this file is a prototype made for experimentation and learning purposes
+
+
 import React, { useState } from 'react';
 import { Button, Form } from 'react-bootstrap';
 //import { chatgpt } from '../interfaces/chatgptProps';

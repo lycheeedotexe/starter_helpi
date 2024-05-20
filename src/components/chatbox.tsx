@@ -1,15 +1,18 @@
+//implementation of chatbox feature
 import { openai } from "../submitButtons/submitKey";
 import { useState } from "react";
 import { Button, Form } from 'react-bootstrap';
 
 export function ChatBox(): JSX.Element{
     const [gptResponse, setGptResponse] = useState<string | null>();
-
     const [text, setText] = useState<string>("what does a software engineer do?");
+
+    //records what the user types to send back to ChatGPT
     function changeText(event: React.ChangeEvent<HTMLInputElement>) {
         setText(event.target.value);
     }
 
+    //API call
     const getResponseFunction = async() => {
         const response = await openai.chat.completions.create({
             messages: [{"role": "system", "content": "You are a robot career counselor named Perceptron, with the ability to peer into college student's souls and give the best career advice."},
@@ -20,6 +23,7 @@ export function ChatBox(): JSX.Element{
         console.log(response);
     }
 
+    //the chatbox
     return (
         <div>
             <Form>

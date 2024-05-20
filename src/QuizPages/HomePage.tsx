@@ -24,7 +24,7 @@ export function HomePage(): JSX.Element{
   // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []); 
   
-
+//functions that changes what pages are shown based on what button was clicked
   function goToDetailedQuestions() {
     updateShowHome(false); 
     updateShowBasic(false); 
@@ -64,7 +64,7 @@ export function HomePage(): JSX.Element{
   }
 
   return (
-    //routing for our main pages
+    //routing for our main pages: home, basic, and detailed
     <div>
       {showHome && (
         <>
