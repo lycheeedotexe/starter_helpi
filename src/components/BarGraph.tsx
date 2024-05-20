@@ -2,7 +2,7 @@ import React from 'react';
 
 
 export type DataItem = { //exported for use in BasicResultsPage
-  name: string ; 
+  name: string ; //number for when name is a number
   value: number;
 };
 
@@ -28,7 +28,6 @@ const BarGraph: React.FC<BarGraphProps> = ({ data, color = "#4a90e2" }) => {
               height: '20px',
               backgroundColor: color
             }} />
-            <span style={{ marginLeft: '10px' }}>{item.value}</span>
           </div>
         </div>
       ))}
