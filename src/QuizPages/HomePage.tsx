@@ -20,8 +20,9 @@ export function HomePage(): JSX.Element{
     clearStorage(); 
     resetResponses();
     setDetailedResponses({});
+    // had to be enlist-disbale due to the fact that its only intended to run once. If it ran multiple times would not properly work
   // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []); // Include these dependencies here
+  }, []); 
   
 
   function goToDetailedQuestions() {
@@ -32,7 +33,7 @@ export function HomePage(): JSX.Element{
 
   function resetResponses() {
     setResponses({});
-    setDetailedResponses({}); // Assuming this resets to the initial state
+    setDetailedResponses({}); 
   }
 
   function clearStorage() {
@@ -63,6 +64,7 @@ export function HomePage(): JSX.Element{
   }
 
   return (
+    //routing for our main pages
     <div>
       {showHome && (
         <>

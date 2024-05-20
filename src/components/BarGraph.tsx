@@ -1,8 +1,8 @@
 import React from 'react';
 
-
-export type DataItem = { //exported for use in BasicResultsPage
-  name: string ; //number for when name is a number
+//The following component was PARTIALLY made by LLM. Used LLM to help me design the basic outline of bar graph without using a special library. The code styles the bar graph 
+export type DataItem = { 
+  name: string ; 
   value: number;
 };
 
