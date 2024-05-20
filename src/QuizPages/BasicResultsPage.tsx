@@ -9,6 +9,7 @@ import BarGraph from "../components/BarGraph";
 import {DataItem} from "../components/BarGraph"
 import { FormatBasicResults } from "../components/formatBasicResults";
 import resultsBasic from "../data/resultsBasic.json"
+import { ChatBox } from "../components/chatbox";
 
 const jobClusters: Record<number, string> = {
     1:"Technology",
@@ -79,7 +80,8 @@ const BasicResultsPage = () => {
                     description={j.description}
                 ></FormatBasicResults>
                 })}
-    </div>
+            <ChatBox/>
+        </div>
         </div>
         
     );

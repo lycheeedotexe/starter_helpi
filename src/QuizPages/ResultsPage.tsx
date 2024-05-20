@@ -1,6 +1,7 @@
 import React from "react";
 import { FormatResult } from "../components/formatResults";
 import resultsDetailed from "../data/resultsDetailed.json";
+import { ChatBox } from "../components/chatbox";
 
 const ResultsPage = () => {
     return (
@@ -33,6 +34,7 @@ const ResultsPage = () => {
                     />;
                 })}
             </div>
+            <ChatBox/>
         </div>
     );
 }
