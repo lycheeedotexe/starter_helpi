@@ -1,7 +1,7 @@
 import React from 'react';
 import { render, screen } from '@testing-library/react';
 import ProgressBar from '../components/progressBar';
-
+//The general formatting of this testing file was made partially by LLM. This helps ensure we properly test components
 describe('ProgressBar Component', () => {
     it('renders correctly with 50% progress', () => {
       render(<ProgressBar progress={50} progressText="50% Complete" />);

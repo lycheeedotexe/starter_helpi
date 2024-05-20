@@ -1,7 +1,7 @@
 import React from 'react';
 import { render, screen } from '@testing-library/react';
 import BarGraph from '../components/BarGraph';
-
+ //The general formatting of these testing files was helped made partially by LLM. This helps ensure proper testing of components.
 describe('BarGraph Component', () => {
   const testData = [
     { name: 'Item 1', value: 100 },
