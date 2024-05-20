@@ -2,6 +2,7 @@ import React from 'react';
 import { Spinner } from 'react-bootstrap';
 import mascot from "../image assets/mascot ponder 2 2.png";
 
+//loading animation
 export const LoadingPage = () => {
     return (
         <div style={{ height: '100vh', display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center' }}>

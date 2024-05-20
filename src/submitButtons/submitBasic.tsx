@@ -1,43 +1,4 @@
-// import { openai } from "./submitKey";
-// import { useState } from "react";
-// import { Button, Form } from 'react-bootstrap';
-
-// export type JobFieldDescr = string;
-
-// export function SubmitBasic(): JSX.Element{
-//     const [gptResponse, setGptResponse] = useState<string | null>("no response");
-
-//     const [text, setText] = useState<string>("what does a software engineer do?");
-//     function changeText(event: React.ChangeEvent<HTMLInputElement>) {
-//         setText(event.target.value);
-//     }
-
-//     const getResponseFunction = async() => {
-//         const response = await openai.chat.completions.create({
-//             messages: [{"role": "system", "content": "You are a robot career counselor named Perceptron, with the ability to peer into college student's souls and give the best career advice."},
-//                 {"role": "user", "content": text}],
-//             model: "gpt-4-turbo"
-//         })
-//         setGptResponse(response.choices[0].message.content);
-//         console.log(response);
-//     }
-
-//     return (
-//         <div>
-//             {gptResponse}
-//             <Form>
-//                 <Form.Label>test</Form.Label>
-//                 <Form.Control 
-//                     as="textarea" 
-//                     rows={3}
-//                     value={text}
-//                     onChange={changeText}></Form.Control>
-//                 <br></br>
-//                 <center><Button className="button-53" style={{backgroundColor: "#84A59D"}} onClick={getResponseFunction}>Submit question</Button></center>
-//             </Form>
-//         </div>
-//     )
-// }
+//silo's job recommendation algorithm
 import {useContext, useState} from "react";
 import {UserResponsesContext} from '../contexts/UserResponsesContext'
 import { constructFinalMeasure } from "../QuizFunctions/QuestionSelection";
@@ -66,13 +27,14 @@ const jobClusters: Record<number, string> = {
 
 
 export function SubmitBasic(): JSX.Element{
+    //part of silo's job recommendatio algo
     const dataCopy = JSON.parse(JSON.stringify(questions))
     const {responses} = useContext(UserResponsesContext);
     const responseVec = getResponseVector(responses);
     const measure = constructFinalMeasure(dataCopy,responseVec);
 const [isLoading, setIsLoading] = useState<boolean>(false);
 
-
+//more of silo's job recommendation algo
     const relatedQuestions = (k: number): number[] =>{
         const clusterID = (k-1) % 10;
         const clusterKeys = [5*clusterID + 1, 5* clusterID+2, 5*clusterID+3,5*clusterID+4,5*clusterID+5];
@@ -93,11 +55,14 @@ const [isLoading, setIsLoading] = useState<boolean>(false);
 
     const [seeResults, setSeeResults] = useState<boolean>(false);
 
+    //implementation of chatgpt feature
     const getResponseFunction = async() => {
         setIsLoading(true);
         for(var i = 0; i<relatedJobs.length; i++) {
             resultsBasic.BASIC_RESULTS[i].id = relatedJobs[i].id;
             resultsBasic.BASIC_RESULTS[i].name = relatedJobs[i].name;
+
+            //where the information is generated for the results page for each career and stored in resultsDetailed.json
             const response = await openai.chat.completions.create({
                 messages: [{"role": "system", "content": "You are a robot career counselor named Perceptron, with the ability to peer into college student's souls and give the best career advice."},
                     {"role": "user", "content": `Generate a 1-3 sentence job description for "${relatedJobs[i].name}".`}],
@@ -112,6 +77,7 @@ const [isLoading, setIsLoading] = useState<boolean>(false);
         setIsLoading(false);
     }
 
+    //christina's idea for the basic results, where the idea was for ChatGPT to choose the careers instead of silo's algorithm
     // const getResponseFunction = async() => {
     //     for(var i = 0; i< 3; i++) {
     //         const title = await openai.chat.completions.create({
@@ -137,7 +103,7 @@ const [isLoading, setIsLoading] = useState<boolean>(false);
     //     setSeeResults(true);
     // }
 
-
+    //the submit button that triggers the results page
         return (
         <div>
             <Button onClick={getResponseFunction}>Get my results!</Button>

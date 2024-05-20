@@ -12,9 +12,11 @@ function App() {
   const [isLoading, setIsLoading] = useState<boolean>(false);
   const [text, setText] = useState<string>("Please enter an OpenAI API Key here. Select 'Submit' and then select 'Check Key and Continue' ");
 
+  //to check that the API is valid
   const checkKey = async () => {
     setIsLoading(true);  // Start loading
     try {
+      //test API call to check validity of key
       const response = await openai.chat.completions.create({
         messages: [{"role": "system", "content": "You are a robot career counselor named Perceptron, with the ability to peer into college student's souls and give the best career advice."},
           {"role": "user", "content": "What is your name?"}],
