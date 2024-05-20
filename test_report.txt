@@ -17,7 +17,30 @@ ever be fixed. Add "@babel/plugin-proposal-private-property-in-object" to
 your devDependencies to work around this error. This will make this message
 go away.[0m
   
-A worker process has failed to exit gracefully and has been force exited. This is likely caused by tests leaking due to improper teardown. Try running with --detectOpenHandles to find leaks. Active timers can also cause this, ensure that .unref() was called on them.
+[0;33mOne of your dependencies, babel-preset-react-app, is importing the
+"@babel/plugin-proposal-private-property-in-object" package without
+declaring it in its dependencies. This is currently working because
+"@babel/plugin-proposal-private-property-in-object" is already in your
+node_modules folder for unrelated reasons, but it [1mmay break at any time[0;33m.
+
+babel-preset-react-app is part of the create-react-app project, [1mwhich
+is not maintianed anymore[0;33m. It is thus unlikely that this bug will
+ever be fixed. Add "@babel/plugin-proposal-private-property-in-object" to
+your devDependencies to work around this error. This will make this message
+go away.[0m
+  
+[0;33mOne of your dependencies, babel-preset-react-app, is importing the
+"@babel/plugin-proposal-private-property-in-object" package without
+declaring it in its dependencies. This is currently working because
+"@babel/plugin-proposal-private-property-in-object" is already in your
+node_modules folder for unrelated reasons, but it [1mmay break at any time[0;33m.
+
+babel-preset-react-app is part of the create-react-app project, [1mwhich
+is not maintianed anymore[0;33m. It is thus unlikely that this bug will
+ever be fixed. Add "@babel/plugin-proposal-private-property-in-object" to
+your devDependencies to work around this error. This will make this message
+go away.[0m
+  
 -------------------------------|---------|----------|---------|---------|-------------------
 File                           | % Stmts | % Branch | % Funcs | % Lines | Uncovered Line #s 
 -------------------------------|---------|----------|---------|---------|-------------------
@@ -33,10 +56,10 @@ All files                      |   10.08 |     7.21 |       8 |   11.08 |
   consoleDisplays.ts           |       0 |      100 |       0 |       0 | 5-53              
   getResponseVector.ts         |    12.5 |        0 |       0 |   16.66 | 15-26             
  src/QuizPages                 |    4.28 |        0 |       0 |    4.76 |                   
-  BasicQuestions.tsx           |       8 |        0 |       0 |    8.33 | 23-69             
+  BasicQuestions.tsx           |       8 |        0 |       0 |    8.33 | 23-70             
   BasicResultsPage.tsx         |    5.71 |      100 |       0 |    6.89 | 30-77             
   DetailedQuestions.tsx        |    2.77 |        0 |       0 |    3.03 | 16-86             
-  HomePage.tsx                 |       0 |        0 |       0 |       0 | 9-65              
+  HomePage.tsx                 |       0 |        0 |       0 |       0 | 9-66              
   ResultsPage.tsx              |    7.14 |        0 |       0 |      10 | 7-24              
  src/components                |   28.12 |    33.33 |   23.52 |    25.8 |                   
   BarGraph.tsx                 |     100 |      100 |     100 |     100 |                   
@@ -59,5 +82,5 @@ All files                      |   10.08 |     7.21 |       8 |   11.08 |
 Test Suites: 3 passed, 3 total
 Tests:       8 passed, 8 total
 Snapshots:   0 total
-Time:        5.429 s
+Time:        5.542 s
 Ran all test suites.
